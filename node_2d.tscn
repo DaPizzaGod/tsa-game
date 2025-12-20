@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuwtk6cr20kh4"]
-
-[ext_resource type="Script" uid="uid://i6yksaixiaxy" path="res://wizard.gd" id="1_wtcfe"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(4, 8)
-script = ExtResource("1_wtcfe")
