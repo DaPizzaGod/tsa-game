@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuwtk6cr20kh4"]
+[gd_scene load_steps=6 format=3 uid="uid://cuwtk6cr20kh4"]
 
 [ext_resource type="Script" uid="uid://bahw2uwuwdwc4" path="res://scenes/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cy55s5wg0wrh5" path="res://graphics/circle.svg" id="2_dovo2"]
@@ -7,10 +7,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 481.00415
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
+radius = 47.853943
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
 
 [node name="NormalMode" type="CharacterBody2D" parent="."]
+visible = false
 script = ExtResource("2_gmlin")
 
 [node name="Sprite" type="Sprite2D" parent="NormalMode"]
@@ -27,3 +31,16 @@ limit_enabled = false
 position_smoothing_enabled = true
 
 [node name="StretchMode" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StretchMode"]
+modulate = Color(0.7294118, 0.4, 0.4745098, 1)
+position = Vector2(0, 12)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_dovo2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StretchMode"]
+shape = SubResource("CircleShape2D_lvxji")
+
+[node name="Camera2D" type="Camera2D" parent="StretchMode"]
+limit_enabled = false
+position_smoothing_enabled = true
