@@ -1,23 +1,5 @@
-extends CharacterBody2D
+extends  CharacterBody2D
+class_name PlayerParent
 
-@export var speed := 400.0
-@export var jump_vel := -400.0
-@export var gravity := 1200.0
-
-func _process(delta: float) -> void:
-	# Apply Gravity
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	
-	# Jump
-	
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = jump_vel
-		
-	# Left and Right
-	
-	var direction := Input.get_axis("left", "right")
-	velocity.x = direction * speed
-	
-	# Move
-	move_and_slide() 
+var speed := 400.0
+var gravity := 1200.0
