@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://daf1aycc2otdr"]
+
+[ext_resource type="Texture2D" uid="uid://c8cfroxr4uu7w" path="res://graphics/Triangle.png" id="1_a5sma"]
+[ext_resource type="Script" uid="uid://brdp4mdjtotrf" path="res://scenes/projectiles/hand.gd" id="1_nrq6w"]
+
+[node name="Hand" type="Area2D"]
+script = ExtResource("1_nrq6w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.3, 0.3)
+polygon = PackedVector2Array(-55, -54, -55, 55, 54, 0)
+
+[node name="Hand" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_a5sma")
+
+[node name="SelfDestruct" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="SelfDestruct" to="." method="_on_self_destruct_timeout"]
