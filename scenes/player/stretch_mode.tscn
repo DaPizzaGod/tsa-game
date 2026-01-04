@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qbbqefax7nt5"]
+[gd_scene load_steps=5 format=3 uid="uid://de1dcm2bkwp3v"]
 
 [ext_resource type="PackedScene" uid="uid://cuwtk6cr20kh4" path="res://scenes/player/player.tscn" id="1_dn1pk"]
 [ext_resource type="Texture2D" uid="uid://cy55s5wg0wrh5" path="res://graphics/circle.svg" id="2_ecdt6"]
 [ext_resource type="Script" uid="uid://bdcp6fki8slge" path="res://scenes/player/stretch_mode.gd" id="2_gtgbb"]
-[ext_resource type="PackedScene" uid="uid://daf1aycc2otdr" path="res://scenes/projectiles/hand.tscn" id="4_gllec"]
+[ext_resource type="PackedScene" uid="uid://bv605vuyornxv" path="res://scenes/projectiles/hand.tscn" id="4_gllec"]
 
 [node name="StretchMode" instance=ExtResource("1_dn1pk")]
 script = ExtResource("2_gtgbb")
@@ -15,6 +15,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ecdt6")
 
 [node name="Hand" parent="." index="3" instance=ExtResource("4_gllec")]
+position = Vector2(50, 0)
 
 [node name="Arm" type="Line2D" parent="." index="4"]
 z_index = 1
