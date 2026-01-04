@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuwtk6cr20kh4"]
+[gd_scene load_steps=4 format=3 uid="uid://cuwtk6cr20kh4"]
 
 [ext_resource type="Script" uid="uid://bahw2uwuwdwc4" path="res://scenes/player/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://bi7jrsrb0su5i" path="res://scenes/player/camera_2d.gd" id="2_dovo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 481.00415
@@ -12,6 +13,7 @@ script = ExtResource("1_g2els")
 zoom = Vector2(0.6, 0.6)
 limit_enabled = false
 position_smoothing_enabled = true
+script = ExtResource("2_dovo2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.1, 0.1)

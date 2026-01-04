@@ -7,6 +7,7 @@ var launching := false
 var swinging := false
 var stop_distance := 2.0
 
+
 func _ready() -> void:
 	$Hand.queue_free()
 
@@ -71,3 +72,20 @@ func move_toward_hand():
 		return
 	var dir = to_hand.normalized()
 	velocity = dir * launch_speed
+
+func swing_toward_hand():
+	var swing_velocity = (current_hand.global_position - global_position).normalized()
+	if swing_velocity.y > 0:
+		swing_velocity.y *= 0.65
+		
+	else:
+		swing_velocity.y *=1.2
+		
+	if current_hand.attatched:
+		velocity += swing_velocity
+	else:
+		swinging = false
+		current_hand.queue_free()
+		return
+	
+	
