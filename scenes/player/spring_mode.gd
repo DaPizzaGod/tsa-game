@@ -1,8 +1,11 @@
 extends PlayerParent
 
 var jump_vel:= -800.0
-
+var dir
+var dir_radians
 func _process(delta: float) -> void:
+	dir = global_position.direction_to(get_global_mouse_position())
+	dir_radians = dir.angle()
 	# Apply Gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -12,17 +15,16 @@ func _process(delta: float) -> void:
 		velocity.y = jump_vel
 	
 	if not is_on_floor():
-		look_at(get_global_mouse_position())
-		if Input.is_action_just_pressed("shoot"):
-			var dir = (get_global_mouse_position() - position)
-			air_jump(dir)
 		
-	# Move
+		if Input.is_action_just_pressed("shoot"):
+			print(dir)
+			air_jump()
 
+	# Move
+	look_at(dir)
+	
 	move_and_slide()
 
-func air_jump(dir):
-	var velx = dir.x 
-	var vely = dir.y
-	velocity.x = velx
-	velocity.y = vely
+func air_jump():
+	velocity.x = -dir.x * jump_vel
+	velocity.y = -dir.y * jump_vel
