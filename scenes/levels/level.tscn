@@ -34,14 +34,30 @@ func player_is_stretch_mode() -> void:
 	swap_player(stretch)
 		
 func swap_player(scene: PackedScene):
-	var old_player = $PlayerNode.get_child(0)
+	var old_player = get_tree().get_nodes_in_group(\"Players\")[0]
 	var old_pos = old_player.global_position
+	var old_vel = old_player.velocity
+	
+	
+	
 	
 	old_player.queue_free()
 	
 	var new_player = scene.instantiate()
 	$PlayerNode.add_child(new_player)
 	new_player.global_position = old_pos
+	new_player.velocity = old_vel
+	
+	#Slow down
+	if new_player.has_meta(\"tween\"):
+		new_player.get_meta(\"tween\").kill()
+	
+	var tween := create_tween()
+	tween.tween_property(new_player, \"velocity:x\", 0.0, 1.0).set_ease(Tween.EASE_IN_OUT)
+	
+	
+func _on_shoot_hand():
+	print(\"shoot\")
 "
 
 [node name="Level" type="Node2D"]
