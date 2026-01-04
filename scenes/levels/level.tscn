@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c32kxtrw25xtu"]
+[gd_scene load_steps=3 format=3 uid="uid://c32kxtrw25xtu"]
 
 [ext_resource type="PackedScene" uid="uid://c5nxeuwwv0ju6" path="res://scenes/objects/ground.tscn" id="1_bovvr"]
-[ext_resource type="PackedScene" uid="uid://lqpyfukg4kei" path="res://scenes/player/normal_mode.tscn" id="2_bovvr"]
 
 [sub_resource type="GDScript" id="GDScript_7dm0k"]
 script/source = "extends Node2D
+
+var normal_mode = preload(\"res://scenes/player/normal_mode.tscn\").instantiate()
+
+func _ready() -> void:
+	$Players.add_child(normal_mode)
 "
 
 [node name="Level" type="Node2D"]
@@ -15,5 +19,3 @@ modulate = Color(0.21176471, 0.90588236, 0.54901963, 1)
 position = Vector2(1176, 572)
 
 [node name="Players" type="Node2D" parent="."]
-
-[node name="NormalMode" parent="Players" instance=ExtResource("2_bovvr")]
