@@ -4,11 +4,40 @@
 
 [sub_resource type="GDScript" id="GDScript_7dm0k"]
 script/source = "extends Node2D
+	
 
-var normal_mode = preload(\"res://scenes/player/normal_mode.tscn\").instantiate()
+#func _process(_delta: float) -> void:
+	#if ModeCalc.mode == \"stretch\":
+	#	stretch_mode.emit()
+	#elif ModeCalc.mode == \"normal\":
+	#	normal_mode.emit()
+
+var normal: PackedScene = preload(\"res://scenes/player/normal_mode.tscn\")
+var stretch: PackedScene = preload(\"res://scenes/player/stretch_mode.tscn\")
+
 
 func _ready() -> void:
-	$Players.add_child(normal_mode)
+	$PlayerNode.add_child(normal.instantiate())
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"switch mode\"):
+		if ModeCalc.mode == \"normal\":
+			player_is_normal_mode()
+		else:
+			player_is_stretch_mode()
+
+func player_is_normal_mode() -> void:
+	remove_children()
+	$PlayerNode.add_child(normal.instantiate())
+
+
+func player_is_stretch_mode() -> void:
+	remove_children()
+	$PlayerNode.add_child(stretch.instantiate())
+
+func remove_children():
+	for i in $PlayerNode.get_children():
+		i.queue_free()
 "
 
 [node name="Level" type="Node2D"]
@@ -18,4 +47,4 @@ script = SubResource("GDScript_7dm0k")
 modulate = Color(0.21176471, 0.90588236, 0.54901963, 1)
 position = Vector2(1176, 572)
 
-[node name="Players" type="Node2D" parent="."]
+[node name="PlayerNode" type="Node2D" parent="."]
