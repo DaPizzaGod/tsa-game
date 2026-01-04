@@ -15,3 +15,9 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ecdt6")
 
 [node name="Hand" parent="." index="3" instance=ExtResource("4_gllec")]
+
+[node name="Arm" type="Line2D" parent="." index="4"]
+z_index = 1
+points = PackedVector2Array(513, 312)
+width = 4.0
+default_color = Color(1, 0.36862746, 0, 1)
