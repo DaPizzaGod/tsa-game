@@ -1,9 +1,9 @@
 extends Node
 
 var mode := "normal"
-var max_count := 1
+var max_count := 2
 
-var modes := ["normal", "stretch"]
+var modes := ["normal", "stretch", "spring"]
 var count := 0
 
 func _process(_delta: float) -> void:
