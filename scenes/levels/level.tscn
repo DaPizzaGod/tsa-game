@@ -19,7 +19,7 @@ var stretch: PackedScene = preload(\"res://scenes/player/stretch_mode.tscn\")
 func _ready() -> void:
 	$PlayerNode.add_child(normal.instantiate())
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(\"switch mode\"):
 		if ModeCalc.mode == \"normal\":
 			player_is_normal_mode()
@@ -27,17 +27,21 @@ func _process(delta: float) -> void:
 			player_is_stretch_mode()
 
 func player_is_normal_mode() -> void:
-	remove_children()
-	$PlayerNode.add_child(normal.instantiate())
+	swap_player(normal)
 
 
 func player_is_stretch_mode() -> void:
-	remove_children()
-	$PlayerNode.add_child(stretch.instantiate())
-
-func remove_children():
-	for i in $PlayerNode.get_children():
-		i.queue_free()
+	swap_player(stretch)
+		
+func swap_player(scene: PackedScene):
+	var old_player = $PlayerNode.get_child(0)
+	var old_pos = old_player.global_position
+	
+	old_player.queue_free()
+	
+	var new_player = scene.instantiate()
+	$PlayerNode.add_child(new_player)
+	new_player.global_position = old_pos
 "
 
 [node name="Level" type="Node2D"]
