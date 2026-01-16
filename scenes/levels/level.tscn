@@ -19,6 +19,7 @@ var spring: PackedScene = preload(\"res://scenes/player/spring_mode.tscn\")
 
 func _ready() -> void:
 	$PlayerNode.add_child(normal.instantiate())
+
 	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(\"switch mode\"):

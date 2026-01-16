@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 	if not is_on_floor():
 		
 		if Input.is_action_just_pressed("shoot"):
-			print(dir)
 			air_jump()
 
 	
