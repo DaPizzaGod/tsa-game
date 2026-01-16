@@ -14,17 +14,22 @@ grow_vertical = 2
 layout_mode = 1
 offset_right = 4961.0
 offset_bottom = 3508.0
+scale = Vector2(0.175, 0.175)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -2464.0
-offset_top = -2285.0
-offset_right = 2497.0
-offset_bottom = 1223.0
+anchor_bottom = 1.0
+offset_left = -2480.5
+offset_top = -3508.0
+offset_right = 2480.5
 grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(2470, 3600)
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("1_c5hrv")
