@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cuwtk6cr20kh4" path="res://scenes/player/player.tscn" id="1_wy7j1"]
 [ext_resource type="Script" uid="uid://d0mp3g2ho5wuo" path="res://scenes/player/spring_mode.gd" id="2_03w64"]
-[ext_resource type="Texture2D" uid="uid://cy55s5wg0wrh5" path="res://graphics/circle.svg" id="3_xci83"]
+[ext_resource type="Texture2D" uid="uid://ntfkugd378dn" path="res://graphics/circle.svg" id="3_xci83"]
 
 [node name="SpringMode" instance=ExtResource("1_wy7j1")]
 script = ExtResource("2_03w64")

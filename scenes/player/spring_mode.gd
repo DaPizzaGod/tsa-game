@@ -4,7 +4,7 @@ var jump_vel:= -800.0
 var dir
 var dir_radians
 func _process(delta: float) -> void:
-	dir = global_position.direction_to(get_global_mouse_position())
+	dir = (global_position.direction_to(get_global_mouse_position()))
 	dir_radians = dir.angle()
 	# Apply Gravity
 	if not is_on_floor():
@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 
 	
 		look_at(dir)
+		rotation_degrees += 180
 	# Move
 	move_and_slide()
 
