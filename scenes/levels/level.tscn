@@ -25,6 +25,9 @@ func _process(_delta: float) -> void:
 			swap_player(stretch)
 		elif ModeCalc.mode == \"spring\":
 			swap_player(spring)
+			
+	if ModeCalc.menu:
+		pass
 
 		
 func swap_player(scene: PackedScene):
