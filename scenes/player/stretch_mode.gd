@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 	# Apply Gravity
 	if not launching and not is_on_floor():
 		velocity.y += gravity * delta
+		
+	# Calculates arm
 	if current_hand:
 		arm.visible = true
 		arm.clear_points()

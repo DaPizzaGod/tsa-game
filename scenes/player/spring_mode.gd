@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 			air_jump()
 
 	
-	look_at(dir)
+		look_at(dir)
 	# Move
 	move_and_slide()
 
