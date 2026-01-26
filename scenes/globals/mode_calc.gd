@@ -7,35 +7,17 @@ var menu: Control
 var modes := [
 	"normal", 
 	"stretch", 
-	"spring"]
-
+	"spring"
+	]
+var check_mode:= false
+var new_player_pos
 
 func _process(_delta: float) -> void:
 	# When shift is pressed
 	if Input.is_action_just_pressed("switch mode"):
-		Engine.time_scale = 0.2
+		Engine.time_scale = 0.1
 		menu = switch_mode_menu.instantiate()
 		get_tree().get_root().add_child(menu)
-		
-		
-		
-		'''
-		var menu_stay := Timer.new()
-		add_child(menu_stay)
-		menu_stay.wait_time = 10
-		menu_stay.timeout.connect(_on_menu_stay_timeout)
-		menu_stay.one_shot = true
-		menu_stay.start()
-		
-		
-
-		if count != max_count:
-			count += 1
-		else:
-			count = 0
-		mode = modes[count]
-		
-		'''
 		print(mode)
 		
 	

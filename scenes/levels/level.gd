@@ -10,10 +10,11 @@ var spring: PackedScene = preload("res://scenes/player/spring_mode.tscn")
 
 func _ready() -> void:
 	$PlayerNode.add_child(normal.instantiate())
+	swap_player(normal)
 
-	
+
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("switch mode"):
+	if ModeCalc.check_mode:
 		if ModeCalc.mode == "normal":
 			swap_player(normal)
 		elif ModeCalc.mode == "stretch":
@@ -21,8 +22,12 @@ func _process(_delta: float) -> void:
 		elif ModeCalc.mode == "spring":
 			swap_player(spring)
 			
-	if ModeCalc.menu:
+		ModeCalc.check_mode = false
+			
+	# Move menu to player
+	if ModeCalc.menu and typeof(new_player) == 24:
 		ModeCalc.menu.position = new_player.global_position
+
 
 		
 func swap_player(scene: PackedScene):
@@ -36,6 +41,8 @@ func swap_player(scene: PackedScene):
 	$PlayerNode.add_child(new_player)
 	new_player.global_position = old_pos
 	new_player.velocity = old_vel
+	
+
 	
 	#Slow down
 	if new_player.has_meta("tween"):
