@@ -18,6 +18,12 @@ func _process(delta: float) -> void:
 		$JumpCooldown.start()
 		can_jump = false
 	
+	if is_on_floor():
+		$Sprite2D/Arrow.hide()
+	else:
+		$Sprite2D/Arrow.show()
+
+	
 	if not is_on_floor():
 		
 		if Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump:
@@ -28,7 +34,6 @@ func _process(delta: float) -> void:
 	
 		look_at(get_global_mouse_position())
 		
-		#rotation_degrees += 180
 	# Move
 	move_and_slide()
 
