@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d01ohxhpaev7b"]
+[gd_scene load_steps=5 format=3 uid="uid://d01ohxhpaev7b"]
 
 [ext_resource type="PackedScene" uid="uid://cuwtk6cr20kh4" path="res://scenes/player/player.tscn" id="1_wy7j1"]
 [ext_resource type="Script" uid="uid://d0mp3g2ho5wuo" path="res://scenes/player/spring_mode.gd" id="2_03w64"]
 [ext_resource type="Texture2D" uid="uid://ntfkugd378dn" path="res://graphics/circle.svg" id="3_xci83"]
+[ext_resource type="Texture2D" uid="uid://cgy1fmyir5g0i" path="res://graphics/arrow.png" id="4_ts6hm"]
 
 [node name="SpringMode" instance=ExtResource("1_wy7j1")]
 script = ExtResource("2_03w64")
@@ -16,5 +17,9 @@ texture = ExtResource("3_xci83")
 [node name="JumpCooldown" type="Timer" parent="." index="3"]
 wait_time = 0.5
 one_shot = true
+
+[node name="Arrow" type="Sprite2D" parent="." index="4"]
+position = Vector2(54, 12)
+texture = ExtResource("4_ts6hm")
 
 [connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]

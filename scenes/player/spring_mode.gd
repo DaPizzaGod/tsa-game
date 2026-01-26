@@ -27,6 +27,8 @@ func _process(delta: float) -> void:
 
 	
 		look_at(dir)
+		$Arrow.look_at(get_global_mouse_position())
+		$Arrow.rotation_degrees += 180
 		rotation_degrees += 180
 	# Move
 	move_and_slide()
