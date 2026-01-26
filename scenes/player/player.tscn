@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cuwtk6cr20kh4"]
 
 [ext_resource type="Script" uid="uid://bahw2uwuwdwc4" path="res://scenes/player/player.gd" id="1_g2els"]
-[ext_resource type="Script" path="res://scenes/player/camera_2d.gd" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://bi7jrsrb0su5i" path="res://scenes/player/camera_2d.gd" id="2_dovo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 481.00415

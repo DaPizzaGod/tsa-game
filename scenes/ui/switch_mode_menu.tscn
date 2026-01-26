@@ -23,25 +23,25 @@ texture = ExtResource("1_c5hrv")
 
 [node name="NormalButton" type="Button" parent="."]
 layout_mode = 1
-offset_left = -111.00001
-offset_top = -83.00001
-offset_right = -44.000008
-offset_bottom = -52.000008
+offset_left = -117.0
+offset_top = -81.0
+offset_right = -49.0
+offset_bottom = -15.0
 text = "Normal"
 
 [node name="StretchButton" type="Button" parent="."]
 layout_mode = 1
-offset_left = 43.0
-offset_top = -83.0
-offset_right = 110.0
-offset_bottom = -52.0
+offset_left = 52.0
+offset_top = -76.0
+offset_right = 118.0
+offset_bottom = -16.0
 text = "Stretch"
 
 [node name="SpringButton" type="Button" parent="."]
 layout_mode = 1
 offset_left = -111.0
-offset_top = 80.0
-offset_right = -44.0
+offset_top = 40.0
+offset_right = -34.0
 offset_bottom = 111.0
 text = "Spring"
 
