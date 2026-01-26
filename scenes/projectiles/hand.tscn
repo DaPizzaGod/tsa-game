@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://daf1aycc2otdr"]
+[gd_scene load_steps=3 format=3 uid="uid://bv605vuyornxv"]
 
 [ext_resource type="Texture2D" uid="uid://c8cfroxr4uu7w" path="res://graphics/Triangle.png" id="1_a5sma"]
 [ext_resource type="Script" uid="uid://brdp4mdjtotrf" path="res://scenes/projectiles/hand.gd" id="1_nrq6w"]

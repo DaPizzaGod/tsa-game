@@ -14,8 +14,6 @@ func _process(delta: float) -> void:
 	if not attatched:
 		position += direction * speed * delta
 		
-	if player and player.launching:
-		pass
 
 
 func _on_self_destruct_timeout() -> void:

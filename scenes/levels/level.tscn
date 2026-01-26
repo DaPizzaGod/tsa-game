@@ -1,64 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c32kxtrw25xtu"]
 
+[ext_resource type="Script" uid="uid://ccmwa80u3odnb" path="res://scenes/levels/level.gd" id="1_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://c5nxeuwwv0ju6" path="res://scenes/objects/ground.tscn" id="1_bovvr"]
 
-[sub_resource type="GDScript" id="GDScript_7dm0k"]
-script/source = "extends Node2D
-	
-
-#func _process(_delta: float) -> void:
-	#if ModeCalc.mode == \"stretch\":
-	#	stretch_mode.emit()
-	#elif ModeCalc.mode == \"normal\":
-	#	normal_mode.emit()
-
-var normal: PackedScene = preload(\"res://scenes/player/normal_mode.tscn\")
-var stretch: PackedScene = preload(\"res://scenes/player/stretch_mode.tscn\")
-var spring: PackedScene = preload(\"res://scenes/player/spring_mode.tscn\")
-
-
-func _ready() -> void:
-	$PlayerNode.add_child(normal.instantiate())
-	
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed(\"switch mode\"):
-		if ModeCalc.mode == \"normal\":
-			swap_player(normal)
-		elif ModeCalc.mode == \"stretch\":
-			swap_player(stretch)
-		elif ModeCalc.mode == \"spring\":
-			swap_player(spring)
-
-		
-func swap_player(scene: PackedScene):
-	var old_player = get_tree().get_nodes_in_group(\"Players\")[0]
-	var old_pos = old_player.global_position
-	var old_vel = old_player.velocity
-	
-	
-	
-	
-	old_player.queue_free()
-	
-	var new_player = scene.instantiate()
-	$PlayerNode.add_child(new_player)
-	new_player.global_position = old_pos
-	new_player.velocity = old_vel
-	
-	#Slow down
-	if new_player.has_meta(\"tween\"):
-		new_player.get_meta(\"tween\").kill()
-	
-	var tween := create_tween()
-	tween.tween_property(new_player, \"velocity:x\", 0.0, 1.0).set_ease(Tween.EASE_IN_OUT)
-	
-	
-func _on_shoot_hand():
-	print(\"shoot\")
-"
-
 [node name="Level" type="Node2D"]
-script = SubResource("GDScript_7dm0k")
+script = ExtResource("1_b2cq8")
 
 [node name="Ground" parent="." instance=ExtResource("1_bovvr")]
 modulate = Color(0.21176471, 0.90588236, 0.54901963, 1)
