@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgy1fmyir5g0i"
-path="res://.godot/imported/arrow.png-1f97540a7c38f167b0ed82110e9ca83b.ctex"
+uid="uid://bogdik7qvl8rk"
+path="res://.godot/imported/Green-Arrow-Transparent-Background-2408003269.png-9b323540a0220c8113bf7e04bc27f95e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-1f97540a7c38f167b0ed82110e9ca83b.ctex"]
+source_file="res://graphics/Green-Arrow-Transparent-Background-2408003269.png"
+dest_files=["res://.godot/imported/Green-Arrow-Transparent-Background-2408003269.png-9b323540a0220c8113bf7e04bc27f95e.ctex"]
 
 [params]
 
