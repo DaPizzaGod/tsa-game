@@ -12,3 +12,9 @@ modulate = Color(0.21176471, 0.69411767, 0.3137255, 1)
 position = Vector2(0, 12)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_xci83")
+
+[node name="JumpCooldown" type="Timer" parent="." index="3"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]
