@@ -11,12 +11,12 @@ func _process(delta: float) -> void:
 		velocity.y += gravity * delta
 		
 	# Jump on floor
-	if is_on_floor() and Input.is_action_just_pressed("shoot"):
+	if is_on_floor() and Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode:
 		velocity.y = jump_vel
 	
 	if not is_on_floor():
 		
-		if Input.is_action_just_pressed("shoot"):
+		if Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode:
 			air_jump()
 
 	
