@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5nxeuwwv0ju6"]
+[gd_scene load_steps=9 format=3 uid="uid://c5nxeuwwv0ju6"]
 
 [ext_resource type="Texture2D" uid="uid://bhsawgtjs7mpe" path="res://graphics/rectangle.png" id="1_blaoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxuqv"]
+size = Vector2(177, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
 size = Vector2(1648, 1067)
@@ -21,8 +24,18 @@ size = Vector2(80.55227, 68.03552)
 size = Vector2(79.081055, 123.00001)
 
 [node name="Ground" type="Node2D" groups=["Level"]]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
+position = Vector2(-78, -60)
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="." groups=["Level"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D9"]
+position = Vector2(-317.5, -1029)
+scale = Vector2(0.059, 0.04300001)
+texture = ExtResource("1_blaoh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+position = Vector2(-317.5, -1028.5)
+shape = SubResource("RectangleShape2D_rxuqv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Level"]]
 

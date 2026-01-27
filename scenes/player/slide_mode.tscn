@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxjmkthp07p8a"]
+[gd_scene load_steps=4 format=3 uid="uid://bxjmkthp07p8a"]
 
 [ext_resource type="PackedScene" uid="uid://cuwtk6cr20kh4" path="res://scenes/player/player.tscn" id="1_l7brt"]
+[ext_resource type="Script" uid="uid://dqhl7obgpbr3v" path="res://scenes/player/slide_mode.gd" id="2_4w00t"]
 [ext_resource type="Texture2D" uid="uid://ntfkugd378dn" path="res://graphics/circle.svg" id="2_kwtcf"]
 
 [node name="SlideMode" instance=ExtResource("1_l7brt")]
+script = ExtResource("2_4w00t")
 
 [node name="Sprite2D" parent="." index="2"]
 modulate = Color(0.25208238, 0.41900584, 0.76892567, 1)
