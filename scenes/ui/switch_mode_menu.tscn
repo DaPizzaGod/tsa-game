@@ -45,6 +45,15 @@ offset_right = -34.0
 offset_bottom = 111.0
 text = "Spring"
 
+[node name="SlideButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 45.0
+offset_top = 40.0
+offset_right = 122.0
+offset_bottom = 111.0
+text = "Slide"
+
 [connection signal="pressed" from="NormalButton" to="." method="_on_normal_button_pressed"]
 [connection signal="pressed" from="StretchButton" to="." method="_on_stretch_button_pressed"]
 [connection signal="pressed" from="SpringButton" to="." method="_on_spring_button_pressed"]
+[connection signal="pressed" from="SlideButton" to="." method="_on_slide_button_pressed"]

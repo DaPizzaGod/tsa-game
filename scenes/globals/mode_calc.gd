@@ -7,7 +7,8 @@ var menu: Control
 var modes := [
 	"normal", 
 	"stretch", 
-	"spring"
+	"spring",
+	"slide"
 	]
 var check_mode:= false
 var new_player_pos

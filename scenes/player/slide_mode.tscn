@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxjmkthp07p8a"]
+
+[ext_resource type="PackedScene" uid="uid://cuwtk6cr20kh4" path="res://scenes/player/player.tscn" id="1_l7brt"]
+[ext_resource type="Texture2D" uid="uid://ntfkugd378dn" path="res://graphics/circle.svg" id="2_kwtcf"]
+
+[node name="SlideMode" instance=ExtResource("1_l7brt")]
+
+[node name="Sprite2D" parent="." index="2"]
+modulate = Color(0.25208238, 0.41900584, 0.76892567, 1)
+position = Vector2(0, 12)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_kwtcf")
