@@ -7,11 +7,12 @@ var normal: PackedScene = preload("res://scenes/player/normal_mode.tscn")
 var stretch: PackedScene = preload("res://scenes/player/stretch_mode.tscn")
 var spring: PackedScene = preload("res://scenes/player/spring_mode.tscn")
 var slide: PackedScene = preload("res://scenes/player/slide_mode.tscn")
-
+@onready var menus = $Menus
 
 func _ready() -> void:
 	$PlayerNode.add_child(normal.instantiate())
 	swap_player(normal)
+	ModeCalc.menu_root = menus
 
 
 func _process(_delta: float) -> void:

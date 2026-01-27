@@ -26,8 +26,8 @@ func _process(delta: float) -> void:
 	else:
 		arm.visible = false
 	# Shoot hand
-	if Input.is_action_just_pressed("shoot") and current_hand == null and not ModeCalc.check_mode:
-
+	if Input.is_action_just_pressed("shoot") and current_hand == null and not ModeCalc.check_mode and StaminaCalc.current_stamina >= 1:
+		subtract_stamina(1)
 		spawn_hand()
 	
 	# launch towards hand

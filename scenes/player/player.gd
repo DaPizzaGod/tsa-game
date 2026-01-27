@@ -6,3 +6,6 @@ func _ready() -> void:
 
 var speed := 525.0
 var gravity := 1200.0
+
+func subtract_stamina(amount):
+	StaminaCalc.current_stamina -= amount

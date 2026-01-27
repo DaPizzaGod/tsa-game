@@ -2,7 +2,7 @@ extends Node
 
 var mode := "normal"
 var switch_mode_menu:PackedScene = preload("res://scenes/ui/switch_mode_menu.tscn")
-var level:PackedScene = preload("res://scenes/levels/level.tscn")
+var menu_root:Control
 var menu: Control
 var modes := [
 	"normal", 
@@ -20,7 +20,8 @@ func _process(_delta: float) -> void:
 		Engine.time_scale = 0.1
 		menu_count += 1
 		menu = switch_mode_menu.instantiate()
-		get_tree().get_root().add_child(menu)
+		#get_tree().get_root().add_child(menu)
+		menu_root.add_child(menu)
 		print(mode)
 		
 	
