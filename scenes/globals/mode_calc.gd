@@ -7,23 +7,20 @@ var menu: Control
 var modes := [
 	"normal", 
 	"stretch", 
-	"spring"
+	"spring",
+	"slide"
 	]
 var check_mode:= false
 var new_player_pos
+var menu_count:= 0
 
 func _process(_delta: float) -> void:
 	# When shift is pressed
-	if Input.is_action_just_pressed("switch mode"):
+	if Input.is_action_just_pressed("switch mode") and menu_count == 0:
 		Engine.time_scale = 0.1
+		menu_count += 1
 		menu = switch_mode_menu.instantiate()
 		get_tree().get_root().add_child(menu)
 		print(mode)
 		
-	
-
-func _on_menu_stay_timeout():
-	print(typeof(menu), menu)
-	menu.queue_free()
-	Engine.time_scale = 1
 	

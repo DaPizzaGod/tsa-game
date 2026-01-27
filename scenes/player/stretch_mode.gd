@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 	
 	# launch towards hand
 	
-	if Input.is_action_just_pressed("special action") and current_hand and current_hand.attatched:
+	if Input.is_action_just_pressed("secondary") and current_hand and current_hand.attatched:
 		launching = true
 		
 	if Input.is_action_just_pressed("other special action") and current_hand and current_hand.attatched:

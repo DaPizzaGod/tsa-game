@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv605vuyornxv"]
 
-[ext_resource type="Texture2D" uid="uid://c8cfroxr4uu7w" path="res://graphics/Triangle.png" id="1_a5sma"]
+[ext_resource type="Texture2D" uid="uid://cre868i5huy63" path="res://graphics/Triangle.png" id="1_a5sma"]
 [ext_resource type="Script" uid="uid://brdp4mdjtotrf" path="res://scenes/projectiles/hand.gd" id="1_nrq6w"]
 
 [node name="Hand" type="Area2D"]
+collision_layer = 4
+collision_mask = 6
 script = ExtResource("1_nrq6w")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

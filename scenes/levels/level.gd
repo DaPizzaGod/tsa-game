@@ -6,6 +6,7 @@ var new_player
 var normal: PackedScene = preload("res://scenes/player/normal_mode.tscn")
 var stretch: PackedScene = preload("res://scenes/player/stretch_mode.tscn")
 var spring: PackedScene = preload("res://scenes/player/spring_mode.tscn")
+var slide: PackedScene = preload("res://scenes/player/slide_mode.tscn")
 
 
 func _ready() -> void:
@@ -21,6 +22,8 @@ func _process(_delta: float) -> void:
 			swap_player(stretch)
 		elif ModeCalc.mode == "spring":
 			swap_player(spring)
+		elif ModeCalc.mode == "slide":
+			swap_player(slide)
 			
 		ModeCalc.check_mode = false
 			
@@ -45,8 +48,6 @@ func swap_player(scene: PackedScene):
 
 	
 	#Slow down
-	if new_player.has_meta("tween"):
-		new_player.get_meta("tween").kill()
 	
 	var tween := create_tween()
 	tween.tween_property(new_player, "velocity:x", 0.0, 1.0).set_ease(Tween.EASE_IN_OUT)
