@@ -94,14 +94,14 @@ func go_inside_level():
 	wall_normal = get_last_slide_collision().get_normal() 
 
 	var max_exit_distance := 400  
-	var step := 4                 
+	var step := 8              
 	var exit_distance := 0
 
 	# Check how far we can move down without colliding
 	while exit_distance < max_exit_distance:
 		var check_position := global_position + Vector2(0, step)
 		if test_move(global_transform, check_position + global_position):
-			break  # Hit something, stop
+			break
 		exit_distance += step
 		global_position.y += step
 
@@ -111,19 +111,18 @@ func exit_wall():
 	if not in_level:
 		return
 
-	var max_exit_distance := 400  # Maximum distance to move up
-	var step := 4                 # How granular to check for space (smaller = more precise)
+	var max_exit_distance := 600
+	var step := 8                
 	var exit_distance := 0
 
-	# Check how far we can move up without colliding
+
 	while exit_distance < max_exit_distance:
 		var check_position := global_position - Vector2(0, step)
 		if test_move(global_transform, check_position - global_position):
-			break  # Hit something, stop
+			break
 		exit_distance += step
 		global_position.y -= step
 
-	# If we actually moved some distance, exit
 	if exit_distance > 0:
 		in_level = false
 		collision_mask |= 2
