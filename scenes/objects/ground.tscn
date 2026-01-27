@@ -6,7 +6,7 @@
 size = Vector2(1648, 1068)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_viejq"]
-size = Vector2(267.97763, 1819)
+size = Vector2(267.97763, 1825.9651)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blaoh"]
 size = Vector2(41.45643, 995.5)
@@ -48,7 +48,7 @@ scale = Vector2(0.60965025, 0.54691344)
 texture = ExtResource("1_blaoh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(-2086.2512, -935.5349)
+position = Vector2(-2086.2512, -939.01746)
 scale = Vector2(4.084305, 1)
 shape = SubResource("RectangleShape2D_viejq")
 
