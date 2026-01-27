@@ -9,6 +9,7 @@ var spring: PackedScene = preload("res://scenes/player/spring_mode.tscn")
 var slide: PackedScene = preload("res://scenes/player/slide_mode.tscn")
 @onready var menus = $Menus
 
+
 func _ready() -> void:
 	$PlayerNode.add_child(normal.instantiate())
 	swap_player(normal)

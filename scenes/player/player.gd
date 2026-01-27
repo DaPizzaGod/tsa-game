@@ -9,3 +9,5 @@ var gravity := 1200.0
 
 func subtract_stamina(amount):
 	StaminaCalc.current_stamina -= amount
+	StaminaCalc.update_stamina = true
+	print(StaminaCalc.current_stamina)
