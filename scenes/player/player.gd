@@ -20,7 +20,7 @@ func subtract_stamina(amount):
 		sub_stamina_cooldown.timeout.connect(_on_sub_stamina_cooldown_timeout)
 		sub_stamina_cooldown.start()
 	else:
-		push_error("denied")
+		print("denied")
 		
 func _on_sub_stamina_cooldown_timeout():
 	can_sub_stamina = true
