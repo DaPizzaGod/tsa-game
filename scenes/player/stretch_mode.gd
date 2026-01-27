@@ -38,11 +38,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("other special action") and current_hand and current_hand.attatched:
 		swinging = true
 		
-	if launching and current_hand and StaminaCalc.current_stamina >= 2:
+	if launching and current_hand and StaminaCalc.current_stamina >= 1:
 		
 		move_toward_hand()
 	
-	if swinging and current_hand and StaminaCalc.current_stamina >= 2:
+	if swinging and current_hand and StaminaCalc.current_stamina >= 1:
 		swing_toward_hand()
 	
 	# move
@@ -75,7 +75,7 @@ func move_toward_hand():
 		return
 	var dir = to_hand.normalized()
 	velocity = dir * launch_speed
-	subtract_stamina(2)
+	subtract_stamina(1)
 
 func swing_toward_hand():
 	var swing_velocity = (current_hand.global_position - global_position).normalized()
@@ -88,7 +88,7 @@ func swing_toward_hand():
 		
 	if current_hand.attatched:
 		velocity += swing_velocity
-		subtract_stamina(2)
+		subtract_stamina(1)
 	else:
 		swinging = false
 		return
