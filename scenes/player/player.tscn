@@ -7,12 +7,14 @@
 radius = 481.00415
 
 [node name="Player" type="CharacterBody2D" groups=["Players"]]
+collision_mask = 2
 script = ExtResource("1_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.6, 0.6)
 limit_enabled = false
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 script = ExtResource("2_dovo2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

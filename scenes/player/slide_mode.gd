@@ -27,9 +27,11 @@ func _process(delta: float) -> void:
 
 		
 	# Side to side movement
-	if is_on_floor() or is_on_ceiling():
+	if is_on_floor() or ceiling_sticky:
 		var direction := Input.get_axis("left", "right")
 		velocity.x = direction * speed
+		
+	
 		
 	
 	
