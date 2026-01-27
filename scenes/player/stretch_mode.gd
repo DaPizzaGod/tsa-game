@@ -7,7 +7,6 @@ var launching := false
 var swinging := false
 var stop_distance := 2.0
 
-
 func _ready() -> void:
 	$Hand.queue_free()
 
@@ -33,15 +32,17 @@ func _process(delta: float) -> void:
 	# launch towards hand
 	
 	if Input.is_action_just_pressed("secondary") and current_hand and current_hand.attatched:
+		
 		launching = true
 		
 	if Input.is_action_just_pressed("other special action") and current_hand and current_hand.attatched:
 		swinging = true
 		
-	if launching and current_hand:
+	if launching and current_hand and StaminaCalc.current_stamina >= 2:
+		
 		move_toward_hand()
 	
-	if swinging and current_hand:
+	if swinging and current_hand and StaminaCalc.current_stamina >= 2:
 		swing_toward_hand()
 	
 	# move
@@ -66,7 +67,7 @@ func _on_hand_removed():
 func move_toward_hand():
 	var to_hand = current_hand.global_position - global_position
 	var distance = to_hand.length()
-	
+
 	if distance < stop_distance:
 		launching = false
 		velocity = Vector2.ZERO
@@ -74,9 +75,11 @@ func move_toward_hand():
 		return
 	var dir = to_hand.normalized()
 	velocity = dir * launch_speed
+	subtract_stamina(2)
 
 func swing_toward_hand():
 	var swing_velocity = (current_hand.global_position - global_position).normalized()
+
 	if swing_velocity.y > 0:
 		swing_velocity.y *= 0.65
 		
@@ -85,9 +88,7 @@ func swing_toward_hand():
 		
 	if current_hand.attatched:
 		velocity += swing_velocity
+		subtract_stamina(2)
 	else:
 		swinging = false
-		current_hand.queue_free()
 		return
-	
-	
