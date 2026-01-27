@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://bhsawgtjs7mpe" path="res://graphics/rectangle.png" id="1_blaoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
-size = Vector2(1648, 1067)
+size = Vector2(1648, 1068)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_viejq"]
 size = Vector2(267.97763, 1819)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blaoh"]
-size = Vector2(40.903603, 995.5)
+size = Vector2(41.45643, 995.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhyub"]
 size = Vector2(40.903603, 949.60864)
@@ -23,7 +23,7 @@ size = Vector2(79.081055, 123.00001)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxuqv"]
 size = Vector2(177, 85)
 
-[node name="Ground" type="Node2D" groups=["Level"]]
+[node name="Walls" type="Node2D" groups=["Level"]]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Level"]]
 collision_layer = 2
@@ -34,7 +34,7 @@ scale = Vector2(2.241, 0.524)
 texture = ExtResource("1_blaoh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1.9301758, 278.5)
+position = Vector2(1.9301758, 278)
 scale = Vector2(4.084305, 1)
 shape = SubResource("RectangleShape2D_w8frs")
 
@@ -91,7 +91,7 @@ scale = Vector2(0.33016917, 0.08437685)
 texture = ExtResource("1_blaoh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(-138.12895, -9.141357)
+position = Vector2(-137, -9.141357)
 scale = Vector2(4.084305, 1)
 shape = SubResource("RectangleShape2D_blaoh")
 

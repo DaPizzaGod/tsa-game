@@ -48,8 +48,6 @@ func swap_player(scene: PackedScene):
 
 	
 	#Slow down
-	if new_player.has_meta("tween"):
-		new_player.get_meta("tween").kill()
 	
 	var tween := create_tween()
 	tween.tween_property(new_player, "velocity:x", 0.0, 1.0).set_ease(Tween.EASE_IN_OUT)
