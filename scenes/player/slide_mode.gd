@@ -9,6 +9,10 @@ var ghost_move_speed:= 400.0
 var physics_initialized := false
 var can_exit := false
 
+func _ready() -> void:
+	$CanExitChecker.monitoring = true
+	$CanExitChecker/CollisionShape2D.disabled = false
+
 func _process(delta: float) -> void:
 	if !physics_initialized:
 		move_and_slide()
@@ -96,9 +100,16 @@ func go_into_ghost():
 	can_exit_timer.wait_time = 0.1
 	can_exit_timer.timeout.connect(_on_can_exit_timer_timeout)
 	can_exit_timer.start()
+	var tween:= create_tween()
+	tween.tween_property($Sprite2D, "modulate:a", 0.5, 0.3).set_ease(Tween.EASE_IN_OUT)
 	
 func exit_ghost():
+	await get_tree().physics_frame
+	print($CanExitChecker.get_overlapping_bodies())
+
 	if not $CanExitChecker.has_overlapping_bodies():
+		var tween:= create_tween()
+		tween.tween_property($Sprite2D, "modulate:a", 1, 0.3).set_ease(Tween.EASE_IN_OUT)
 		print("not ghost")
 		$CollisionShape2D.disabled = false
 		ghost_mode = false
