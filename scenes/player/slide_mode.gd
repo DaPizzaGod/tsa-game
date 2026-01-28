@@ -74,13 +74,15 @@ func _process(delta: float) -> void:
 
 	# Ghost
 	
-	if is_on_floor() and Input.is_action_just_pressed("other special action") and !wall_sticky and !ceiling_sticky:
+	if is_on_floor() and Input.is_action_just_pressed("other special action") and !wall_sticky and !ceiling_sticky and StaminaCalc.current_stamina >= 3:
 		go_into_ghost()
+		subtract_stamina(3)
 
 	if ghost_mode:
 		var dir := Input.get_axis("left", "right")
 		velocity.x = dir * ghost_move_speed
 		velocity.y = 0
+		subtract_stamina(2)
 		
 		if Input.is_action_just_pressed("other special action") and can_exit:
 			exit_ghost()
