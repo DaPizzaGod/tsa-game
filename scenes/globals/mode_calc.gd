@@ -23,8 +23,7 @@ func _process(_delta: float) -> void:
 		menu_root.add_child(menu)
 		print(mode)
 		# remove stamina
-		StaminaCalc.current_stamina -= 1
+		StaminaCalc.current_stamina -= 1 
 		StaminaCalc.update_stamina = true
 		print(StaminaCalc.current_stamina)
 		
-	

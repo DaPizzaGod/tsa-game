@@ -81,10 +81,10 @@ func swing_toward_hand():
 	var swing_velocity = (current_hand.global_position - global_position).normalized()
 
 	if swing_velocity.y > 0:
-		swing_velocity.y *= 0.65
+		swing_velocity.y *= 0.85
 		
 	else:
-		swing_velocity.y *=1.2
+		swing_velocity.y *=1.5
 		
 	if current_hand.attatched:
 		velocity += swing_velocity

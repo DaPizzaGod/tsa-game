@@ -3,9 +3,9 @@ extends PlayerParent
 var ceiling_sticky:= false
 var wall_sticky:= false
 var shrink:= 1
-var in_level:= false
+var ghost_mode:= false
 var wall_normal
-var level_move_speed:= 350.0
+var ghost_move_speed:= 400.0
 var physics_initialized := false
 var can_exit := false
 
@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 		physics_initialized = true
 		return
 	
-	if not in_level:
+	if not ghost_mode:
 	
 		
 		# Make sticky
@@ -36,7 +36,8 @@ func _process(delta: float) -> void:
 	
 		if not is_on_floor() and not ceiling_sticky and not wall_sticky:
 			velocity.y += gravity * delta
-	
+		
+		
 			
 		# Side to side movement
 		if is_on_floor() or ceiling_sticky:
@@ -45,90 +46,64 @@ func _process(delta: float) -> void:
 		
 		# Shrinking
 		
-		if Input.is_action_just_pressed("secondary"):
+		if Input.is_action_just_pressed("secondary") and StaminaCalc.current_stamina >= 2:
 			shrink *= -1
+			subtract_stamina(2)
+			
 			
 		
 		if shrink == -1:
+
 			var tween:= create_tween()
 			tween.set_parallel(true)
 			tween.tween_property($Sprite2D, "scale", Vector2(0.05, 0.05), 0.2).set_ease(Tween.EASE_IN_OUT)
 			tween.tween_property($CollisionShape2D, "scale", Vector2(0.05, 0.05), 0.2).set_ease(Tween.EASE_IN_OUT)
+			tween.tween_property($CanExitChecker/CollisionShape2D, "scale", Vector2(0.5, 0.5), 0.2).set_ease(Tween.EASE_IN_OUT)
+			
 		else:
+
 			var tween:= create_tween()
 			tween.set_parallel(true)
 			tween.tween_property($Sprite2D, "scale", Vector2(0.1, 0.1), 0.2).set_ease(Tween.EASE_IN_OUT)
 			tween.tween_property($CollisionShape2D, "scale", Vector2(0.1, 0.1), 0.2).set_ease(Tween.EASE_IN_OUT)
-	
-	# Digging
-	
-	if is_on_floor() and Input.is_action_just_pressed("other special action"):
-		go_inside_level()
-			
+			tween.tween_property($CanExitChecker/CollisionShape2D, "scale", Vector2(1, 1), 0.2).set_ease(Tween.EASE_IN_OUT)
 
-		
+	# Ghost
 	
-	if in_level:
+	if is_on_floor() and Input.is_action_just_pressed("other special action") and !wall_sticky and !ceiling_sticky:
+		go_into_ghost()
+
+	if ghost_mode:
 		var dir := Input.get_axis("left", "right")
-		velocity.x = dir * level_move_speed
+		velocity.x = dir * ghost_move_speed
+		velocity.y = 0
 		
 		if Input.is_action_just_pressed("other special action") and can_exit:
-			exit_wall()
-
+			exit_ghost()
+			
 
 		
 	move_and_slide()	
 
-		
-func go_inside_level():
-	
-	in_level = true
+func go_into_ghost():
 	can_exit = false
-	var inside_cooldown := Timer.new()
-	add_child(inside_cooldown)
-	inside_cooldown.wait_time = 0.5
-	inside_cooldown.timeout.connect(_on_inside_cooldown_timeout)
-	inside_cooldown.one_shot = true
-	inside_cooldown.start()
-	collision_mask &= ~2 
-	wall_normal = get_last_slide_collision().get_normal() 
-
-	var max_exit_distance := 400  
-	var step := 8              
-	var exit_distance := 0
-
-	# Check how far we can move down without colliding
-	while exit_distance < max_exit_distance:
-		var check_position := global_position + Vector2(0, step)
-		if test_move(global_transform, check_position + global_position):
-			break
-		exit_distance += step
-		global_position.y += step
-
+	$CollisionShape2D.disabled = true
+	print("ghost")
+	ghost_mode = true
+	var can_exit_timer = Timer.new()
+	add_child(can_exit_timer)
+	can_exit_timer.one_shot = true
+	can_exit_timer.wait_time = 0.1
+	can_exit_timer.timeout.connect(_on_can_exit_timer_timeout)
+	can_exit_timer.start()
 	
-		
-func exit_wall():
-	if not in_level:
-		return
+func exit_ghost():
+	if not $CanExitChecker.has_overlapping_bodies():
+		print("not ghost")
+		$CollisionShape2D.disabled = false
+		ghost_mode = false
+	else:
+		print("overlapping something")
 
-	var max_exit_distance := 600
-	var step := 8                
-	var exit_distance := 0
-
-
-	while exit_distance < max_exit_distance:
-		var check_position := global_position - Vector2(0, step)
-		if test_move(global_transform, check_position - global_position):
-			break
-		exit_distance += step
-		global_position.y -= step
-
-	if exit_distance > 0:
-		in_level = false
-		collision_mask |= 2
-		global_position += wall_normal * 6
-		velocity *= 0.3
-
-
-func _on_inside_cooldown_timeout():
+func _on_can_exit_timer_timeout():
 	can_exit = true
