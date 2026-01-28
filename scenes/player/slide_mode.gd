@@ -5,8 +5,7 @@ var wall_sticky:= false
 var shrink:= 1
 var ghost_mode:= false
 var wall_normal
-var ghost_move_speed:= 400.0
-var physics_initialized := false
+var ghost_move_speed:= speed - 100.0
 var can_exit := false
 
 func _ready() -> void:
@@ -14,13 +13,11 @@ func _ready() -> void:
 	$CanExitChecker/CollisionShape2D.disabled = false
 
 func _process(delta: float) -> void:
-	if !physics_initialized:
-		move_and_slide()
-		physics_initialized = true
-		return
+	move_and_slide()
 	
 	if not ghost_mode:
-	
+		if not is_on_floor() and not ceiling_sticky and not wall_sticky:
+			velocity.y += gravity * delta
 		
 		# Make sticky
 		if is_on_ceiling():
@@ -36,10 +33,10 @@ func _process(delta: float) -> void:
 		else:
 			wall_sticky = false
 		
+		
 		# Gravity
 	
-		if not is_on_floor() and not ceiling_sticky and not wall_sticky:
-			velocity.y += gravity * delta
+		
 		
 		
 			
@@ -89,7 +86,7 @@ func _process(delta: float) -> void:
 			
 
 		
-	move_and_slide()	
+	#move_and_slide()	
 
 func go_into_ghost():
 	can_exit = false

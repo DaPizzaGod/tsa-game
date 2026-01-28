@@ -3,7 +3,7 @@ extends Node
 var mode := "normal"
 var switch_mode_menu:PackedScene = preload("res://scenes/ui/switch_mode_menu.tscn")
 var menu_root:Control
-var menu: Control
+var menu
 var modes := [
 	"normal", 
 	"stretch", 
@@ -13,6 +13,8 @@ var modes := [
 var check_mode:= false
 var new_player_pos
 var menu_count:= 0
+var reset_kill:= false #when resetting, kill the menu if present
+
 
 func _process(_delta: float) -> void:
 	# When shift is pressed
@@ -25,5 +27,11 @@ func _process(_delta: float) -> void:
 		# remove stamina
 		StaminaCalc.current_stamina -= 1 
 		StaminaCalc.update_stamina = true
-		print(StaminaCalc.current_stamina)
+		print(typeof(menu))
 		
+	if reset_kill:
+		if menu_count == 1:
+			Engine.time_scale = 1
+			menu.queue_free()
+			menu_count -= 1
+		reset_kill = false
