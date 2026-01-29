@@ -40,6 +40,7 @@ func _process(_delta: float) -> void:
 	if StaminaCalc.respawn:
 		$PlayerUI.hide()
 		ModeCalc.reset_kill = true
+		
 		swap_player(normal, $SpawnPoint.global_position)
 		StaminaCalc.respawn = false
 		new_transition = transition_layer.instantiate()
@@ -47,7 +48,7 @@ func _process(_delta: float) -> void:
 		new_transition.fade()
 		var kill_wait := Timer.new()
 		kill_wait.one_shot = true
-		kill_wait.wait_time = 2
+		kill_wait.wait_time = 1.5
 		add_child(kill_wait)
 		kill_wait.timeout.connect(_on_kill_wait_timeout)
 		kill_wait.start()

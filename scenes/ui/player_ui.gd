@@ -8,6 +8,11 @@ func _ready() -> void:
 	stamina_bar.value = stamina_bar.max_value
 
 func _process(_delta: float) -> void:
+	if StaminaCalc.current_stamina == StaminaCalc.max_stamina:
+		$StaminaBar/BarText.hide()
+	else:
+		$StaminaBar/BarText.show()
+	
 	if StaminaCalc.update_stamina:
 		update_stamina_bar()
 
