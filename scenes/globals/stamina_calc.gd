@@ -13,7 +13,6 @@ func _process(_delta: float) -> void:
 	if check_if_over:
 		if current_stamina > max_stamina:
 			current_stamina = max_stamina
-		print(current_stamina)
 		check_if_over = false
 		update_stamina = true
 	

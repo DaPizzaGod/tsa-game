@@ -37,7 +37,6 @@ func _process(delta: float) -> void:
 		subtract_stamina(1)
 		if !Input.is_action_pressed("shoot"):
 			max_speed -= running_bonus
-			print("not running")
 			running = false
 	
 	# Move
@@ -54,7 +53,6 @@ func run():
 	if !Input.is_action_pressed("shoot"):
 		return
 	
-	print("running")
 	max_speed += running_bonus
 	running = true
 
