@@ -4,7 +4,6 @@ var stamina_add_val : int
 
 func _ready() -> void:
 	stamina_add_val = randi_range(3, 6)
-	print(stamina_add_val)
 
 
 func _on_collect_zone_body_entered(body: Node2D) -> void:

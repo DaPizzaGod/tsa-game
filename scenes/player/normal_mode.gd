@@ -2,9 +2,8 @@ extends PlayerParent
 
 var jump_vel := -600.0
 var direction: float
-
-
-
+var running := false
+var running_bonus := 300.0
 
 
 func _process(delta: float) -> void:
@@ -29,11 +28,34 @@ func _process(delta: float) -> void:
 	else:
 		direction = move_toward(direction, 0.0, acc)
 
-		
-	
-	
-	
 	velocity.x = direction
+	
+	if Input.is_action_just_pressed("shoot"):
+		run()
+
+	if running and !Input.is_action_pressed("shoot"):
+		max_speed -= running_bonus
+		print("not running")
+		running = false
 	
 	# Move
 	move_and_slide() 
+
+	
+
+func run():
+	if !Input.is_action_pressed("shoot"):
+		return
+	
+	
+	await get_tree().create_timer(0.5).timeout
+	if !Input.is_action_pressed("shoot"):
+		return
+	
+	print("running")
+	max_speed += running_bonus
+	running = true
+
+	
+	
+		
