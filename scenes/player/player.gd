@@ -1,7 +1,8 @@
 extends  CharacterBody2D
 class_name PlayerParent
-var speed := 525.0
+var max_speed := 600.0
 var gravity := 1200.0
+var acc = 1.0
 var can_sub_stamina:= true
 
 func _ready() -> void:

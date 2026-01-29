@@ -10,7 +10,6 @@ var stop_distance := 2.0
 func _ready() -> void:
 	$Hand.queue_free()
 
-
 func _process(delta: float) -> void:
 	# Apply Gravity
 	if not launching and not is_on_floor():

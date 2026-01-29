@@ -5,7 +5,7 @@ var wall_sticky:= false
 var shrink:= 1
 var ghost_mode:= false
 var wall_normal
-var ghost_move_speed:= speed - 100.0
+var ghost_move_speed:= max_speed - 100.0
 var can_exit := false
 
 func _ready() -> void:
@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		if is_on_wall():
 			wall_sticky = true
 			var direction := Input.get_axis("jump", "down")
-			velocity.y = direction * speed
+			velocity.y = direction * max_speed
 		else:
 			wall_sticky = false
 		
@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 		# Side to side movement
 		if is_on_floor() or ceiling_sticky:
 			var direction := Input.get_axis("left", "right")
-			velocity.x = direction * speed
+			velocity.x = direction * max_speed
 		
 		# Shrinking
 		
