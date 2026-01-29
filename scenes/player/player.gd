@@ -4,7 +4,7 @@ var max_speed := 600.0
 var gravity := 1200.0
 var acc = 1.0
 var can_sub_stamina:= true
-var fall_gravity:= gravity + 600
+var fall_gravity:= gravity + 800
 
 func _ready() -> void:
 	add_to_group("Players")

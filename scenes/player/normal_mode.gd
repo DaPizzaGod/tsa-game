@@ -3,7 +3,7 @@ extends PlayerParent
 var jump_vel := -600.0
 var direction: float
 var running := false
-var running_bonus := 300.0
+var running_bonus := 400.0
 
 
 func _process(delta: float) -> void:
@@ -33,10 +33,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		run()
 
-	if running and !Input.is_action_pressed("shoot"):
-		max_speed -= running_bonus
-		print("not running")
-		running = false
+	if running:
+		subtract_stamina(1)
+		if !Input.is_action_pressed("shoot"):
+			max_speed -= running_bonus
+			print("not running")
+			running = false
 	
 	# Move
 	move_and_slide() 
