@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://fgoo8i1cffua"]
+[gd_scene load_steps=3 format=3 uid="uid://fgoo8i1cffua"]
 
+[ext_resource type="Script" uid="uid://dbj4he0w6dpck" path="res://scenes/objects/stamina_coin.gd" id="1_2qf8n"]
 [ext_resource type="Texture2D" uid="uid://cre868i5huy63" path="res://graphics/Triangle.png" id="1_ufmsr"]
 
 [node name="StaminaCoin" type="Node2D"]
 scale = Vector2(0.5, 0.5)
+script = ExtResource("1_2qf8n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
@@ -11,8 +13,11 @@ position = Vector2(0, -6)
 rotation = -1.5707964
 texture = ExtResource("1_ufmsr")
 
-[node name="CollectArea2D" type="Area2D" parent="."]
+[node name="CollectZone" type="Area2D" parent="."]
+collision_layer = 32
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollectArea2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollectZone"]
 position = Vector2(-1, 0)
 polygon = PackedVector2Array(1, -60, -54, 49, 54, 50)
+
+[connection signal="body_entered" from="CollectZone" to="." method="_on_collect_zone_body_entered"]

@@ -13,7 +13,6 @@ func subtract_stamina(amount):
 	if can_sub_stamina:
 		StaminaCalc.current_stamina -= amount
 		StaminaCalc.update_stamina = true
-		print(StaminaCalc.current_stamina)
 		can_sub_stamina = false
 		var sub_stamina_cooldown = Timer.new()
 		add_child(sub_stamina_cooldown)

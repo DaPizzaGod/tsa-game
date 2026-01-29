@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 		velocity.y = jump_vel
 		
 	if Input.is_action_just_released("jump") and velocity.y < 0: 
-		print("falling")
 		velocity.y = jump_vel / 4
 	# Left and Right
 	
