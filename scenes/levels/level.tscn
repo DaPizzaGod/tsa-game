@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c32kxtrw25xtu"]
+[gd_scene load_steps=5 format=3 uid="uid://c32kxtrw25xtu"]
 
 [ext_resource type="Script" uid="uid://ccmwa80u3odnb" path="res://scenes/levels/level.gd" id="1_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://c5nxeuwwv0ju6" path="res://scenes/objects/walls.tscn" id="1_bovvr"]
 [ext_resource type="PackedScene" uid="uid://kmb4ykxan2eg" path="res://scenes/ui/player_ui.tscn" id="3_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://fgoo8i1cffua" path="res://scenes/objects/stamina_coin.tscn" id="3_xb4v1"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_b2cq8")
@@ -12,6 +13,11 @@ position = Vector2(-530, 7)
 
 [node name="Walls" parent="." instance=ExtResource("1_bovvr")]
 position = Vector2(935, 485)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="StaminaCoin" parent="Objects" instance=ExtResource("3_xb4v1")]
+position = Vector2(303, 136)
 
 [node name="PlayerNode" type="Node2D" parent="."]
 
