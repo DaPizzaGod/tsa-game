@@ -6,6 +6,7 @@ var launch_speed := 1500.0
 var launching := false
 var swinging := false
 var stop_distance := 2.0
+var swing_force := 120.0
 
 func _ready() -> void:
 	$Hand.queue_free()
@@ -42,7 +43,7 @@ func _process(delta: float) -> void:
 		move_toward_hand()
 	
 	if swinging and current_hand and StaminaCalc.current_stamina >= 1:
-		swing_toward_hand()
+		swing_toward_hand(delta)
 	
 	# move
 	move_and_slide()
@@ -76,17 +77,19 @@ func move_toward_hand():
 	velocity = dir * launch_speed
 	subtract_stamina(1)
 
-func swing_toward_hand():
-	var swing_velocity = (current_hand.global_position - global_position).normalized()
-
+func swing_toward_hand(delta: float):
+	var swing_velocity = (current_hand.global_position - global_position)
+	
 	if swing_velocity.y > 0:
-		swing_velocity.y *= 0.85
+		swing_velocity.y *= 4.50
 		
 	else:
-		swing_velocity.y *=1.5
+		swing_velocity.y *=8.0
+		
 		
 	if current_hand.attatched:
-		velocity += swing_velocity
+		swing_velocity.x *= 2
+		velocity += swing_velocity * delta
 		subtract_stamina(1)
 	else:
 		swinging = false
