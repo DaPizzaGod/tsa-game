@@ -7,15 +7,17 @@ var ghost_mode:= false
 var wall_normal
 var ghost_move_speed:= max_speed - 100.0
 var can_exit := false
+var direction := 0.0
 
 func _ready() -> void:
 	$CanExitChecker.monitoring = true
 	$CanExitChecker/CollisionShape2D.disabled = false
 
 func _process(delta: float) -> void:
-	move_and_slide()
+	
 	
 	if not ghost_mode:
+		# Gravity
 		if not is_on_floor() and not ceiling_sticky and not wall_sticky:
 			velocity.y += gravity * delta
 		
@@ -28,13 +30,11 @@ func _process(delta: float) -> void:
 		
 		if is_on_wall():
 			wall_sticky = true
-			var direction := Input.get_axis("jump", "down")
+			direction = Input.get_axis("jump", "down")
 			velocity.y = direction * max_speed
 		else:
 			wall_sticky = false
-		
-		
-		# Gravity
+
 	
 		
 		
@@ -42,8 +42,13 @@ func _process(delta: float) -> void:
 			
 		# Side to side movement
 		if is_on_floor() or ceiling_sticky:
-			var direction := Input.get_axis("left", "right")
-			velocity.x = direction * max_speed
+			if Input.is_action_pressed("right"):
+				direction = min(direction + acc, max_speed)
+			elif Input.is_action_pressed("left"):
+				direction = max(direction - acc, -max_speed)
+			else:
+				direction = move_toward(direction, 0.0, acc)
+		velocity.x = direction
 		
 		# Shrinking
 		
@@ -86,7 +91,7 @@ func _process(delta: float) -> void:
 			
 
 		
-	#move_and_slide()	
+	move_and_slide()	
 
 func go_into_ghost():
 	can_exit = false

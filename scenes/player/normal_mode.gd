@@ -31,8 +31,6 @@ func _process(delta: float) -> void:
 		direction = move_toward(direction, 0.0, acc)
 
 		
-	if Input.is_action_pressed("shoot"):
-		print(direction)
 	
 	
 	
