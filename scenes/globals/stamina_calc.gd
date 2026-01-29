@@ -5,7 +5,7 @@ var current_stamina: int
 var update_stamina:= false
 var respawn:= false
 
-func _ready() -> void:
+func _ready() -> void: 
 	current_stamina = max_stamina
 
 func _process(_delta: float) -> void:
