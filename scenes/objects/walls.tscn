@@ -24,6 +24,7 @@ size = Vector2(79.081055, 123.00001)
 size = Vector2(177, 85)
 
 [node name="Walls" type="Node2D" groups=["Level"]]
+modulate = Color(0.20784314, 0.8745098, 0.53333336, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Level"]]
 collision_layer = 2

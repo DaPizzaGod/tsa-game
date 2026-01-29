@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ModeCalc="*res://scenes/globals/mode_calc.gd"
-stamina_calc="*res://scenes/globals/stamina_calc.gd"
+StaminaCalc="*res://scenes/globals/stamina_calc.gd"
 
 [display]
 
@@ -87,6 +87,8 @@ secondary={
 2d_physics/layer_2="Level"
 2d_physics/layer_3="Projectiles"
 2d_physics/layer_4="Enemies"
+2d_physics/layer_5="Zones"
+2d_physics/layer_6="Objects"
 
 [rendering]
 

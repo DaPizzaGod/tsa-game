@@ -2,8 +2,8 @@ extends Node
 
 var mode := "normal"
 var switch_mode_menu:PackedScene = preload("res://scenes/ui/switch_mode_menu.tscn")
-var level:PackedScene = preload("res://scenes/levels/level.tscn")
-var menu: Control
+var menu_root:Control
+var menu
 var modes := [
 	"normal", 
 	"stretch", 
@@ -13,14 +13,25 @@ var modes := [
 var check_mode:= false
 var new_player_pos
 var menu_count:= 0
+var reset_kill:= false #when resetting, kill the menu if present
+
 
 func _process(_delta: float) -> void:
 	# When shift is pressed
-	if Input.is_action_just_pressed("switch mode") and menu_count == 0:
+	if Input.is_action_just_pressed("switch mode") and menu_count == 0 and StaminaCalc.current_stamina >= 1:
 		Engine.time_scale = 0.1
 		menu_count += 1
 		menu = switch_mode_menu.instantiate()
-		get_tree().get_root().add_child(menu)
+		menu_root.add_child(menu)
 		print(mode)
+		# remove stamina
+		StaminaCalc.current_stamina -= 1 
+		StaminaCalc.update_stamina = true
+		print(typeof(menu))
 		
-	
+	if reset_kill:
+		if menu_count == 1:
+			Engine.time_scale = 1
+			menu.queue_free()
+			menu_count -= 1
+		reset_kill = false
