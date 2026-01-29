@@ -8,6 +8,7 @@ var wall_normal
 var ghost_move_speed:= max_speed - 100.0
 var can_exit := false
 var direction := 0.0
+var wall_direction := 0.0
 
 func _ready() -> void:
 	$CanExitChecker.monitoring = true
@@ -30,11 +31,18 @@ func _process(delta: float) -> void:
 		
 		if is_on_wall():
 			wall_sticky = true
-			direction = Input.get_axis("jump", "down")
-			velocity.y = direction * max_speed
+			if Input.is_action_pressed("down"):
+				wall_direction = min(direction + acc, max_speed)
+			elif Input.is_action_pressed("jump"):
+				wall_direction = max(direction - acc, -max_speed)
+			else:
+				pass
+				#wall_direction = move_toward(direction, 0.0, acc)
+			velocity.y = wall_direction
 		else:
 			wall_sticky = false
-
+			wall_direction = 0
+		
 	
 		
 		
