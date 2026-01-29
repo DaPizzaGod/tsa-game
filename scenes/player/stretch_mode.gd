@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		subtract_stamina(1)
 		spawn_hand()
 	
-	# launch towards hand
+	# launch/swing
 	
 	if Input.is_action_just_pressed("secondary") and current_hand and current_hand.attatched:
 		

@@ -13,11 +13,11 @@ func _process(delta: float) -> void:
 		velocity.y += gravity * delta
 		
 	# Jump on floor
-	if is_on_floor() and Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 5:
+	if is_on_floor() and Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 4:
 		velocity.y = jump_vel
 		$JumpCooldown.start()
 		can_jump = false
-		subtract_stamina(5)
+		subtract_stamina(4)
 	
 	if is_on_floor():
 		$Sprite2D/Arrow.hide()
@@ -27,11 +27,11 @@ func _process(delta: float) -> void:
 	
 	if not is_on_floor():
 		
-		if Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 5:
+		if Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 4:
 			air_jump()
 			$JumpCooldown.start()
 			can_jump = false
-			subtract_stamina(5)
+			subtract_stamina(4)
 
 	
 		look_at(get_global_mouse_position())

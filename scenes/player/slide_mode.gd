@@ -31,14 +31,8 @@ func _process(delta: float) -> void:
 		
 		if is_on_wall():
 			wall_sticky = true
-			if Input.is_action_pressed("down"):
-				wall_direction = min(direction + acc, max_speed)
-			elif Input.is_action_pressed("jump"):
-				wall_direction = max(direction - acc, -max_speed)
-			else:
-				pass
-				#wall_direction = move_toward(direction, 0.0, acc)
-			velocity.y = wall_direction
+			wall_direction = Input.get_axis("jump", "down")
+			velocity.y = wall_direction * max_speed
 		else:
 			wall_sticky = false
 			wall_direction = 0
