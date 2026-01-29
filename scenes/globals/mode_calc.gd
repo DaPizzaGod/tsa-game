@@ -23,11 +23,9 @@ func _process(_delta: float) -> void:
 		menu_count += 1
 		menu = switch_mode_menu.instantiate()
 		menu_root.add_child(menu)
-		print(mode)
 		# remove stamina
 		StaminaCalc.current_stamina -= 1 
 		StaminaCalc.update_stamina = true
-		print(typeof(menu))
 		
 	if reset_kill:
 		if menu_count == 1:

@@ -111,12 +111,10 @@ func go_into_ghost():
 	
 func exit_ghost():
 	await get_tree().physics_frame
-	print($CanExitChecker.get_overlapping_bodies())
 
 	if not $CanExitChecker.has_overlapping_bodies():
 		var tween:= create_tween()
 		tween.tween_property($Sprite2D, "modulate:a", 1, 0.3).set_ease(Tween.EASE_IN_OUT)
-		print("not ghost")
 		$CollisionShape2D.disabled = false
 		ghost_mode = false
 	else:

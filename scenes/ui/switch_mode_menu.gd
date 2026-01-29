@@ -18,7 +18,6 @@ func _on_slide_button_pressed() -> void:
 func change_mode(item):
 	
 	ModeCalc.mode = ModeCalc.modes[item]
-	print(ModeCalc.mode)
 	Engine.time_scale = 1
 	ModeCalc.check_mode = true
 	ModeCalc.menu_count -= 1

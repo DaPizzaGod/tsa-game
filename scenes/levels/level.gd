@@ -81,5 +81,3 @@ func swap_player(scene: PackedScene, pos = null):
 	tween.tween_property(new_player, "velocity:x", 0.0, 1.0).set_ease(Tween.EASE_IN_OUT)
 	
 	
-func _on_shoot_hand():
-	print("shoot")
