@@ -5,6 +5,7 @@ extends StaminaDamage
 var going_up := true
 var spacing := 225
 var nodesx : float
+var tween: Tween
 
 func _ready() -> void:
 	nodesx = self.position.x
@@ -17,27 +18,31 @@ func _ready() -> void:
 	position.y = down.position.y
 	print(position, up.position, down.position)
 	print(nodesx)
-
+	move()
+'''
 func _process(_delta: float) -> void:
 	# moving up and down
 	if position.x == nodesx:
 		move()
+		
+		await tween.finished
+		going_up = !going_up
 	else:
-		print("failed")
-
+		push_error("failed")
+'''
 func move():
-	if going_up:
+	while is_inside_tree():
+		tween = create_tween()
 		
-		var tween = create_tween()
-		tween.tween_property(self, "position", up.position, 1).set_ease(Tween.EASE_IN)
-		await tween.finished
-		going_up = false
-	elif !going_up:
+		if going_up:
+
+			tween.tween_property(self, "position", up.position, 1).set_ease(Tween.EASE_IN)
+		elif !going_up:
+
+			tween.tween_property(self, "position", down.position, 1).set_ease(Tween.EASE_IN)
 		
-		var tween = create_tween()
-		tween.tween_property(self, "position", down.position, 1).set_ease(Tween.EASE_IN)
-		await tween.finished
-		going_up = true
+		await  tween.finished
+		going_up = !going_up
 
 
 func _on_damage_zone_body_entered(body: Node2D) -> void:
