@@ -14,7 +14,7 @@ var check_mode:= false
 var new_player_pos
 var menu_count:= 0
 var reset_kill:= false #when resetting, kill the menu if present
-
+var swapping := false
 
 func _process(_delta: float) -> void:
 	# When shift is pressed
@@ -30,6 +30,6 @@ func _process(_delta: float) -> void:
 	if reset_kill:
 		if menu_count == 1:
 			Engine.time_scale = 1
-			menu.queue_free()
+			#menu.queue_free()
 			menu_count -= 1
 		reset_kill = false
