@@ -4,37 +4,40 @@ extends StaminaDamage
 @onready var down := $Positions/PositionDown
 var going_up := true
 var spacing := 225
+var nodesx : float
 
 func _ready() -> void:
-	#var nodesx := self.position.x
+	nodesx = self.position.x
 	damage = 5
-	'''
-	up.position = Vector2(nodesx, -spacing)
 	
-	down.position = Vector2(nodesx, spacing)
-	'''
-	up.position.y = -spacing
-	down.position.y = spacing
-	position.y = down.position.y
 
+	up.position = Vector2(nodesx, -spacing)
+	down.position = Vector2(nodesx, spacing)
+	
+	position.y = down.position.y
+	print(position, up.position, down.position)
+	print(nodesx)
 
 func _process(_delta: float) -> void:
 	# moving up and down
-	
+	if position.x == nodesx:
+		move()
+	else:
+		print("failed")
+
+func move():
 	if going_up:
 		
 		var tween = create_tween()
-		tween.tween_property(self, "position:y", up.position.y, 1).set_ease(Tween.EASE_IN)
+		tween.tween_property(self, "position", up.position, 1).set_ease(Tween.EASE_IN)
 		await tween.finished
 		going_up = false
 	elif !going_up:
 		
 		var tween = create_tween()
-		tween.tween_property(self, "position:y", down.position.y, 1).set_ease(Tween.EASE_IN)
+		tween.tween_property(self, "position", down.position, 1).set_ease(Tween.EASE_IN)
 		await tween.finished
 		going_up = true
-	
-	
 
 
 func _on_damage_zone_body_entered(body: Node2D) -> void:
