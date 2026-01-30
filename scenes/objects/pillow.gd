@@ -1,45 +1,26 @@
 extends StaminaDamage
 
-@onready var up := $Positions/PositionUp
-@onready var down := $Positions/PositionDown
 var going_up := true
 var spacing := 225
-var nodesx : float
 var tween: Tween
+var base_y: float
 
 func _ready() -> void:
-	nodesx = self.position.x
 	damage = 5
-	
+	base_y = position.y
 
-	up.position = Vector2(nodesx, -spacing)
-	down.position = Vector2(nodesx, spacing)
-	
-	position.y = down.position.y
-	print(position, up.position, down.position)
-	print(nodesx)
 	move()
-'''
-func _process(_delta: float) -> void:
-	# moving up and down
-	if position.x == nodesx:
-		move()
-		
-		await tween.finished
-		going_up = !going_up
-	else:
-		push_error("failed")
-'''
+
 func move():
 	while is_inside_tree():
 		tween = create_tween()
 		
 		if going_up:
 
-			tween.tween_property(self, "position", up.position, 1).set_ease(Tween.EASE_IN)
+			tween.tween_property(self, "position:y", base_y - spacing, 1).set_ease(Tween.EASE_OUT_IN)
 		elif !going_up:
 
-			tween.tween_property(self, "position", down.position, 1).set_ease(Tween.EASE_IN)
+			tween.tween_property(self, "position:y", base_y + spacing, 1).set_ease(Tween.EASE_OUT_IN)
 		
 		await  tween.finished
 		going_up = !going_up

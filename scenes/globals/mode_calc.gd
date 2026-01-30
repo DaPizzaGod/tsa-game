@@ -30,6 +30,6 @@ func _process(_delta: float) -> void:
 	if reset_kill:
 		if menu_count == 1:
 			Engine.time_scale = 1
-			menu.queue_free()
+			#menu.queue_free()
 			menu_count -= 1
 		reset_kill = false
