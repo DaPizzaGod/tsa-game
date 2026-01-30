@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2j06al8rs7ne"]
+
+[ext_resource type="Script" uid="uid://dmaoj16cpqf3m" path="res://scenes/objects/stamina_damage.gd" id="1_5e7ag"]
+
+[node name="StaminaDamage" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 21
+script = ExtResource("1_5e7ag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
