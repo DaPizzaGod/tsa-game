@@ -5,7 +5,7 @@ var dir
 var dir_radians
 var can_jump:= true
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	dir = (global_position.direction_to(get_global_mouse_position()))
 	dir_radians = dir.angle()
 	# Apply Gravity

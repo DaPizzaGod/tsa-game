@@ -2,7 +2,7 @@ extends  CharacterBody2D
 class_name PlayerParent
 var max_speed := 600.0
 var gravity := 1200.0
-var acc = 2.0
+var accel := 1000.0
 var can_sub_stamina:= true
 var fall_gravity:= gravity + 800
 

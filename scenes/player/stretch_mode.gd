@@ -11,7 +11,7 @@ var swing_force := 120.0
 func _ready() -> void:
 	$Hand.queue_free()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# Apply Gravity
 	if not launching and not is_on_floor():
 		velocity.y += gravity * delta

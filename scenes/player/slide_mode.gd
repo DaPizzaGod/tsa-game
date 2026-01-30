@@ -14,10 +14,11 @@ func _ready() -> void:
 	$CanExitChecker.monitoring = true
 	$CanExitChecker/CollisionShape2D.disabled = false
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
 	
 	if not ghost_mode:
+		var acc = accel * delta
 		# Gravity
 		if not is_on_floor() and not ceiling_sticky and not wall_sticky:
 			velocity.y += gravity * delta

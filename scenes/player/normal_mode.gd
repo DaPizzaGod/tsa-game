@@ -6,7 +6,8 @@ var running := false
 var running_bonus := 400.0
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	var acc = accel * delta
 	# Apply Gravity
 	if not is_on_floor():
 		velocity.y += get_grav(velocity) * delta
