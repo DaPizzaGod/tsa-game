@@ -17,30 +17,26 @@ position = Vector2(935, 485)
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="StaminaCoinParent" type="Node2D" parent="Objects"]
+[node name="StaminaCoin" parent="Objects" instance=ExtResource("3_xb4v1")]
+position = Vector2(480, 86)
 
-[node name="StaminaCoin" parent="Objects/StaminaCoinParent" instance=ExtResource("3_xb4v1")]
-position = Vector2(505, 90)
-
-[node name="StaminaCoin2" parent="Objects/StaminaCoinParent" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin2" parent="Objects" instance=ExtResource("3_xb4v1")]
 position = Vector2(773, -13)
 
-[node name="StaminaCoin3" parent="Objects/StaminaCoinParent" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin3" parent="Objects" instance=ExtResource("3_xb4v1")]
 position = Vector2(1019, -98)
 
-[node name="StaminaCoin4" parent="Objects/StaminaCoinParent" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin4" parent="Objects" instance=ExtResource("3_xb4v1")]
 position = Vector2(1514, 174)
 
-[node name="StaminaCoin5" parent="Objects/StaminaCoinParent" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin5" parent="Objects" instance=ExtResource("3_xb4v1")]
 position = Vector2(708, -656)
 
-[node name="StaminaCoin6" parent="Objects/StaminaCoinParent" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin6" parent="Objects" instance=ExtResource("3_xb4v1")]
 position = Vector2(-1093, -1422)
 
-[node name="StaminaDamageParent" type="Node2D" parent="Objects"]
-
-[node name="Pillow" parent="Objects/StaminaDamageParent" instance=ExtResource("4_urvlt")]
-position = Vector2(1834, -138)
+[node name="Pillow" parent="." instance=ExtResource("4_urvlt")]
+position = Vector2(1842, -144)
 
 [node name="PlayerNode" type="Node2D" parent="."]
 

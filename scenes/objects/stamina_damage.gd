@@ -4,7 +4,7 @@ var damage:int
 var can_damage:= true
 
 func hit_player():
-	if can_damage:
+	if can_damage and !ModeCalc.swapping:
 		StaminaCalc.current_stamina -= damage
 		StaminaCalc.update_stamina = true
 		can_damage = false

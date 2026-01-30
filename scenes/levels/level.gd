@@ -58,6 +58,7 @@ func _on_kill_wait_timeout():
 	new_transition.queue_free()
 		
 func swap_player(scene: PackedScene, pos = null):
+	ModeCalc.swapping = true
 	var old_player = get_tree().get_nodes_in_group("Players")[0]
 	var old_pos = old_player.global_position
 	var old_vel = old_player.velocity
@@ -73,8 +74,8 @@ func swap_player(scene: PackedScene, pos = null):
 		new_player.global_position = old_pos
 	new_player.velocity = old_vel
 	
-
 	
+	ModeCalc.swapping = false
 	#Slow down
 	
 	var tween := create_tween()
