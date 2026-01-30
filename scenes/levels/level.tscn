@@ -36,10 +36,10 @@ position = Vector2(708, -656)
 position = Vector2(-1093, -1422)
 
 [node name="Pillow" parent="Objects" instance=ExtResource("4_urvlt")]
-position = Vector2(1850, -338)
+position = Vector2(1850, -247)
 
 [node name="Pillow2" parent="Objects" instance=ExtResource("4_urvlt")]
-position = Vector2(710, -1170)
+position = Vector2(710, -988)
 
 [node name="PlayerNode" type="Node2D" parent="."]
 

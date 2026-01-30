@@ -17,10 +17,10 @@ func move():
 		
 		if going_up:
 
-			tween.tween_property(self, "position:y", base_y - spacing, 1).set_ease(Tween.EASE_OUT_IN)
+			tween.tween_property(self, "position:y", base_y - spacing, 0.75).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 		elif !going_up:
 
-			tween.tween_property(self, "position:y", base_y + spacing, 1).set_ease(Tween.EASE_OUT_IN)
+			tween.tween_property(self, "position:y", base_y + spacing, 0.75).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 		
 		await  tween.finished
 		going_up = !going_up
