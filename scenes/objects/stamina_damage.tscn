@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmaoj16cpqf3m" path="res://scenes/objects/stamina_damage.gd" id="1_5e7ag"]
 
-[node name="StaminaDamage" type="StaticBody2D"]
-collision_layer = 8
-collision_mask = 21
+[node name="StaminaDamage" type="Node2D"]
 script = ExtResource("1_5e7ag")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
