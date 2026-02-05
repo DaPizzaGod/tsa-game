@@ -2,12 +2,15 @@ extends PlayerParent
 
 var jump_vel:= -1100.0
 var dir
-var dir_radians
 var can_jump:= true
 
+func _draw() -> void:
+	print("hello")
+
 func _physics_process(delta: float) -> void:
-	dir = (global_position.direction_to(get_global_mouse_position()))
-	dir_radians = dir.angle()
+	dir = global_position.direction_to(get_global_mouse_position())
+
+
 	# Apply Gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -36,14 +39,13 @@ func _physics_process(delta: float) -> void:
 	
 		look_at(get_global_mouse_position())
 		
-	# Move
-	#move_and_slide()
+	#Move and Bounce
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
-		print(collision_info)
 		velocity = velocity.bounce(collision_info.get_normal())
 
 func air_jump():
+
 	velocity.x = -dir.x * jump_vel
 	velocity.y = -dir.y * jump_vel
 
