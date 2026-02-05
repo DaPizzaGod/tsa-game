@@ -37,7 +37,11 @@ func _physics_process(delta: float) -> void:
 		look_at(get_global_mouse_position())
 		
 	# Move
-	move_and_slide()
+	#move_and_slide()
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		print(collision_info)
+		velocity = velocity.bounce(collision_info.get_normal())
 
 func air_jump():
 	velocity.x = -dir.x * jump_vel
