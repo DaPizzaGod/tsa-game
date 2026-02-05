@@ -43,21 +43,18 @@ func _physics_process(delta: float) -> void:
 		
 		
 
-	move_and_slide()
+	#move_and_slide()
 	#Move and Bounce
-	#var collision_info = move_and_collide(velocity * delta)
-	#if collision_info:
-	#	velocity = velocity.bounce(collision_info.get_normal())
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
 	
 	
 
 func air_jump():
 	velocity = jump_vel * dir
-'''
-	velocity.x = -dir.x * jump_vel
-	velocity.y = -dir.y * jump_vel
-'''
 
+	
 func _on_jump_cooldown_timeout() -> void:
 	can_jump = true
 	
