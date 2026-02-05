@@ -4,18 +4,25 @@ var jump_vel:= -1100.0
 var dir
 var can_jump:= true
 var jumping_grav := 200.0
-
+var gliding := false
 
 
 func _physics_process(delta: float) -> void:
 	dir = -(global_position.direction_to(get_global_mouse_position()))
-
+	
 
 	# Apply Gravity
 		
 	
 	if not is_on_floor():
-		velocity.y += get_grav(velocity) * delta
+		if Input.is_action_pressed("secondary") and StaminaCalc.current_stamina >= 1:
+			gliding = true
+		else:
+			gliding = false
+
+		velocity.y += get_grav(velocity, gliding) * delta
+		
+	
 		
 	# Jump on floor
 	if is_on_floor() and Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 4:

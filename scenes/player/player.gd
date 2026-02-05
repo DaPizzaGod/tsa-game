@@ -5,6 +5,7 @@ var gravity := 1200.0
 var accel := 1000.0
 var can_sub_stamina:= true
 var fall_gravity:= gravity + 800
+var glide_gravity:= gravity - 800
 
 func _ready() -> void:
 	add_to_group("Players")
@@ -24,7 +25,10 @@ func subtract_stamina(amount):
 func _on_sub_stamina_cooldown_timeout():
 	can_sub_stamina = true
 	
-func get_grav(vel: Vector2):
+func get_grav(vel: Vector2, gliding=false):
+	if gliding:
+		print("gliding")
+		return glide_gravity
 	if vel.y < 0:
 		return gravity
 	return fall_gravity
