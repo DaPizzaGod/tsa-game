@@ -43,11 +43,13 @@ func _physics_process(delta: float) -> void:
 		
 		
 
-	#move_and_slide()
 	#Move and Bounce
-	var collision_info = move_and_collide(velocity * delta)
-	if collision_info:
-		velocity = velocity.bounce(collision_info.get_normal())
+	move_and_slide()
+	var collision := move_and_collide(velocity * delta, true)
+	if collision:
+		var bounce_vel = velocity * 0.6
+		velocity = bounce_vel.bounce(collision.get_normal())
+	
 	
 	
 
