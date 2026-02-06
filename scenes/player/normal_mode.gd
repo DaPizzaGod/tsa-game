@@ -4,18 +4,24 @@ var jump_vel := -600.0
 var direction: float
 var running := false
 var running_bonus := 400.0
-
+var jump_buffer := false
 
 func _physics_process(delta: float) -> void:
 	var acc = accel * delta
 	# Apply Gravity
 	if not is_on_floor():
 		velocity.y += get_grav(velocity) * delta
+		if Input.is_action_just_pressed("jump"):
+			jump_buffer = true
+
 	
 	# Jump
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_vel
+	if is_on_floor():
+		if Input.is_action_just_pressed("jump") or jump_buffer:
+			velocity.y = jump_vel
+			jump_buffer = false
+		
 		
 	if Input.is_action_just_released("jump") and velocity.y < 0: 
 		velocity.y = jump_vel / 4
