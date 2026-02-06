@@ -17,12 +17,21 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		if Input.is_action_pressed("secondary") and StaminaCalc.current_stamina >= 1:
 			gliding = true
+			
 		else:
 			gliding = false
 
 		velocity.y += get_grav(velocity, gliding) * delta
 		
+	# gliding
 	
+	if gliding:
+
+		subtract_stamina(1)
+		velocity.x = min(velocity.x, max_speed - 300.0)
+		$Sprite2D.modulate = Color.BLUE_VIOLET
+	else:
+		$Sprite2D.modulate = Color(0.212, 0.694, 0.314, 1.0)
 		
 	# Jump on floor
 	if is_on_floor() and Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 4:
