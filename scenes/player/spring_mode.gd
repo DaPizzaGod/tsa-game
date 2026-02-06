@@ -2,15 +2,36 @@ extends PlayerParent
 
 var jump_vel:= -1100.0
 var dir
-var dir_radians
 var can_jump:= true
+var jumping_grav := 200.0
+var gliding := false
+
 
 func _physics_process(delta: float) -> void:
-	dir = (global_position.direction_to(get_global_mouse_position()))
-	dir_radians = dir.angle()
+	dir = -(global_position.direction_to(get_global_mouse_position()))
+	
+
 	# Apply Gravity
+		
+	
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		if Input.is_action_pressed("secondary") and StaminaCalc.current_stamina >= 1:
+			gliding = true
+			
+		else:
+			gliding = false
+
+		velocity.y += get_grav(velocity, gliding) * delta
+		
+	# gliding
+	
+	if gliding:
+
+		subtract_stamina(1)
+		velocity.x = min(velocity.x, max_speed - 300.0)
+		$Sprite2D.modulate = Color.BLUE_VIOLET
+	else:
+		$Sprite2D.modulate = Color(0.212, 0.694, 0.314, 1.0)
 		
 	# Jump on floor
 	if is_on_floor() and Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 4:
@@ -36,14 +57,23 @@ func _physics_process(delta: float) -> void:
 	
 		look_at(get_global_mouse_position())
 		
-	# Move
+		
+
+	#Move and Bounce
 	move_and_slide()
+	var collision := move_and_collide(velocity * delta, true)
+	if collision:
+		var bounce_vel = velocity * 0.6
+		velocity = bounce_vel.bounce(collision.get_normal())
+	
+	
+	
 
 func air_jump():
-	velocity.x = -dir.x * jump_vel
-	velocity.y = -dir.y * jump_vel
+	velocity = jump_vel * dir
 
-
+	
 func _on_jump_cooldown_timeout() -> void:
 	can_jump = true
+	
 	
