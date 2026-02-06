@@ -27,7 +27,7 @@ func _on_sub_stamina_cooldown_timeout():
 	
 func get_grav(vel: Vector2, gliding=false):
 	if gliding:
-		print("gliding")
+
 		return glide_gravity
 	if vel.y < 0:
 		return gravity
