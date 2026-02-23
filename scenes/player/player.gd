@@ -36,4 +36,3 @@ func get_grav(vel: Vector2, gliding=false):
 
 func update_player_pos():
 	ModeCalc.player_pos = position
-	print(ModeCalc.player_pos)

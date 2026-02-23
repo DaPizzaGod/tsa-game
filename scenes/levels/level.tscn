@@ -21,7 +21,7 @@ position = Vector2(935, 485)
 [node name="Lanterns" type="Node2D" parent="Objects"]
 
 [node name="Lantern" parent="Objects/Lanterns" instance=ExtResource("3_d4w6o")]
-position = Vector2(219, 163)
+position = Vector2(264, 202)
 
 [node name="StaminaCoins" type="Node2D" parent="Objects"]
 
