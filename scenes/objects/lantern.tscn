@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctprw77daraid"]
+[gd_scene load_steps=3 format=3 uid="uid://ctprw77daraid"]
 
 [ext_resource type="Texture2D" uid="uid://cyk1qgj00xv41" path="res://graphics/lantern.svg" id="1_443ya"]
+[ext_resource type="Script" uid="uid://dr3n6wxh6wio" path="res://scenes/objects/lantern.gd" id="1_bhjn2"]
 
 [node name="Lantern" type="RigidBody2D"]
-collision_layer = 32
+collision_layer = 64
 collision_mask = 11
+script = ExtResource("1_bhjn2")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -15,3 +17,5 @@ modulate = Color(0.95686275, 0.72156864, 0.89411765, 1)
 position = Vector2(6, 83)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_443ya")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

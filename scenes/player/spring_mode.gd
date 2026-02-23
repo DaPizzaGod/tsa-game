@@ -8,6 +8,7 @@ var gliding := false
 
 
 func _physics_process(delta: float) -> void:
+	update_player_pos()
 	dir = -(global_position.direction_to(get_global_mouse_position()))
 	
 

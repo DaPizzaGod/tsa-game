@@ -32,3 +32,8 @@ func get_grav(vel: Vector2, gliding=false):
 	if vel.y < 0:
 		return gravity
 	return fall_gravity
+
+
+func update_player_pos():
+	ModeCalc.player_pos = position
+	print(ModeCalc.player_pos)

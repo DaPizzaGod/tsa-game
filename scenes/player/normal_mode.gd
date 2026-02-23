@@ -12,6 +12,7 @@ var coyote_time := 0.1
 
 
 func _physics_process(delta: float) -> void:
+	update_player_pos()
 	var acc = accel * delta
 	# Apply Gravity
 	if not is_on_floor():

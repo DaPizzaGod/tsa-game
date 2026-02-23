@@ -15,7 +15,7 @@ func _ready() -> void:
 	$CanExitChecker/CollisionShape2D.disabled = false
 
 func _physics_process(delta: float) -> void:
-	
+	update_player_pos()
 	
 	if not ghost_mode:
 		var acc = accel * delta
