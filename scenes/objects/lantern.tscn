@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://ctprw77daraid"]
+[gd_scene load_steps=2 format=3 uid="uid://ctprw77daraid"]
+
+[ext_resource type="Texture2D" uid="uid://cyk1qgj00xv41" path="res://graphics/lantern.svg" id="1_443ya"]
 
 [node name="Lantern" type="RigidBody2D"]
+collision_layer = 32
+collision_mask = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 83)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_443ya")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(0, -58, -40, -16, -24, 52, 24, 54, 40, -16)
