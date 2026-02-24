@@ -1,5 +1,5 @@
 extends RigidBody2D
-var picked_up := false
+
 var pick_up_animation := false
 
 
@@ -16,7 +16,7 @@ func _physics_process(_delta: float) -> void:
 		tween.tween_property(self, "position", ThrowCalc.player_pos, 0.1).set_trans(Tween.TRANS_BOUNCE)
 		pick_up_animation = false
 		await tween.finished
-		picked_up = true
+		ThrowCalc.picked_up = true
 	
-	if picked_up:
+	if ThrowCalc.picked_up:
 		position = ThrowCalc.player_pos

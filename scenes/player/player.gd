@@ -6,6 +6,7 @@ var accel := 3000.0
 var can_sub_stamina:= true
 var fall_gravity:= gravity + 800
 var glide_gravity:= gravity - 800
+var throwing:= false
 
 func _ready() -> void:
 	add_to_group("Players")
@@ -35,3 +36,19 @@ func get_grav(vel: Vector2, gliding=false):
 
 func update_player_pos():
 	ThrowCalc.player_pos = position
+
+func throw_mode():
+	if ThrowCalc.picked_up:
+		if Input.is_action_just_pressed("throw mode"):
+			if not throwing:
+				throwing = true
+			else:
+				throwing = false
+			print(throwing)
+		
+		if not throwing:
+			return
+		
+		
+		
+	

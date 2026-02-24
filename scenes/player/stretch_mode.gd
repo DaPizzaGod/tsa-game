@@ -16,37 +16,41 @@ func _physics_process(delta: float) -> void:
 	# Apply Gravity
 	if not launching and not is_on_floor():
 		velocity.y += gravity * delta
-		
-	# Calculates arm
-	if current_hand:
-		arm.visible = true
-		arm.clear_points()
-		arm.add_point(Vector2.ZERO)
-		arm.add_point(current_hand.global_position - global_position)
-	else:
-		arm.visible = false
-	# Shoot hand
-	if Input.is_action_just_pressed("shoot") and current_hand == null and not ModeCalc.check_mode and StaminaCalc.current_stamina >= 1:
-		subtract_stamina(1)
-		spawn_hand()
 	
-	# launch/swing
-	
-	if Input.is_action_just_pressed("secondary") and current_hand and current_hand.attatched:
+	throw_mode()
+	if not throwing:
 		
-		launching = true
+			
+		# Calculates arm
+		if current_hand:
+			arm.visible = true
+			arm.clear_points()
+			arm.add_point(Vector2.ZERO)
+			arm.add_point(current_hand.global_position - global_position)
+		else:
+			arm.visible = false
+		# Shoot hand
+		if Input.is_action_just_pressed("shoot") and current_hand == null and not ModeCalc.check_mode and StaminaCalc.current_stamina >= 1:
+			subtract_stamina(1)
+			spawn_hand()
 		
-	if Input.is_action_just_pressed("other special action") and current_hand and current_hand.attatched:
-		swinging = true
+		# launch/swing
 		
-	if launching and current_hand and StaminaCalc.current_stamina >= 1:
+		if Input.is_action_just_pressed("secondary") and current_hand and current_hand.attatched:
+			
+			launching = true
+			
+		if Input.is_action_just_pressed("other special action") and current_hand and current_hand.attatched:
+			swinging = true
+			
+		if launching and current_hand and StaminaCalc.current_stamina >= 1:
+			
+			move_toward_hand()
 		
-		move_toward_hand()
-	
-	if swinging and current_hand and StaminaCalc.current_stamina >= 1:
-		swing_toward_hand(delta)
-	
-	# move
+		if swinging and current_hand and StaminaCalc.current_stamina >= 1:
+			swing_toward_hand(delta)
+		
+		# move
 	move_and_slide()
 
 	
