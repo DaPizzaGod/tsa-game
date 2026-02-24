@@ -114,7 +114,6 @@ func exit_ghost():
 	var unghost := false
 	await get_tree().physics_frame
 	if not $CanExitChecker.has_overlapping_bodies():
-		print("unghost")
 		unghost = true
 	
 	if unghost:
@@ -123,7 +122,9 @@ func exit_ghost():
 		$CollisionShape2D.disabled = false
 		ghost_mode = false
 	else:
-		print("overlapping something")
+		$Sprite2D.modulate = Color(1.0, 0.0, 0.0, 0.5)
+		await get_tree().create_timer(0.1).timeout
+		$Sprite2D.modulate = Color(0.251, 0.42, 0.769, 0.5)
 
 func _on_can_exit_timer_timeout():
 	can_exit = true
