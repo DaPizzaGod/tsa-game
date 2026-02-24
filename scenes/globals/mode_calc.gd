@@ -15,7 +15,7 @@ var new_player_pos
 var menu_count:= 0
 var reset_kill:= false #when resetting, kill the menu if present
 var swapping := false
-var player_pos: Vector2
+
 
 func _process(_delta: float) -> void:
 	# When shift is pressed

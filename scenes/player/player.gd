@@ -27,7 +27,6 @@ func _on_sub_stamina_cooldown_timeout():
 	
 func get_grav(vel: Vector2, gliding=false):
 	if gliding:
-
 		return glide_gravity
 	if vel.y < 0:
 		return gravity
@@ -35,4 +34,4 @@ func get_grav(vel: Vector2, gliding=false):
 
 
 func update_player_pos():
-	ModeCalc.player_pos = position
+	ThrowCalc.player_pos = position
