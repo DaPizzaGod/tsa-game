@@ -1,32 +1,30 @@
 extends RigidBody2D
 
-var pick_up_animation := false
+
 @onready var hitbox := $CollisionPolygon2D
 
 
 func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 	if not ThrowCalc.throwing:
-		hitbox.set_deferred("disabled", true)
+		hitbox.set_deferred("disabled", false)
 		if body.is_in_group("Players"):
 			ThrowCalc.lantern_holding = self
-			pick_up_animation = true
+			ThrowCalc.picked_up = true
 
-	else:
-		hitbox.set_deferred("disabled", false)
-		ThrowCalc.picked_up = false
-		pick_up_animation = false
+		
+
 		
 		
 func _physics_process(_delta: float) -> void:
-	if pick_up_animation:
-		var tween = create_tween()
-		tween.tween_property(self, "position", ThrowCalc.player_pos, 0.1).set_trans(Tween.TRANS_BOUNCE)
-		pick_up_animation = false
-		await tween.finished
-		ThrowCalc.picked_up = true
-	
+
 	if ThrowCalc.picked_up:
 		position = ThrowCalc.player_pos
 	
 	if StaminaCalc.respawn:
 		ThrowCalc.picked_up = false
+		
+	if ThrowCalc.throwing:
+		ThrowCalc.picked_up = false
+		hitbox.set_deferred("disabled", true)
+		await get_tree().create_timer(0.1).timeout
+		hitbox.set_deferred("disabled", false)

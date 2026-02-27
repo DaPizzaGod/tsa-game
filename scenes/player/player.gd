@@ -54,13 +54,14 @@ func throw_mode():
 				throwing = true
 			else:
 				throwing = false
-			print(throwing)
+
 		
 		if not throwing:
 			return
 			
 		if Input.is_action_just_pressed("shoot"):
 			ThrowCalc.throw_lantern(throw_force, get_forward_direction())
+			throwing = false
 		
 func draw_line_global(pointA: Vector2, pointB: Vector2, color, width:int = -1) -> void:
 	var local_offset := pointA - global_position

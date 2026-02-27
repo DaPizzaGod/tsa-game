@@ -8,6 +8,6 @@ func throw_lantern(throw_force, forward_dir):
 	throwing = true
 	lantern_holding.global_position = player_pos
 	lantern_holding.linear_velocity = throw_force * forward_dir
-	print("threw")
+	print(lantern_holding.linear_velocity)
+	await get_tree().create_timer(0.1).timeout
 	throwing = false
-	#lantern_holding = null
