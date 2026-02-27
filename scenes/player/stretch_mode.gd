@@ -12,6 +12,7 @@ func _ready() -> void:
 	$Hand.queue_free()
 
 func _physics_process(delta: float) -> void:
+	queue_redraw()
 	update_player_pos()
 	# Apply Gravity
 	if not launching and not is_on_floor():

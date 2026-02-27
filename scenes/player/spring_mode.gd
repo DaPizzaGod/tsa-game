@@ -8,6 +8,7 @@ var gliding := false
 
 
 func _physics_process(delta: float) -> void:
+	queue_redraw()
 	update_player_pos()
 	# Apply Gravity
 	if not is_on_floor():

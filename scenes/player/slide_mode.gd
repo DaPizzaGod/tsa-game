@@ -15,6 +15,7 @@ func _ready() -> void:
 	$CanExitChecker/CollisionShape2D.disabled = false
 
 func _physics_process(delta: float) -> void:
+	queue_redraw()
 	update_player_pos()
 	if not ghost_mode:
 			
