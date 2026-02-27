@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuwtk6cr20kh4"]
+[gd_scene format=3 uid="uid://cuwtk6cr20kh4"]
 
 [ext_resource type="Script" uid="uid://bahw2uwuwdwc4" path="res://scenes/player/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://bi7jrsrb0su5i" path="res://scenes/player/camera_2d.gd" id="2_dovo2"]
@@ -6,11 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 481.00415
 
-[node name="Player" type="CharacterBody2D" groups=["Players"]]
+[node name="Player" type="CharacterBody2D" unique_id=444536612 groups=["Players"]]
 collision_mask = 10
 script = ExtResource("1_g2els")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2119919895]
 zoom = Vector2(0.6, 0.6)
 limit_enabled = false
 position_smoothing_speed = 3.0
@@ -23,8 +23,8 @@ drag_top_margin = 0.25
 drag_right_margin = 0.0
 script = ExtResource("2_dovo2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=158541579]
 scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_gmlin")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2145137670]

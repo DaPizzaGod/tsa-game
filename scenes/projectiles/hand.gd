@@ -22,5 +22,6 @@ func _on_self_destruct_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Level"):
+
+	if body.is_in_group("Level") or body.is_in_group("Lantern"):
 		attatched = true

@@ -7,7 +7,7 @@ var can_sub_stamina:= true
 var fall_gravity:= gravity + 800
 var glide_gravity:= gravity - 800
 var throwing:= false
-var throw_force := 1300.0
+var throw_force := 1500.0
 
 
 func _draw() -> void:
@@ -61,6 +61,7 @@ func throw_mode():
 			
 		if Input.is_action_just_pressed("shoot"):
 			ThrowCalc.throw_lantern(throw_force, get_forward_direction())
+			await get_tree().create_timer(0.1).timeout
 			throwing = false
 		
 func draw_line_global(pointA: Vector2, pointB: Vector2, color, width:int = -1) -> void:
@@ -76,7 +77,7 @@ func update_trajectory():
 	var timestep := 0.02
 	var colors := [Color.AQUAMARINE, Color.CHOCOLATE]
 	
-	for i:int in 70:
+	for i:int in 30:
 		vel.y += gravity * timestep
 		line_end = line_start + (vel * timestep)
 		vel = vel * clampf(1.0 - drag * timestep, 0, 1)
