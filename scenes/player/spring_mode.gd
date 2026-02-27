@@ -25,17 +25,12 @@ func _physics_process(delta: float) -> void:
 		dir = -(global_position.direction_to(get_global_mouse_position()))
 		
 
-
-			
-		
-		
-			
 		# gliding
 		
 		if gliding:
 
 			subtract_stamina(1)
-			velocity.x = min(velocity.x, max_speed - 300.0)
+			velocity.x = min(velocity.x, max_speed - 50.0)
 			$Sprite2D.modulate = Color.BLUE_VIOLET
 		else:
 			$Sprite2D.modulate = Color(0.212, 0.694, 0.314, 1.0)

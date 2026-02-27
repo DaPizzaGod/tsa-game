@@ -78,7 +78,7 @@ func update_trajectory():
 	var timestep := 0.02
 	var colors := [Color.AQUAMARINE, Color.CHOCOLATE]
 	
-	for i:int in 30:
+	for i:int in 45:
 		vel.y += gravity * timestep
 		line_end = line_start + (vel * timestep)
 		vel = vel * clampf(1.0 - drag * timestep, 0, 1)

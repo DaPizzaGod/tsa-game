@@ -3,6 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://cyk1qgj00xv41" path="res://graphics/lantern.svg" id="1_443ya"]
 [ext_resource type="Script" uid="uid://dr3n6wxh6wio" path="res://scenes/objects/lantern.gd" id="1_bhjn2"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bhjn2"]
+friction = 0.75
+rough = true
+bounce = 0.5
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_bhjn2"]
 radius = 35.902645
 
@@ -10,6 +15,7 @@ radius = 35.902645
 z_index = 1
 collision_layer = 64
 collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_bhjn2")
 script = ExtResource("1_bhjn2")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1692504064]

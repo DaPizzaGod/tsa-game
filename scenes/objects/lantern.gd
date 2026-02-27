@@ -12,9 +12,10 @@ func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 			ThrowCalc.picked_up = true
 
 		
+func _ready() -> void:
+	ThrowCalc.picked_up = false
+	
 
-		
-		
 func _physics_process(_delta: float) -> void:
 
 	if ThrowCalc.picked_up:
@@ -23,9 +24,7 @@ func _physics_process(_delta: float) -> void:
 		hitbox.set_deferred("disabled", true)
 	else:
 		hitbox.set_deferred("disabled", false)
-	
-	if StaminaCalc.respawn:
-		ThrowCalc.picked_up = false
+
 		
 	if ThrowCalc.throwing:
 		ThrowCalc.picked_up = false
