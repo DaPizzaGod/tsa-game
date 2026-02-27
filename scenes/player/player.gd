@@ -63,6 +63,7 @@ func throw_mode():
 			ThrowCalc.throw_lantern(throw_force, get_forward_direction())
 			await get_tree().create_timer(0.1).timeout
 			throwing = false
+			subtract_stamina(2)
 		
 func draw_line_global(pointA: Vector2, pointB: Vector2, color, width:int = -1) -> void:
 	var local_offset := pointA - global_position

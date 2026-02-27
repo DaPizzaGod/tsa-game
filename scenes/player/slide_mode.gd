@@ -101,7 +101,7 @@ func _physics_process(delta: float) -> void:
 func go_into_ghost():
 	can_exit = false
 	$CollisionShape2D.disabled = true
-	print("ghost")
+
 	ghost_mode = true
 	var can_exit_timer = Timer.new()
 	add_child(can_exit_timer)
