@@ -12,12 +12,13 @@ script = ExtResource("1_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2119919895]
 zoom = Vector2(0.6, 0.6)
+process_callback = 0
 limit_enabled = false
+position_smoothing_enabled = true
 position_smoothing_speed = 3.0
-drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_horizontal_offset = 1.0
-drag_vertical_offset = -0.5
+drag_horizontal_offset = 0.5
+drag_vertical_offset = 1.0
 drag_left_margin = 0.4
 drag_top_margin = 0.25
 drag_right_margin = 0.0

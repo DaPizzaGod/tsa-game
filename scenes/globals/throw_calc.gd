@@ -5,6 +5,7 @@ var lantern_holding: RigidBody2D
 var throwing:= false
 var lantern_pos: Vector2
 var has_lantern := false
+var hand_lantern_attatched := false
 
 
 func throw_lantern(throw_force, forward_dir):

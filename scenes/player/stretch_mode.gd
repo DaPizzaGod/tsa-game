@@ -52,6 +52,7 @@ func _physics_process(delta: float) -> void:
 			swing_toward_hand(delta)
 		
 		# move
+	
 	move_and_slide()
 
 	
@@ -71,10 +72,12 @@ func _on_hand_removed():
 	current_hand = null
 	
 func move_toward_hand():
+
 	var to_hand = current_hand.global_position - global_position
 	var distance = to_hand.length()
 
 	if distance < stop_distance:
+
 		launching = false
 		velocity = Vector2.ZERO
 		current_hand.queue_free()
@@ -84,6 +87,7 @@ func move_toward_hand():
 	subtract_stamina(1)
 
 func swing_toward_hand(delta: float):
+
 	var swing_velocity = (current_hand.global_position - global_position)
 	
 	if swing_velocity.y > 0:
@@ -98,5 +102,6 @@ func swing_toward_hand(delta: float):
 		velocity += swing_velocity * delta
 		subtract_stamina(1)
 	else:
+
 		swinging = false
 		return
