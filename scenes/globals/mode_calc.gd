@@ -16,6 +16,7 @@ var menu_count:= 0
 var reset_kill:= false #when resetting, kill the menu if present
 var swapping := false
 
+
 func _process(_delta: float) -> void:
 	# When shift is pressed
 	if Input.is_action_just_pressed("switch mode") and menu_count == 0 and StaminaCalc.current_stamina >= 1:

@@ -12,6 +12,8 @@ var coyote_time := 0.1
 
 
 func _physics_process(delta: float) -> void:
+	queue_redraw()
+	update_player_pos()
 	var acc = accel * delta
 	# Apply Gravity
 	if not is_on_floor():
@@ -25,43 +27,47 @@ func _physics_process(delta: float) -> void:
 			jump_buffer = false
 	else:
 		jump_available = true
-
 	
-	# Jump
-	
-	if jump_available:
-		if Input.is_action_just_pressed("jump") or jump_buffer:
-			velocity.y = jump_vel
-			jump_buffer = false
-			jump_available = false
+	throw_mode()
+	if not throwing:
 		
-		
-	if Input.is_action_just_released("jump") and velocity.y < 0: 
-		velocity.y = jump_vel / 4
-	# Left and Right
-	
-	if Input.is_action_pressed("right"):
-		direction = min(direction + acc, max_speed)
-	elif Input.is_action_pressed("left"):
-		direction = max(direction - acc, -max_speed)
-		
-	else:
-		direction = move_toward(direction, 0.0, acc)
 
-	velocity.x = direction
-	
-	if Input.is_action_just_pressed("shoot"):
-		run()
+		
+		# Jump
+		
+		if jump_available:
+			if Input.is_action_just_pressed("jump") or jump_buffer:
+				velocity.y = jump_vel
+				jump_buffer = false
+				jump_available = false
+			
+			
+		if Input.is_action_just_released("jump") and velocity.y < 0: 
+			velocity.y = jump_vel / 4
+		# Left and Right
+		
+		if Input.is_action_pressed("right"):
+			direction = min(direction + acc, max_speed)
+		elif Input.is_action_pressed("left"):
+			direction = max(direction - acc, -max_speed)
+			
+		else:
+			direction = move_toward(direction, 0.0, acc)
 
-	if running:
-		$Sprite2D.modulate = Color.AQUAMARINE
-		subtract_stamina(1)
-		if !Input.is_action_pressed("shoot"):
-			max_speed -= running_bonus
-			running = false
-	else:
-		$Sprite2D.modulate = Color.WHITE
-	# Move
+		velocity.x = direction
+		
+		if Input.is_action_just_pressed("shoot"):
+			run()
+
+		if running:
+			$Sprite2D.modulate = Color.AQUAMARINE
+			subtract_stamina(1)
+			if !Input.is_action_pressed("shoot"):
+				max_speed -= running_bonus
+				running = false
+		else:
+			$Sprite2D.modulate = Color.WHITE
+		# Move
 	move_and_slide() 
 
 	

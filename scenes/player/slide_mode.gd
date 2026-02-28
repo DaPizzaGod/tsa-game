@@ -15,91 +15,93 @@ func _ready() -> void:
 	$CanExitChecker/CollisionShape2D.disabled = false
 
 func _physics_process(delta: float) -> void:
-	
-	
+	queue_redraw()
+	update_player_pos()
 	if not ghost_mode:
-		var acc = accel * delta
-		# Gravity
-		if not is_on_floor() and not ceiling_sticky and not wall_sticky:
-			velocity.y += gravity * delta
-		
-		# Make sticky
-		if is_on_ceiling():
-			ceiling_sticky = true
-			velocity.y = min(velocity.y, 0)
-		else:
-			ceiling_sticky = false
-		
-		if is_on_wall():
-			wall_sticky = true
-			wall_direction = Input.get_axis("jump", "down")
-			velocity.y = wall_direction * max_speed
-		else:
-			wall_sticky = false
-			wall_direction = 0
-		
-	
-		
-		
-		
 			
-		# Side to side movement
-		if is_on_floor() or ceiling_sticky:
-			if Input.is_action_pressed("right"):
-				direction = min(direction + acc, max_speed)
-			elif Input.is_action_pressed("left"):
-				direction = max(direction - acc, -max_speed)
+			# Gravity
+			if not is_on_floor() and not ceiling_sticky and not wall_sticky:
+				velocity.y += gravity * delta
+			
+			# Make sticky
+			if is_on_ceiling():
+				ceiling_sticky = true
+				velocity.y = min(velocity.y, 0)
 			else:
-				direction = move_toward(direction, 0.0, acc)
-		velocity.x = direction
+				ceiling_sticky = false
+			
+			if is_on_wall():
+				wall_sticky = true
+				wall_direction = Input.get_axis("jump", "down")
+				velocity.y = wall_direction * max_speed
+			else:
+				wall_sticky = false
+				wall_direction = 0
+	
+	throw_mode()
+	if not throwing:
 		
-		# Shrinking
 		
-		if Input.is_action_just_pressed("secondary") and StaminaCalc.current_stamina >= 2:
-			shrink *= -1
+		
+		if not ghost_mode:
+			var acc = accel * delta
+			# Side to side movement
+			if is_on_floor() or ceiling_sticky:
+				if Input.is_action_pressed("right"):
+					direction = min(direction + acc, max_speed)
+				elif Input.is_action_pressed("left"):
+					direction = max(direction - acc, -max_speed)
+				else:
+					direction = move_toward(direction, 0.0, acc)
+			velocity.x = direction
+			
+			# Shrinking
+			
+			if Input.is_action_just_pressed("secondary") and StaminaCalc.current_stamina >= 2:
+				shrink *= -1
+				subtract_stamina(2)
+				
+				
+			
+			if shrink == -1:
+
+				var tween:= create_tween()
+				tween.set_parallel(true)
+				tween.tween_property($Sprite2D, "scale", Vector2(0.05, 0.05), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property($CollisionShape2D, "scale", Vector2(0.05, 0.05), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property($CanExitChecker/CollisionShape2D, "scale", Vector2(0.5, 0.5), 0.2).set_ease(Tween.EASE_IN_OUT)
+				
+			else:
+
+				var tween:= create_tween()
+				tween.set_parallel(true)
+				tween.tween_property($Sprite2D, "scale", Vector2(0.1, 0.1), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property($CollisionShape2D, "scale", Vector2(0.1, 0.1), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property($CanExitChecker/CollisionShape2D, "scale", Vector2(1, 1), 0.2).set_ease(Tween.EASE_IN_OUT)
+
+		# Ghost
+		
+		if is_on_floor() and Input.is_action_just_pressed("other special action") and !wall_sticky and !ceiling_sticky and StaminaCalc.current_stamina >= 3:
+			go_into_ghost()
+			subtract_stamina(3)
+
+		if ghost_mode:
+			var dir := Input.get_axis("left", "right")
+			velocity.x = dir * ghost_move_speed
+			velocity.y = 0
 			subtract_stamina(2)
 			
+			if Input.is_action_just_pressed("other special action") and can_exit:
+				exit_ghost()
+				
+
 			
-		
-		if shrink == -1:
-
-			var tween:= create_tween()
-			tween.set_parallel(true)
-			tween.tween_property($Sprite2D, "scale", Vector2(0.05, 0.05), 0.2).set_ease(Tween.EASE_IN_OUT)
-			tween.tween_property($CollisionShape2D, "scale", Vector2(0.05, 0.05), 0.2).set_ease(Tween.EASE_IN_OUT)
-			tween.tween_property($CanExitChecker/CollisionShape2D, "scale", Vector2(0.5, 0.5), 0.2).set_ease(Tween.EASE_IN_OUT)
-			
-		else:
-
-			var tween:= create_tween()
-			tween.set_parallel(true)
-			tween.tween_property($Sprite2D, "scale", Vector2(0.1, 0.1), 0.2).set_ease(Tween.EASE_IN_OUT)
-			tween.tween_property($CollisionShape2D, "scale", Vector2(0.1, 0.1), 0.2).set_ease(Tween.EASE_IN_OUT)
-			tween.tween_property($CanExitChecker/CollisionShape2D, "scale", Vector2(1, 1), 0.2).set_ease(Tween.EASE_IN_OUT)
-
-	# Ghost
-	
-	if is_on_floor() and Input.is_action_just_pressed("other special action") and !wall_sticky and !ceiling_sticky and StaminaCalc.current_stamina >= 3:
-		go_into_ghost()
-		subtract_stamina(3)
-
-	if ghost_mode:
-		var dir := Input.get_axis("left", "right")
-		velocity.x = dir * ghost_move_speed
-		velocity.y = 0
-		subtract_stamina(2)
-		
-		if Input.is_action_just_pressed("other special action") and can_exit:
-			exit_ghost()
-			
-
-		
-	move_and_slide()	
+	move_and_slide()
 
 func go_into_ghost():
 	can_exit = false
 	$CollisionShape2D.disabled = true
-	print("ghost")
+
 	ghost_mode = true
 	var can_exit_timer = Timer.new()
 	add_child(can_exit_timer)
@@ -111,15 +113,20 @@ func go_into_ghost():
 	tween.tween_property($Sprite2D, "modulate:a", 0.5, 0.3).set_ease(Tween.EASE_IN_OUT)
 	
 func exit_ghost():
+	var unghost := false
 	await get_tree().physics_frame
-
 	if not $CanExitChecker.has_overlapping_bodies():
+		unghost = true
+	
+	if unghost:
 		var tween:= create_tween()
 		tween.tween_property($Sprite2D, "modulate:a", 1, 0.3).set_ease(Tween.EASE_IN_OUT)
 		$CollisionShape2D.disabled = false
 		ghost_mode = false
 	else:
-		print("overlapping something")
+		$Sprite2D.modulate = Color(1.0, 0.0, 0.0, 0.5)
+		await get_tree().create_timer(0.1).timeout
+		$Sprite2D.modulate = Color(0.251, 0.42, 0.769, 0.5)
 
 func _on_can_exit_timer_timeout():
 	can_exit = true
