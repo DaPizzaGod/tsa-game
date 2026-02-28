@@ -25,7 +25,7 @@ func _on_self_destruct_timeout() -> void:
 	queue_free()
 	ThrowCalc.hand_lantern_attatched = false
 	
-
+ 
 
 func _on_body_entered(body: Node2D) -> void:
 
