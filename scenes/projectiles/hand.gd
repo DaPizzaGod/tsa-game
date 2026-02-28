@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 
 func _on_self_destruct_timeout() -> void:
 	queue_free()
+	ThrowCalc.hand_lantern_attatched = false
 	
 
 
@@ -35,3 +36,5 @@ func _on_body_entered(body: Node2D) -> void:
 		#lantern_attatched = true
 		attatched = true
 		ThrowCalc.hand_lantern_attatched = true
+	else:
+		ThrowCalc.hand_lantern_attatched = false

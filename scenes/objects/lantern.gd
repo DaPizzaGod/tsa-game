@@ -35,9 +35,7 @@ func _physics_process(_delta: float) -> void:
 		hitbox.set_deferred("disabled", false)
 	
 	if ThrowCalc.hand_lantern_attatched:
-		#print(linear_velocity)
-		#var old_vel = linear_velocity
-		linear_velocity = Vector2.ZERO
+		set_freeze_enabled(true)
 		await get_tree().create_timer(1.5).timeout
-		linear_velocity = Vector2(0, ProjectSettings.get_setting("physics/2d/default_gravity"))
+		set_freeze_enabled(false)
 		
