@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			$Sprite2D.modulate = Color(0.212, 0.694, 0.314, 1.0)
 			
 		# Jump on floor
-		if is_on_floor() and Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 4:
+		if is_on_floor() and Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 4 and not gliding:
 			velocity.y = jump_vel
 			$JumpCooldown.start()
 			can_jump = false
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		
 		if not is_on_floor():
 			
-			if Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 4:
+			if Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 4 and not gliding:
 				air_jump()
 				$JumpCooldown.start()
 				can_jump = false
@@ -58,6 +58,8 @@ func _physics_process(delta: float) -> void:
 
 		
 			look_at(get_global_mouse_position())
+		else:
+			gliding = false
 			
 			
 
