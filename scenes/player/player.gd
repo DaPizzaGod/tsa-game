@@ -79,18 +79,28 @@ func update_trajectory():
 	var line_end:Vector2
 	var drag:float = ProjectSettings.get_setting("physics/2d/default_linear_damp")
 	var timestep := 0.02
-	var colors := [Color.AQUAMARINE, Color.CHOCOLATE]
+	var colors := [Color.CRIMSON, Color(0.0, 0.0, 0.0, 0.0)]
 	
 	for i:int in 45:
 		vel.y += gravity * timestep
 		line_end = line_start + (vel * timestep)
 		vel = vel * clampf(1.0 - drag * timestep, 0, 1)
-		'''
-		var ray := PhysicsRayQueryParameters2D.create(line_start, line_end)
+
+		var ray = raycast_query2d(line_start, line_end)
+		
 		if not ray.is_empty():
 			break
-		'''
+	
 		draw_line_global(line_start, line_end, colors[i%2])
 		line_start = line_end
 
+func raycast_query2d(pointA:Vector2, pointB:Vector2):
+	var space_state := get_world_2d().direct_space_state
+	var query := PhysicsRayQueryParameters2D.create(pointA, pointB, 2)
+	var result := space_state.intersect_ray(query)
+	
+	if result:
+		return result
+	else:
+		return {}
 	
