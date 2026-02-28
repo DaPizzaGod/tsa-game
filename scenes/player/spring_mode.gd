@@ -5,14 +5,14 @@ var dir
 var can_jump:= true
 var jumping_grav := 200.0
 var gliding := false
-
+var collision
 
 func _physics_process(delta: float) -> void:
 	queue_redraw()
 	update_player_pos()
 	# Apply Gravity
 	if not is_on_floor():
-		if Input.is_action_pressed("secondary") and StaminaCalc.current_stamina >= 1:
+		if Input.is_action_pressed("secondary") and StaminaCalc.current_stamina >= 1 and not is_on_wall() and not is_on_ceiling() and not is_on_floor():
 			gliding = true
 			
 		else:
@@ -42,9 +42,9 @@ func _physics_process(delta: float) -> void:
 			can_jump = false
 			subtract_stamina(4)
 		
-		if is_on_floor():
+		if is_on_floor() or throwing:
 			$Sprite2D/Arrow.hide()
-		else:
+		elif not is_on_floor() and not throwing:
 			$Sprite2D/Arrow.show()
 
 		
@@ -63,8 +63,9 @@ func _physics_process(delta: float) -> void:
 
 		#Move and Bounce
 	move_and_slide()
-	var collision := move_and_collide(velocity * delta, true)
-	if collision:
+	collision = move_and_collide(velocity * delta, true)
+	if collision and not gliding:
+		gliding = false
 		var bounce_vel = velocity * 0.6
 		velocity = bounce_vel.bounce(collision.get_normal())
 	

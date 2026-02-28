@@ -15,7 +15,9 @@ func _draw() -> void:
 		update_trajectory()
 
 func get_forward_direction() -> Vector2:
+
 	return global_position.direction_to(get_global_mouse_position())
+	
 
 func _ready() -> void:
 	add_to_group("Players")
@@ -58,7 +60,8 @@ func throw_mode():
 		
 		if not throwing:
 			return
-			
+		rotation_degrees = 0.0
+		
 		if Input.is_action_just_pressed("shoot"):
 			ThrowCalc.throw_lantern(throw_force, get_forward_direction())
 			await get_tree().create_timer(0.1).timeout
