@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://beu7tv0tpyi1w"]
+
+[ext_resource type="Texture2D" uid="uid://cfbdwhgfus0kn" path="res://graphics/lantern_hook.png" id="1_4u3k6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qft56"]
+radius = 62.072536
+
+[node name="LanternHook" type="StaticBody2D" groups=["LanternHook"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.48963177
+scale = Vector2(0.74804395, 0.74769956)
+texture = ExtResource("1_4u3k6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(34, -10)
+shape = SubResource("CircleShape2D_qft56")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c32kxtrw25xtu"]
+[gd_scene load_steps=8 format=3 uid="uid://c32kxtrw25xtu"]
 
 [ext_resource type="Script" uid="uid://ccmwa80u3odnb" path="res://scenes/levels/level.gd" id="1_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://c5nxeuwwv0ju6" path="res://scenes/objects/walls.tscn" id="1_bovvr"]
 [ext_resource type="PackedScene" uid="uid://kmb4ykxan2eg" path="res://scenes/ui/player_ui.tscn" id="3_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://ctprw77daraid" path="res://scenes/objects/lantern.tscn" id="3_d4w6o"]
 [ext_resource type="PackedScene" uid="uid://fgoo8i1cffua" path="res://scenes/objects/stamina_coin.tscn" id="3_xb4v1"]
+[ext_resource type="PackedScene" uid="uid://beu7tv0tpyi1w" path="res://scenes/objects/lantern_hook.tscn" id="4_mbbpy"]
 [ext_resource type="PackedScene" uid="uid://mxnnjigi0g0n" path="res://scenes/objects/pillow.tscn" id="4_urvlt"]
 
 [node name="Level" type="Node2D"]
@@ -22,6 +23,9 @@ position = Vector2(935, 485)
 
 [node name="Lantern" parent="Objects/Lanterns" instance=ExtResource("3_d4w6o")]
 position = Vector2(264, 202)
+
+[node name="LanternHook" parent="Objects/Lanterns" instance=ExtResource("4_mbbpy")]
+position = Vector2(-586, -1125)
 
 [node name="StaminaCoins" type="Node2D" parent="Objects"]
 
