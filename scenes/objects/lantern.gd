@@ -10,13 +10,14 @@ func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 		if body.is_in_group("Players") and not hooked:
 			ThrowCalc.lantern_holding = self
 			ThrowCalc.picked_up = true
-	elif body.is_in_group("LanternHook"):
+	if body.is_in_group("LanternHook"):
+		print("hook")
 		stay_hooked(body.position)
 		
 		
 func stay_hooked(lantern_hook_pos):
 	hooked = true
-	hitbox.set_deferred("disabled", true)
+	hitbox.disabled = true
 	while true:
 		position = lantern_hook_pos
 		
@@ -35,7 +36,7 @@ func _physics_process(_delta: float) -> void:
 	else:
 		hitbox.set_deferred("disabled", false)
 		
-
+	print(hitbox.disabled)
 		
 	if ThrowCalc.throwing:
 		ThrowCalc.picked_up = false
