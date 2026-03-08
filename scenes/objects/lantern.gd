@@ -2,15 +2,27 @@ extends RigidBody2D
 
 
 @onready var hitbox := $CollisionPolygon2D
-
+var hooked := false
+var lantern_hook_pos :Vector2
 
 func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 	if not ThrowCalc.throwing:
-		hitbox.set_deferred("disabled", false)
-		if body.is_in_group("Players"):
+		if body.is_in_group("Players") and not hooked:
 			ThrowCalc.lantern_holding = self
 			ThrowCalc.picked_up = true
+	if body.is_in_group("LanternHook"):
+		
+		get_hooked()
+		lantern_hook_pos = body.position
+		
+		
+func get_hooked():
+	ThrowCalc.current_lanterns += 1
+	hooked = true
+	hitbox.set_deferred("disabled", true)
+	
 
+		
 		
 func _ready() -> void:
 	ThrowCalc.picked_up = false
@@ -18,6 +30,9 @@ func _ready() -> void:
 	
 
 func _physics_process(_delta: float) -> void:
+	if hooked:
+		position = lantern_hook_pos
+		print(ThrowCalc.current_lanterns)
 	
 	if ThrowCalc.picked_up:
 

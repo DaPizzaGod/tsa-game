@@ -10,12 +10,13 @@ var spring: PackedScene = preload("res://scenes/player/spring_mode.tscn")
 var slide: PackedScene = preload("res://scenes/player/slide_mode.tscn")
 @onready var menus = $Menus
 var transition_layer: PackedScene = preload("res://scenes/globals/transition_layer.tscn")
-
+var transitions:= 0
 
 func _ready() -> void:
 	$PlayerNode.add_child(normal.instantiate())
 	swap_player(normal, $SpawnPoint.global_position)
 	ModeCalc.menu_root = menus
+	ThrowCalc.max_lanterns = 1
 
 
 
@@ -38,26 +39,31 @@ func _process(_delta: float) -> void:
 		
 	
 	if StaminaCalc.respawn:
+		if transitions == 0:
+			transitions += 1
+		else:
+			return
+		
 		$PlayerUI.hide()
-		ModeCalc.reset_kill = true
+
+		for i in $TransitionParent.get_children():
+			i.queue_free()
+		
 		
 		swap_player(normal, $SpawnPoint.global_position)
-		StaminaCalc.respawn = false
 		new_transition = transition_layer.instantiate()
 		$TransitionParent.add_child(new_transition)
 		new_transition.fade()
-		var kill_wait := Timer.new()
-		kill_wait.one_shot = true
-		kill_wait.wait_time = 1.5
-		add_child(kill_wait)
-		kill_wait.timeout.connect(_on_kill_wait_timeout)
-		kill_wait.start()
+		await new_transition.animation_player.animation_finished
+		StaminaCalc.respawn = false
+		StaminaCalc.update_stamina = true
+		$PlayerUI.show()
+		new_transition.queue_free()
 
-func _on_kill_wait_timeout():
-	$PlayerUI.show()
-	new_transition.queue_free()
+
 		
 func swap_player(scene: PackedScene, pos = null):
+	
 	ModeCalc.swapping = true
 	var old_player = get_tree().get_nodes_in_group("Players")[0]
 	var old_pos = old_player.global_position
