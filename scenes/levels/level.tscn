@@ -13,12 +13,13 @@
 script = ExtResource("1_b2cq8")
 
 [node name="CameraZones" type="Node2D" parent="." unique_id=611186523]
-visible = false
 
-[node name="CameraArea" type="Node2D" parent="CameraZones" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "boundary") groups=["CameraArea"]]
+[node name="CameraArea" type="Node2D" parent="CameraZones" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "center_boundary") groups=["CameraArea"]]
 script = ExtResource("2_ouxo3")
+zoom_level = 0.6
 jurisdiction = NodePath("Jurisdiction")
-boundary = NodePath("Boundary")
+center_boundary = NodePath("Boundary")
+enter_ease = 2
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea" unique_id=73804227]
 position = Vector2(0, 15)
@@ -29,26 +30,27 @@ polygon = PackedVector2Array(-2430, 223, -2422, -2105, -525, -1918, 2202, -501, 
 color = Color(1, 0, 1, 1)
 polygon = PackedVector2Array(-2139, -199, -2022, -1683, -315, -1472, 1603, -388, 1559, -154, -70, -65, -332, -1349, -1761, -1483, -1911, 7)
 
-[node name="CameraArea2" type="Node2D" parent="CameraZones" unique_id=2081586789 node_paths=PackedStringArray("jurisdiction", "boundary") groups=["CameraArea"]]
+[node name="CameraArea2" type="Node2D" parent="CameraZones" unique_id=2081586789 node_paths=PackedStringArray("jurisdiction", "focus_point") groups=["CameraArea"]]
 script = ExtResource("2_ouxo3")
+area_type = 1
 jurisdiction = NodePath("Jurisdiction")
-boundary = NodePath("Boundary")
+focus_point = NodePath("FocusPoint")
+enter_ease = 0
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea2" unique_id=1718970344]
 position = Vector2(3147, 399)
 color = Color(1, 1, 0, 1)
 polygon = PackedVector2Array(-782, -208, -721, -931, -154, -1359, 1175, -1276, 1125, -197)
 
-[node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea2" unique_id=169981153]
-position = Vector2(4049, 101)
-color = Color(1, 0, 1, 1)
-polygon = PackedVector2Array(-1559, -17, -1246, -538, -776, -740, -205, -664, -301, -154)
+[node name="FocusPoint" type="Marker2D" parent="CameraZones/CameraArea2" unique_id=761088426]
+position = Vector2(3396, -247)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1089512862]
 position = Vector2(-530, 7)
 
 [node name="Walls" parent="." unique_id=1609134786 instance=ExtResource("1_bovvr")]
 position = Vector2(935, 485)
+metadata/_edit_lock_ = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=275572278]
 
