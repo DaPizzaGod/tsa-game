@@ -29,6 +29,21 @@ polygon = PackedVector2Array(-2430, 223, -2422, -2105, -525, -1918, 2202, -501, 
 color = Color(1, 0, 1, 1)
 polygon = PackedVector2Array(-2139, -199, -2022, -1683, -315, -1472, 1603, -388, 1559, -154, -70, -65, -332, -1349, -1761, -1483, -1911, 7)
 
+[node name="CameraArea2" type="Node2D" parent="CameraZones" unique_id=2081586789 node_paths=PackedStringArray("jurisdiction", "boundary") groups=["CameraArea"]]
+script = ExtResource("2_ouxo3")
+jurisdiction = NodePath("Jurisdiction")
+boundary = NodePath("Boundary")
+
+[node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea2" unique_id=1718970344]
+position = Vector2(3147, 399)
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-782, -208, -721, -931, -154, -1359, 1175, -1276, 1125, -197)
+
+[node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea2" unique_id=169981153]
+position = Vector2(4049, 101)
+color = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-1559, -17, -1246, -538, -776, -740, -205, -664, -301, -154)
+
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1089512862]
 position = Vector2(-530, 7)
 
