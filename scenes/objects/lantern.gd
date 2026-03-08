@@ -11,13 +11,17 @@ func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 			ThrowCalc.lantern_holding = self
 			ThrowCalc.picked_up = true
 	if body.is_in_group("LanternHook"):
+		
 		get_hooked()
 		lantern_hook_pos = body.position
 		
 		
 func get_hooked():
+	ThrowCalc.current_lanterns += 1
 	hooked = true
 	hitbox.set_deferred("disabled", true)
+	
+
 		
 		
 func _ready() -> void:
@@ -28,6 +32,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if hooked:
 		position = lantern_hook_pos
+		print(ThrowCalc.current_lanterns)
 	
 	if ThrowCalc.picked_up:
 

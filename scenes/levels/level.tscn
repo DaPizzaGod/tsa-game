@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c32kxtrw25xtu"]
+[gd_scene format=3 uid="uid://c32kxtrw25xtu"]
 
 [ext_resource type="Script" uid="uid://ccmwa80u3odnb" path="res://scenes/levels/level.gd" id="1_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://c5nxeuwwv0ju6" path="res://scenes/objects/walls.tscn" id="1_bovvr"]
@@ -8,61 +8,61 @@
 [ext_resource type="PackedScene" uid="uid://beu7tv0tpyi1w" path="res://scenes/objects/lantern_hook.tscn" id="4_mbbpy"]
 [ext_resource type="PackedScene" uid="uid://mxnnjigi0g0n" path="res://scenes/objects/pillow.tscn" id="4_urvlt"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" unique_id=725933420]
 script = ExtResource("1_b2cq8")
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1089512862]
 position = Vector2(-530, 7)
 
-[node name="Walls" parent="." instance=ExtResource("1_bovvr")]
+[node name="Walls" parent="." unique_id=1609134786 instance=ExtResource("1_bovvr")]
 position = Vector2(935, 485)
 
-[node name="Objects" type="Node2D" parent="."]
+[node name="Objects" type="Node2D" parent="." unique_id=275572278]
 
-[node name="Lanterns" type="Node2D" parent="Objects"]
+[node name="Lanterns" type="Node2D" parent="Objects" unique_id=1191364155]
 
-[node name="Lantern" parent="Objects/Lanterns" instance=ExtResource("3_d4w6o")]
+[node name="Lantern" parent="Objects/Lanterns" unique_id=1666861867 instance=ExtResource("3_d4w6o")]
 position = Vector2(264, 202)
 
-[node name="LanternHook" parent="Objects/Lanterns" instance=ExtResource("4_mbbpy")]
+[node name="LanternHook" parent="Objects/Lanterns" unique_id=50211252 instance=ExtResource("4_mbbpy")]
 position = Vector2(-586, -1125)
 
-[node name="StaminaCoins" type="Node2D" parent="Objects"]
+[node name="StaminaCoins" type="Node2D" parent="Objects" unique_id=946488150]
 
-[node name="StaminaCoin" parent="Objects/StaminaCoins" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin" parent="Objects/StaminaCoins" unique_id=624923943 instance=ExtResource("3_xb4v1")]
 position = Vector2(480, 86)
 
-[node name="StaminaCoin2" parent="Objects/StaminaCoins" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin2" parent="Objects/StaminaCoins" unique_id=592787081 instance=ExtResource("3_xb4v1")]
 position = Vector2(773, -13)
 
-[node name="StaminaCoin3" parent="Objects/StaminaCoins" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin3" parent="Objects/StaminaCoins" unique_id=7111224 instance=ExtResource("3_xb4v1")]
 position = Vector2(1019, -98)
 
-[node name="StaminaCoin4" parent="Objects/StaminaCoins" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin4" parent="Objects/StaminaCoins" unique_id=1825941865 instance=ExtResource("3_xb4v1")]
 position = Vector2(1514, 174)
 
-[node name="StaminaCoin5" parent="Objects/StaminaCoins" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin5" parent="Objects/StaminaCoins" unique_id=1522602890 instance=ExtResource("3_xb4v1")]
 position = Vector2(708, -656)
 
-[node name="StaminaCoin6" parent="Objects/StaminaCoins" instance=ExtResource("3_xb4v1")]
+[node name="StaminaCoin6" parent="Objects/StaminaCoins" unique_id=1170786371 instance=ExtResource("3_xb4v1")]
 position = Vector2(-1093, -1422)
 
-[node name="Obstacles" type="Node2D" parent="Objects"]
+[node name="Obstacles" type="Node2D" parent="Objects" unique_id=910752565]
 
-[node name="Pillow" parent="Objects/Obstacles" instance=ExtResource("4_urvlt")]
+[node name="Pillow" parent="Objects/Obstacles" unique_id=1827269687 instance=ExtResource("4_urvlt")]
 position = Vector2(1850, -247)
 
-[node name="Pillow2" parent="Objects/Obstacles" instance=ExtResource("4_urvlt")]
+[node name="Pillow2" parent="Objects/Obstacles" unique_id=456426519 instance=ExtResource("4_urvlt")]
 position = Vector2(710, -988)
 
-[node name="PlayerNode" type="Node2D" parent="."]
+[node name="PlayerNode" type="Node2D" parent="." unique_id=1984308743]
 
-[node name="Menus" type="Control" parent="."]
+[node name="Menus" type="Control" parent="." unique_id=587617328]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PlayerUI" parent="." instance=ExtResource("3_b2cq8")]
+[node name="PlayerUI" parent="." unique_id=1150737802 instance=ExtResource("3_b2cq8")]
 
-[node name="TransitionParent" type="CanvasLayer" parent="."]
+[node name="TransitionParent" type="CanvasLayer" parent="." unique_id=1961122966]

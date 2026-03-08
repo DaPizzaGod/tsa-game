@@ -16,6 +16,7 @@ func _ready() -> void:
 	$PlayerNode.add_child(normal.instantiate())
 	swap_player(normal, $SpawnPoint.global_position)
 	ModeCalc.menu_root = menus
+	ThrowCalc.max_lanterns = 1
 
 
 
