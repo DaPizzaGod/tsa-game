@@ -32,7 +32,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if hooked:
 		position = lantern_hook_pos
-		print(ThrowCalc.current_lanterns)
+
 	
 	if ThrowCalc.picked_up:
 

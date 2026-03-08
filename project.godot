@@ -37,6 +37,7 @@ Players=""
 Level=""
 Lantern=""
 LanternHook=""
+CameraArea=""
 
 [input]
 
