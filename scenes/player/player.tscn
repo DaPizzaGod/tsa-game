@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cuwtk6cr20kh4"]
 
 [ext_resource type="Script" uid="uid://bahw2uwuwdwc4" path="res://scenes/player/player.gd" id="1_g2els"]
-[ext_resource type="Script" uid="uid://bi7jrsrb0su5i" path="res://scenes/player/camera_2d.gd" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://cdil61kwcoarb" path="res://scenes/player/player_camera.gd" id="2_dovo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 481.00415
@@ -10,22 +10,14 @@ radius = 481.00415
 collision_mask = 10
 script = ExtResource("1_g2els")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=238780026]
-zoom = Vector2(0.6, 0.6)
-process_callback = 0
-limit_enabled = false
-position_smoothing_enabled = true
-position_smoothing_speed = 3.0
-drag_vertical_enabled = true
-drag_horizontal_offset = 0.5
-drag_vertical_offset = 1.0
-drag_left_margin = 0.4
-drag_top_margin = 0.25
-drag_right_margin = 0.0
-script = ExtResource("2_dovo2")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1200267025]
 scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_gmlin")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=228135771]
+
+[node name="PlayerCamera" type="Camera2D" parent="." unique_id=574919894]
+top_level = true
+zoom = Vector2(0.6, 0.6)
+process_callback = 0
+script = ExtResource("2_dovo2")

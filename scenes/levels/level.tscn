@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccmwa80u3odnb" path="res://scenes/levels/level.gd" id="1_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://c5nxeuwwv0ju6" path="res://scenes/objects/walls.tscn" id="1_bovvr"]
+[ext_resource type="Script" uid="uid://cmy1sh0tg40uh" path="res://scenes/levels/camera_area.gd" id="2_ouxo3"]
 [ext_resource type="PackedScene" uid="uid://kmb4ykxan2eg" path="res://scenes/ui/player_ui.tscn" id="3_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://ctprw77daraid" path="res://scenes/objects/lantern.tscn" id="3_d4w6o"]
 [ext_resource type="PackedScene" uid="uid://fgoo8i1cffua" path="res://scenes/objects/stamina_coin.tscn" id="3_xb4v1"]
@@ -12,8 +13,12 @@
 script = ExtResource("1_b2cq8")
 
 [node name="CameraZones" type="Node2D" parent="." unique_id=611186523]
+visible = false
 
-[node name="CameraArea" type="Node2D" parent="CameraZones" unique_id=10990432 groups=["CameraArea"]]
+[node name="CameraArea" type="Node2D" parent="CameraZones" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "boundary") groups=["CameraArea"]]
+script = ExtResource("2_ouxo3")
+jurisdiction = NodePath("Jurisdiction")
+boundary = NodePath("Boundary")
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea" unique_id=73804227]
 position = Vector2(0, 15)
