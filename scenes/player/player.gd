@@ -8,6 +8,7 @@ var fall_gravity:= gravity + 800
 var glide_gravity:= gravity - 800
 var throwing:= false
 var throw_force := 1500.0
+@onready var player_camera: Camera2D = $PlayerCamera
 
 
 func _draw() -> void:

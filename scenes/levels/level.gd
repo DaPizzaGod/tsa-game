@@ -68,10 +68,11 @@ func swap_player(scene: PackedScene, pos = null):
 	var old_player = get_tree().get_nodes_in_group("Players")[0]
 	var old_pos = old_player.global_position
 	var old_vel = old_player.velocity
-	
+	var old_cam_pos = old_player.player_camera.global_position
 	old_player.queue_free()
 	
 	new_player = scene.instantiate()
+	
 	$PlayerNode.add_child(new_player)
 	
 	if pos != null:
@@ -86,5 +87,6 @@ func swap_player(scene: PackedScene, pos = null):
 	
 	var tween := create_tween()
 	tween.tween_property(new_player, "velocity:x", 0.0, 1.0).set_ease(Tween.EASE_IN_OUT)
+	new_player.player_camera.global_position = old_cam_pos
 	
 	
