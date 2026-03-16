@@ -13,18 +13,19 @@
 script = ExtResource("1_b2cq8")
 
 [node name="CameraZones" type="Node2D" parent="." unique_id=611186523]
+visible = false
 
 [node name="CameraArea" type="Node2D" parent="CameraZones" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "center_boundary") groups=["CameraArea"]]
 script = ExtResource("2_ouxo3")
-zoom_level = 0.6
 jurisdiction = NodePath("Jurisdiction")
 center_boundary = NodePath("Boundary")
+enter_trans = 11
 enter_ease = 2
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea" unique_id=73804227]
 position = Vector2(0, 15)
 color = Color(1, 1, 0, 1)
-polygon = PackedVector2Array(-2430, 223, -2422, -2105, -525, -1918, 2202, -501, 2177, 207)
+polygon = PackedVector2Array(-2430, 223, -2422, -2105, -525, -1918, 1663, -629, 1705, 211)
 
 [node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea" unique_id=1134880521]
 color = Color(1, 0, 1, 1)
@@ -33,17 +34,19 @@ polygon = PackedVector2Array(-2139, -199, -2022, -1683, -315, -1472, 1603, -388,
 [node name="CameraArea2" type="Node2D" parent="CameraZones" unique_id=2081586789 node_paths=PackedStringArray("jurisdiction", "focus_point") groups=["CameraArea"]]
 script = ExtResource("2_ouxo3")
 area_type = 1
+zoom_level = 0.3
 jurisdiction = NodePath("Jurisdiction")
 focus_point = NodePath("FocusPoint")
-enter_ease = 0
+enter_trans = 6
+enter_ease = 3
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea2" unique_id=1718970344]
-position = Vector2(3147, 399)
+position = Vector2(2758, 420)
 color = Color(1, 1, 0, 1)
-polygon = PackedVector2Array(-782, -208, -721, -931, -154, -1359, 1175, -1276, 1125, -197)
+polygon = PackedVector2Array(-986, -311, -1003, -975, -807, -1243, 213, -1167, -122, -186, -681, -182)
 
 [node name="FocusPoint" type="Marker2D" parent="CameraZones/CameraArea2" unique_id=761088426]
-position = Vector2(3396, -247)
+position = Vector2(2289, -255)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1089512862]
 position = Vector2(-530, 7)

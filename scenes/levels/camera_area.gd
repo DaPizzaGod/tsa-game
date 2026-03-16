@@ -7,7 +7,7 @@ enum AreaType { STANDARD, FOCUS }
 
 @export_group("Area Settings")
 @export var area_type: AreaType = AreaType.STANDARD
-@export var zoom_level: float = 1.0
+@export var zoom_level: float = 0.6
 
 @export_group("Zone Shapes")
 @export var jurisdiction: Polygon2D
