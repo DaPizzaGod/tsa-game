@@ -1,5 +1,5 @@
 extends Node2D
-	
+class_name Level
 
 
 var new_player
@@ -11,16 +11,22 @@ var slide: PackedScene = preload("res://scenes/player/slide_mode.tscn")
 @onready var menus = $Menus
 var transition_layer: PackedScene = preload("res://scenes/globals/transition_layer.tscn")
 var transitions:= 0
+var level_max_lanterns :int
+
 
 func _ready() -> void:
+	ready_code()
+
+func ready_code():
 	$PlayerNode.add_child(normal.instantiate())
 	swap_player(normal, $SpawnPoint.global_position)
 	ModeCalc.menu_root = menus
-	ThrowCalc.max_lanterns = 1
-
-
+	ThrowCalc.max_lanterns = level_max_lanterns
 
 func _process(_delta: float) -> void:
+	process_code()
+
+func process_code():
 	if ModeCalc.check_mode:
 		if ModeCalc.mode == "normal":
 			swap_player(normal)
@@ -59,7 +65,6 @@ func _process(_delta: float) -> void:
 		StaminaCalc.update_stamina = true
 		$PlayerUI.show()
 		new_transition.queue_free()
-
 
 		
 func swap_player(scene: PackedScene, pos = null):
