@@ -28,8 +28,9 @@ enter_ease = 2
 [node name="SpawnPoint" type="Marker2D" parent="Objects" unique_id=1089512862]
 position = Vector2(-530, 7)
 
-[node name="TileMap" type="TileMap" parent="." unique_id=2087109751]
-format = 2
+[node name="TileMaps" type="Node2D" parent="." unique_id=986456996]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMaps" unique_id=2124389597]
 
 [node name="PlayerNode" type="Node2D" parent="." unique_id=1984308743]
 

@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func ready_code():
 	$PlayerNode.add_child(normal.instantiate())
-	swap_player(normal, $SpawnPoint.global_position)
+	swap_player(normal, $Objects/SpawnPoint.global_position)
 	ModeCalc.menu_root = menus
 	ThrowCalc.max_lanterns = level_max_lanterns
 

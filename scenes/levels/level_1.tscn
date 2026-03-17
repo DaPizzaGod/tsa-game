@@ -1,40 +1,16 @@
-[gd_scene format=3 uid="uid://ejrlm4brajq0"]
+[gd_scene format=4 uid="uid://ejrlm4brajq0"]
 
 [ext_resource type="PackedScene" uid="uid://c32kxtrw25xtu" path="res://scenes/levels/level.tscn" id="1_ksju7"]
-[ext_resource type="Texture2D" uid="uid://cv4fkaecuiwjf" path="res://graphics/tilesets/platform_tileset.png" id="2_6iamk"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nsrm0"]
-texture = ExtResource("2_6iamk")
-texture_region_size = Vector2i(164, 164)
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-3:3/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-7:4/0 = 0
-9:4/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_ksju7"]
-tile_size = Vector2i(164, 164)
-sources/2 = SubResource("TileSetAtlasSource_nsrm0")
+[ext_resource type="TileSet" uid="uid://bth2hor1f7ctu" path="res://graphics/tilesets/default_tileset.tres" id="2_6iamk"]
 
 [node name="Level1" unique_id=725933420 instance=ExtResource("1_ksju7")]
 
 [node name="SpawnPoint" parent="Objects" parent_id_path=PackedInt32Array(275572278) index="3" unique_id=1089512862]
 position = Vector2(-208, -145)
 
-[node name="TileMap" parent="." index="2" unique_id=2087109751]
-tile_set = SubResource("TileSet_ksju7")
+[node name="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(986456996) index="0" unique_id=2124389597]
+tile_map_data = PackedByteArray("AAD7/wAAAQABAAEAAAD8/wAAAQACAAEAAAD8/wEAAQACAAIAAAD9/wEAAQADAAEAAAD+/wEAAQADAAEAAAD//wEAAQADAAEAAAAAAAEAAQABAAEAAAAAAAIAAQACAAIAAAABAAIAAQACAAEAAAACAAIAAQADAAEAAAACAAEAAQABAAEAAAADAAEAAQADAAEAAAAEAAEAAQADAAEAAAAFAAEAAQACAAEAAAAGAAEAAQADAAEAAAAGAAAAAQABAAEAAAAHAAAAAQADAAEAAAA=")
+tile_set = ExtResource("2_6iamk")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(986456996) index="1" unique_id=1734108362]
+tile_set = ExtResource("2_6iamk")
