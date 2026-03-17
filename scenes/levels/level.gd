@@ -11,13 +11,13 @@ var slide: PackedScene = preload("res://scenes/player/slide_mode.tscn")
 @onready var menus = $Menus
 var transition_layer: PackedScene = preload("res://scenes/globals/transition_layer.tscn")
 var transitions:= 0
-var level_max_lanterns :int
+
 
 
 func _ready() -> void:
-	ready_code()
+	ready_code(1)
 
-func ready_code():
+func ready_code(level_max_lanterns):
 	$PlayerNode.add_child(normal.instantiate())
 	swap_player(normal, $Objects/SpawnPoint.global_position)
 	ModeCalc.menu_root = menus
@@ -56,7 +56,7 @@ func process_code():
 			i.queue_free()
 		
 		
-		swap_player(normal, $SpawnPoint.global_position)
+		swap_player(normal, $Objects/SpawnPoint.global_position)
 		new_transition = transition_layer.instantiate()
 		$TransitionParent.add_child(new_transition)
 		new_transition.fade()

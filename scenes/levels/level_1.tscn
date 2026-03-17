@@ -2,15 +2,28 @@
 
 [ext_resource type="PackedScene" uid="uid://c32kxtrw25xtu" path="res://scenes/levels/level.tscn" id="1_ksju7"]
 [ext_resource type="TileSet" uid="uid://bth2hor1f7ctu" path="res://graphics/tilesets/default_tileset.tres" id="2_6iamk"]
+[ext_resource type="Script" uid="uid://d021e7sd873fc" path="res://scenes/levels/level_1.gd" id="2_nsrm0"]
 
 [node name="Level1" unique_id=725933420 instance=ExtResource("1_ksju7")]
+script = ExtResource("2_nsrm0")
+
+[node name="CameraArea" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="0" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "center_boundary")]
+jurisdiction = NodePath("Jurisdiction")
+center_boundary = NodePath("Boundary")
+
+[node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea" index="0" unique_id=395716391]
+polygon = PackedVector2Array(-1006, -694, -868, 473, 1958, 758, 1595, -726)
+
+[node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea" index="1" unique_id=298276674]
+color = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-464, -506, -712, -354, -432, -170, -409, -28, -252, 55, 805, 59, 1310, -161, 1296, -565)
 
 [node name="SpawnPoint" parent="Objects" parent_id_path=PackedInt32Array(275572278) index="3" unique_id=1089512862]
 position = Vector2(-208, -145)
 
-[node name="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(986456996) index="0" unique_id=2124389597]
+[node name="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(986456996) index="0" unique_id=2124389597 groups=["Level"]]
 tile_map_data = PackedByteArray("AAD7/wAAAQABAAEAAAD8/wAAAQACAAEAAAD8/wEAAQACAAIAAAD9/wEAAQADAAEAAAD+/wEAAQADAAEAAAD//wEAAQADAAEAAAAAAAEAAQABAAEAAAAAAAIAAQACAAIAAAABAAIAAQACAAEAAAACAAIAAQADAAEAAAACAAEAAQABAAEAAAADAAEAAQADAAEAAAAEAAEAAQADAAEAAAAFAAEAAQACAAEAAAAGAAEAAQADAAEAAAAGAAAAAQABAAEAAAAHAAAAAQADAAEAAAA=")
 tile_set = ExtResource("2_6iamk")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(986456996) index="1" unique_id=1734108362]
+[node name="TileMapLayer2" type="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(986456996) index="1" unique_id=1734108362 groups=["Level"]]
 tile_set = ExtResource("2_6iamk")
