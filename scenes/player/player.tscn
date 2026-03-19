@@ -4,15 +4,11 @@
 [ext_resource type="Script" uid="uid://cdil61kwcoarb" path="res://scenes/player/player_camera.gd" id="2_dovo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
-radius = 481.00415
+radius = 876.1848
 
 [node name="Player" type="CharacterBody2D" unique_id=1111472573 groups=["Players"]]
 collision_mask = 10
 script = ExtResource("1_g2els")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1200267025]
-scale = Vector2(0.1, 0.1)
-shape = SubResource("CircleShape2D_gmlin")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=228135771]
 
@@ -21,6 +17,10 @@ top_level = true
 zoom = Vector2(0.6, 0.6)
 process_callback = 0
 script = ExtResource("2_dovo2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1200267025]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_gmlin")
 
 [node name="Sprite" type="Node2D" parent="." unique_id=1107953450]
 
