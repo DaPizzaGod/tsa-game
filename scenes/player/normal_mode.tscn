@@ -3,11 +3,218 @@
 [ext_resource type="PackedScene" uid="uid://cuwtk6cr20kh4" path="res://scenes/player/player.tscn" id="1_n2rfx"]
 [ext_resource type="Texture2D" uid="uid://ntfkugd378dn" path="res://graphics/circle.svg" id="2_kgide"]
 [ext_resource type="Script" uid="uid://b85sq87lq3a7m" path="res://scenes/player/normal_mode.gd" id="2_kleyv"]
+[ext_resource type="Texture2D" uid="uid://d3t3y3l33fils" path="res://graphics/player/normal/body.png" id="4_2h4ve"]
+[ext_resource type="Texture2D" uid="uid://cxyoxj6mx6tcw" path="res://graphics/player/normal/head.png" id="5_0epu6"]
+[ext_resource type="Texture2D" uid="uid://b4reiwl571w7a" path="res://graphics/player/normal/left_foot.png" id="6_kuxq3"]
+[ext_resource type="Texture2D" uid="uid://cw7nxu8t8lt14" path="res://graphics/player/normal/left_hand.png" id="7_vsa0o"]
+[ext_resource type="Texture2D" uid="uid://dj8w3wjmvrc6v" path="res://graphics/player/normal/right_foot.png" id="8_52bhj"]
+[ext_resource type="Texture2D" uid="uid://qeqdum0flhm" path="res://graphics/player/normal/right_hand.png" id="9_plo77"]
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_2h4ve"]
+target_nodepath = NodePath("../../IKTargets/FootRTarget")
+tip_nodepath = NodePath("Torso/RightKnee/RightFoot")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 6
+joint_data/0/bone2d_node = NodePath("Torso/RightKnee")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 0.0
+joint_data/0/constraint_angle_max = 360.0
+joint_data/0/constraint_angle_invert = false
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_0epu6"]
+target_nodepath = NodePath("../../IKTargets/FootLTarget")
+tip_nodepath = NodePath("Torso/LeftKnee/LeftFoot")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 1
+joint_data/0/bone2d_node = NodePath("Torso/LeftKnee")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_kuxq3"]
+target_nodepath = NodePath("../../IKTargets/HandRTarget")
+tip_nodepath = NodePath("Torso/RightElbow/RightHand")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 8
+joint_data/0/bone2d_node = NodePath("Torso/RightElbow")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_vsa0o"]
+target_nodepath = NodePath("../../IKTargets/HandLTarget")
+tip_nodepath = NodePath("Torso/LeftElbow/LeftHand")
+ccdik_data_chain_length = 1
+joint_data/0/bone_index = 3
+joint_data/0/bone2d_node = NodePath("Torso/LeftElbow")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_2h4ve"]
+bone_index = 5
+bone2d_node = NodePath("Torso/Neck")
+target_nodepath = NodePath("../../IKTargets/HeadTarget")
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_0epu6"]
+enabled = true
+modification_count = 5
+modifications/0 = SubResource("SkeletonModification2DCCDIK_2h4ve")
+modifications/1 = SubResource("SkeletonModification2DCCDIK_0epu6")
+modifications/2 = SubResource("SkeletonModification2DCCDIK_kuxq3")
+modifications/3 = SubResource("SkeletonModification2DCCDIK_vsa0o")
+modifications/4 = SubResource("SkeletonModification2DLookAt_2h4ve")
 
 [node name="NormalMode" unique_id=1815471843 instance=ExtResource("1_n2rfx")]
 script = ExtResource("2_kleyv")
 
 [node name="Sprite2D" parent="." index="1" unique_id=228135771]
+visible = false
 position = Vector2(0, 12)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_kgide")
+
+[node name="RightHand" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="0" unique_id=937568567]
+position = Vector2(169.20714, -77.77134)
+rotation = -0.6060062
+scale = Vector2(0.9999555, 0.9999555)
+texture = ExtResource("9_plo77")
+offset = Vector2(-120, 57)
+
+[node name="Body" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="1" unique_id=474835222]
+texture = ExtResource("4_2h4ve")
+offset = Vector2(-16, 48)
+
+[node name="Head" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="2" unique_id=738235744]
+position = Vector2(1, -195)
+scale = Vector2(0.9999921, 0.9999921)
+texture = ExtResource("5_0epu6")
+offset = Vector2(9, 248)
+
+[node name="RightFoot" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="3" unique_id=1673968000]
+position = Vector2(125.55557, 306.22296)
+rotation = 0.043507513
+scale = Vector2(0.9999465, 0.9999465)
+texture = ExtResource("8_52bhj")
+offset = Vector2(-53, -222)
+
+[node name="LeftHand" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="4" unique_id=77906430]
+position = Vector2(-206.448, -47.434624)
+rotation = -0.08797617
+scale = Vector2(0.9999953, 0.9999953)
+texture = ExtResource("7_vsa0o")
+offset = Vector2(87, 27)
+
+[node name="LeftFoot" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="5" unique_id=1180824846]
+position = Vector2(-122.08364, 287.2273)
+rotation = 0.0774596
+scale = Vector2(0.9999848, 0.9999848)
+texture = ExtResource("6_kuxq3")
+offset = Vector2(115, -215)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Sprite/Bones" parent_id_path=PackedInt32Array(233264891) index="0" unique_id=459374096]
+modification_stack = SubResource("SkeletonModificationStack2D_0epu6")
+
+[node name="Torso" type="Bone2D" parent="Sprite/Bones/Skeleton2D" index="0" unique_id=1293798596]
+position = Vector2(0, -34)
+rest = Transform2D(1, 0, 0, 1, 0, -34)
+
+[node name="LeftKnee" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="0" unique_id=633390447]
+position = Vector2(-120, 191)
+rotation = 0.0774596
+scale = Vector2(0.9999848, 0.9999848)
+rest = Transform2D(0.9162408, 0.40061337, -0.40061337, 0.9162408, -95, 181.99998)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LeftFoot" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso/LeftKnee" index="0" unique_id=1714752309]
+position = Vector2(8, 130)
+rest = Transform2D(1, 0, 0, 1, 8, 130)
+auto_calculate_length_and_angle = false
+length = 56.815
+bone_angle = 0.0
+
+[node name="LeftFootTransform" type="RemoteTransform2D" parent="Sprite/Bones/Skeleton2D/Torso/LeftKnee/LeftFoot" index="0" unique_id=1394507847]
+remote_path = NodePath("../../../../../../Body/LeftFoot")
+
+[node name="LeftElbow" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="1" unique_id=901799154]
+position = Vector2(-147, -102.000015)
+rotation = -0.08797623
+scale = Vector2(0.9999953, 0.9999953)
+rest = Transform2D(0.9097907, 0.4150658, -0.4150658, 0.9097907, -123, -141)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LeftHand" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso/LeftElbow" index="0" unique_id=977614593]
+position = Vector2(-67, 83)
+rest = Transform2D(1, 0, 0, 1, -67, 83)
+auto_calculate_length_and_angle = false
+length = 38.401
+bone_angle = -268.029
+
+[node name="LHandTransform" type="RemoteTransform2D" parent="Sprite/Bones/Skeleton2D/Torso/LeftElbow/LeftHand" index="0" unique_id=283726598]
+remote_path = NodePath("../../../../../../Body/LeftHand")
+
+[node name="Neck" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="2" unique_id=176095070]
+position = Vector2(1, -161)
+scale = Vector2(0.9999921, 0.9999921)
+rest = Transform2D(0.9999921, 1.4901043e-08, -1.4901043e-08, 0.9999921, 1, -161)
+auto_calculate_length_and_angle = false
+length = 30.934
+bone_angle = -90.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="NeckTransform" type="RemoteTransform2D" parent="Sprite/Bones/Skeleton2D/Torso/Neck" index="0" unique_id=1009888731]
+remote_path = NodePath("../../../../../Body/Head")
+
+[node name="RightKnee" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="3" unique_id=586350350]
+position = Vector2(123, 214.99998)
+rotation = 0.043507513
+scale = Vector2(0.9999465, 0.9999465)
+rest = Transform2D(0.9951568, -0.09776296, 0.09776296, 0.9951568, 114, 206)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RightFoot" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso/RightKnee" index="0" unique_id=1466847825]
+position = Vector2(8, 125)
+rest = Transform2D(1, 0, 0, 1, 8, 125)
+auto_calculate_length_and_angle = false
+length = 45.869
+bone_angle = 0.0
+
+[node name="RFootTransform" type="RemoteTransform2D" parent="Sprite/Bones/Skeleton2D/Torso/RightKnee/RightFoot" index="0" unique_id=1573009958]
+remote_path = NodePath("../../../../../../Body/RightFoot")
+
+[node name="RightElbow" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="4" unique_id=1641826549]
+position = Vector2(89, -77)
+rotation = -0.6060063
+scale = Vector2(0.9999555, 0.9999555)
+rest = Transform2D(0.5789338, -0.81531996, 0.81531996, 0.5789338, 118.999954, -129.99998)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RightHand" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso/RightElbow" index="0" unique_id=186234697]
+position = Vector2(47, 73)
+rest = Transform2D(1, 0, 0, 1, 47, 73)
+auto_calculate_length_and_angle = false
+length = 30.934
+bone_angle = 30.374994
+
+[node name="RHandTransform" type="RemoteTransform2D" parent="Sprite/Bones/Skeleton2D/Torso/RightElbow/RightHand" index="0" unique_id=1667691339]
+remote_path = NodePath("../../../../../../Body/RightHand")
+
+[node name="FootRTarget" type="Node2D" parent="Sprite/IKTargets" parent_id_path=PackedInt32Array(273689744) index="0" unique_id=1625922900]
+position = Vector2(124, 230)
+rotation = -1.4368212
+
+[node name="FootLTarget" type="Node2D" parent="Sprite/IKTargets" parent_id_path=PackedInt32Array(273689744) index="1" unique_id=2007602829]
+position = Vector2(-122, 282)
+rotation = -1.4368212
+
+[node name="HandRTarget" type="Node2D" parent="Sprite/IKTargets" parent_id_path=PackedInt32Array(273689744) index="2" unique_id=1490367761]
+position = Vector2(159, -82)
+
+[node name="HandLTarget" type="Node2D" parent="Sprite/IKTargets" parent_id_path=PackedInt32Array(273689744) index="3" unique_id=794109064]
+position = Vector2(-196, -63)
+
+[node name="HeadTarget" type="Node2D" parent="Sprite/IKTargets" parent_id_path=PackedInt32Array(273689744) index="4" unique_id=959089296]
+position = Vector2(1, -214)
