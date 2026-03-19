@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	queue_redraw()
-	update_player_pos()
+	update_player_pos($Sprite/Body/LeftHand.global_position)
 	var acc = accel * delta
 	# Apply Gravity
 	if not is_on_floor():
@@ -36,6 +36,17 @@ func _physics_process(delta: float) -> void:
 		jump_available = true
 	
 	throw_mode()
+	if throwing:
+		
+		if get_global_mouse_position() < global_position:
+			
+			sprite.scale.x = -1
+		else:
+			
+			sprite.scale.x = 1
+		
+		animation_player.play("throw")
+	
 	if not throwing:
 		
 
@@ -74,10 +85,12 @@ func _physics_process(delta: float) -> void:
 			direction = move_toward(direction, 0.0, acc)
 			if is_on_floor():
 				animation_player.play("idle")
-			else:
-				animation_player.play("jump")
+
 
 		velocity.x = direction
+		
+		if not is_on_floor():
+			animation_player.play("jump")
 		
 		if Input.is_action_just_pressed("shoot"):
 			run()

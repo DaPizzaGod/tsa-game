@@ -17,6 +17,7 @@ func throw_lantern(throw_force, forward_dir):
 		lantern_holding.linear_velocity = throw_force * forward_dir
 
 		await get_tree().create_timer(0.1).timeout
+
 		throwing = false
 	
 	

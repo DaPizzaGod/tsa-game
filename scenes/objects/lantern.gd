@@ -38,17 +38,20 @@ func _physics_process(_delta: float) -> void:
 
 		position = ThrowCalc.player_pos
 		hitbox.set_deferred("disabled", true)
+		#hitbox.set_collision_mask_value
 	else:
 		hitbox.set_deferred("disabled", false)
-		
+		set_collision_mask_value(1, false)
 
 		
 	if ThrowCalc.throwing:
+
 		ThrowCalc.picked_up = false
 		hitbox.set_deferred("disabled", true)
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.3).timeout
 		hitbox.set_deferred("disabled", false)
-	
+		set_collision_mask_value(1, true)
+		
 	if ThrowCalc.hand_lantern_attatched:
 		set_freeze_enabled(true)
 		await get_tree().create_timer(1.5).timeout
