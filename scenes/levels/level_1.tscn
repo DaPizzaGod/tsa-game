@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c32kxtrw25xtu" path="res://scenes/levels/level.tscn" id="1_ksju7"]
 [ext_resource type="TileSet" uid="uid://bth2hor1f7ctu" path="res://graphics/tilesets/default_tileset.tres" id="2_6iamk"]
 [ext_resource type="Script" uid="uid://d021e7sd873fc" path="res://scenes/levels/level_1.gd" id="2_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://ctprw77daraid" path="res://scenes/objects/lantern.tscn" id="3_x42e6"]
 
 [node name="Level1" unique_id=725933420 instance=ExtResource("1_ksju7")]
 script = ExtResource("2_nsrm0")
@@ -17,6 +18,9 @@ polygon = PackedVector2Array(-1006, -694, -868, 473, 1958, 758, 1595, -726)
 [node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea" index="1" unique_id=298276674]
 color = Color(1, 0, 1, 1)
 polygon = PackedVector2Array(-464, -506, -712, -354, -432, -170, -409, -28, -252, 55, 805, 59, 1310, -161, 1296, -565)
+
+[node name="Lantern" parent="Objects/Lanterns" parent_id_path=PackedInt32Array(1191364155) index="0" unique_id=1490608412 instance=ExtResource("3_x42e6")]
+position = Vector2(775, -61)
 
 [node name="SpawnPoint" parent="Objects" parent_id_path=PackedInt32Array(275572278) index="3" unique_id=1089512862]
 position = Vector2(-208, -145)
