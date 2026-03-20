@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-@onready var hitbox := $CollisionPolygon2D
+@onready var hitbox := $CollisionShape2D
 var hooked := false
 var lantern_hook_pos :Vector2
 
@@ -50,6 +50,7 @@ func _physics_process(_delta: float) -> void:
 		hitbox.set_deferred("disabled", true)
 		await get_tree().create_timer(0.3).timeout
 		hitbox.set_deferred("disabled", false)
+		await get_tree().create_timer(0.3).timeout
 		set_collision_mask_value(1, true)
 		
 	if ThrowCalc.hand_lantern_attatched:

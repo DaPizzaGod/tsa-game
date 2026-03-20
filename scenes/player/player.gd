@@ -7,7 +7,7 @@ var can_sub_stamina:= true
 var fall_gravity:= gravity + 1200
 var glide_gravity:= gravity - 800
 var throwing:= false
-var throw_force := 1500.0
+var throw_force := 2000.0
 @onready var player_camera: Camera2D = $PlayerCamera
 
 
