@@ -13,7 +13,7 @@ offset_top = -384.0
 offset_right = 539.0
 offset_bottom = 739.0
 value = 10.0
-fill_mode = 4
+fill_mode = 5
 texture_under = ExtResource("2_jg20v")
 texture_progress = ExtResource("3_fatqr")
 

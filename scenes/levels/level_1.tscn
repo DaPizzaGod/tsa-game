@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c32kxtrw25xtu" path="res://scenes/levels/level.tscn" id="1_ksju7"]
 [ext_resource type="TileSet" uid="uid://bth2hor1f7ctu" path="res://graphics/tilesets/default_tileset.tres" id="2_6iamk"]
 [ext_resource type="Script" uid="uid://d021e7sd873fc" path="res://scenes/levels/level_1.gd" id="2_nsrm0"]
+[ext_resource type="Texture2D" uid="uid://de8jjgqokoud3" path="res://graphics/assets/background.svg" id="3_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://ctprw77daraid" path="res://scenes/objects/lantern.tscn" id="3_x42e6"]
 [ext_resource type="PackedScene" uid="uid://fgoo8i1cffua" path="res://scenes/objects/stamina_coin.tscn" id="4_6761a"]
 [ext_resource type="PackedScene" uid="uid://beu7tv0tpyi1w" path="res://scenes/objects/lantern_hook.tscn" id="6_sk5k4"]
@@ -10,9 +11,12 @@
 [node name="Level1" unique_id=725933420 instance=ExtResource("1_ksju7")]
 script = ExtResource("2_nsrm0")
 
-[node name="Lighting#DirectionalLight2D" type="DirectionalLight2D" parent="." index="0" unique_id=1600985210]
-color = Color(0.12591085, 0.12591085, 0.12591082, 1)
-energy = 0.0
+[node name="Background" parent="." index="0" unique_id=1726543075]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" index="0" unique_id=1844542366]
+position = Vector2(440, -1020)
+texture = ExtResource("3_oc4kc")
 
 [node name="CameraArea" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="0" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "center_boundary")]
 jurisdiction = NodePath("Jurisdiction")
@@ -28,6 +32,11 @@ polygon = PackedVector2Array(-464, -506, -712, -354, -432, -170, -409, -28, -252
 [node name="Lantern" parent="Objects/Lanterns" parent_id_path=PackedInt32Array(1191364155) index="0" unique_id=1490608412 instance=ExtResource("3_x42e6")]
 position = Vector2(775, -61)
 
+[node name="LanternHook" parent="Objects/Lanterns" parent_id_path=PackedInt32Array(1191364155) index="1" unique_id=162458812 instance=ExtResource("6_sk5k4")]
+position = Vector2(1738, -910)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
 [node name="StaminaCoin" parent="Objects/StaminaCoins" parent_id_path=PackedInt32Array(946488150) index="0" unique_id=1992778228 instance=ExtResource("4_6761a")]
 position = Vector2(1558, -343)
 
@@ -40,7 +49,3 @@ tile_set = ExtResource("2_6iamk")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(986456996) index="1" unique_id=1734108362 groups=["Level"]]
 tile_set = ExtResource("2_6iamk")
-
-[node name="LanternHook" parent="." index="8" unique_id=162458812 instance=ExtResource("6_sk5k4")]
-position = Vector2(1738, -910)
-scale = Vector2(-1, 1)

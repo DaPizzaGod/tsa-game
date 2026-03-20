@@ -19,6 +19,7 @@ var swapping := false
 func _process(_delta: float) -> void:
 	# When shift is pressed
 	if Input.is_action_just_pressed("switch mode") and menu_count == 0 and StaminaCalc.current_stamina >= 1 and not StaminaCalc.respawn:
+
 		Engine.time_scale = 0.1
 		menu_count += 1
 		menu = switch_mode_menu.instantiate()
@@ -26,6 +27,8 @@ func _process(_delta: float) -> void:
 		# remove stamina
 		StaminaCalc.current_stamina -= 1 
 		StaminaCalc.update_stamina = true
+		
+		
 		
 	if StaminaCalc.respawn:
 		if menu_count == 1:

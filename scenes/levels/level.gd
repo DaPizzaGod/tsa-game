@@ -10,7 +10,9 @@ var spring: PackedScene = preload("res://scenes/player/spring_mode.tscn")
 var slide: PackedScene = preload("res://scenes/player/slide_mode.tscn")
 @onready var menus = $Menus
 var transition_layer: PackedScene = preload("res://scenes/globals/transition_layer.tscn")
+var stamina_bar: PackedScene = preload("res://scenes/ui/player_ui.tscn")
 var transitions:= 0
+@onready var player_ui: CanvasLayer = $UI/PlayerUI
 
 
 
@@ -23,10 +25,14 @@ func ready_code(level_max_lanterns):
 	ModeCalc.menu_root = menus
 	ThrowCalc.max_lanterns = level_max_lanterns
 
+
 func _process(_delta: float) -> void:
 	process_code()
 
 func process_code():
+	
+	
+
 	if ModeCalc.check_mode:
 		if ModeCalc.mode == "normal":
 			swap_player(normal)
@@ -50,20 +56,20 @@ func process_code():
 		else:
 			return
 		
-		$PlayerUI.hide()
+		player_ui.hide()
 
-		for i in $TransitionParent.get_children():
+		for i in $UI/TransitionParent.get_children():
 			i.queue_free()
 		
 		
 		swap_player(normal, $Objects/SpawnPoint.global_position)
 		new_transition = transition_layer.instantiate()
-		$TransitionParent.add_child(new_transition)
+		$UI/TransitionParent.add_child(new_transition)
 		new_transition.fade()
 		await new_transition.animation_player.animation_finished
 		StaminaCalc.respawn = false
 		StaminaCalc.update_stamina = true
-		$PlayerUI.show()
+		player_ui.show()
 		new_transition.queue_free()
 
 		

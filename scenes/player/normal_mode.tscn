@@ -455,8 +455,8 @@ texture = ExtResource("7_vsa0o")
 offset = Vector2(87, 27)
 
 [node name="LeftFoot" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="5" unique_id=1180824846]
-position = Vector2(-121.72835, 253.70181)
-rotation = 0.15164113
+position = Vector2(-121.72834, 253.70181)
+rotation = 0.1516411
 scale = Vector2(0.9998856, 0.9998856)
 texture = ExtResource("6_kuxq3")
 offset = Vector2(115, -215)
@@ -518,7 +518,7 @@ remote_path = NodePath("../../../../../Body/Head")
 
 [node name="RightKnee" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="3" unique_id=586350350]
 position = Vector2(119, 185)
-rotation = -0.03777578
+rotation = -0.037775785
 scale = Vector2(0.9998607, 0.9998607)
 rest = Transform2D(0.9985576, -0.052551355, 0.052551355, 0.9985576, 140, 185)
 metadata/_local_pose_override_enabled_ = true
@@ -536,7 +536,7 @@ remote_path = NodePath("../../../../../../Body/RightFoot")
 [node name="RightElbow" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="4" unique_id=1641826549]
 position = Vector2(98.00001, -72)
 rotation = -1.5801613
-scale = Vector2(0.9998775, 0.9998775)
+scale = Vector2(0.99987674, 0.99987674)
 rest = Transform2D(0.99082047, -0.13484879, 0.13484879, 0.99082047, 96.99999, -66)
 metadata/_local_pose_override_enabled_ = true
 
@@ -570,3 +570,7 @@ position = Vector2(1, -214)
 
 [node name="AnimationPlayer" parent="Sprite" parent_id_path=PackedInt32Array(1107953450) index="3" unique_id=736409395]
 libraries/ = SubResource("AnimationLibrary_0epu6")
+
+[node name="Light" parent="." index="4" unique_id=553465369]
+energy = 1.0
+texture_scale = 15.0

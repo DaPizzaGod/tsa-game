@@ -10,7 +10,7 @@ func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 		if body.is_in_group("Players") and not hooked:
 			ThrowCalc.lantern_holding = self
 			ThrowCalc.picked_up = true
-	if body.is_in_group("LanternHook"):
+	if body.is_in_group("LanternHook") and not ThrowCalc.picked_up:
 		
 		get_hooked()
 		lantern_hook_pos = body.position
