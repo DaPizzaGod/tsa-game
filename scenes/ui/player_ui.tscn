@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://kmb4ykxan2eg"]
 
 [ext_resource type="Script" uid="uid://00ptdjuqx03e" path="res://scenes/ui/player_ui.gd" id="1_s4ogp"]
+[ext_resource type="Texture2D" uid="uid://eigis7oidj1e" path="res://graphics/assets/ui/black_progress_bar.svg" id="2_jg20v"]
+[ext_resource type="Texture2D" uid="uid://clcca1075vn70" path="res://graphics/assets/ui/blue_progress_bar.svg" id="3_fatqr"]
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=2095213472]
 script = ExtResource("1_s4ogp")
 
-[node name="StaminaBar" type="ProgressBar" parent="." unique_id=1626326203]
-offset_left = 21.0
-offset_top = 69.0
-offset_right = 373.0
-offset_bottom = 96.0
-step = 1.0
-value = 50.0
-show_percentage = false
+[node name="StaminaBar" type="TextureProgressBar" parent="." unique_id=1178739638]
+offset_left = -255.0
+offset_top = -384.0
+offset_right = 539.0
+offset_bottom = 739.0
+value = 10.0
+fill_mode = 4
+texture_under = ExtResource("2_jg20v")
+texture_progress = ExtResource("3_fatqr")
 
 [node name="BarText" type="Label" parent="StaminaBar" unique_id=1492196605]
 layout_mode = 1
