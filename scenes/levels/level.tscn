@@ -38,6 +38,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PlayerUI" parent="." unique_id=1150737802 instance=ExtResource("3_b2cq8")]
-
 [node name="TransitionParent" type="CanvasLayer" parent="." unique_id=1961122966]
+
+[node name="PlayerUI" parent="." unique_id=2095213472 instance=ExtResource("3_b2cq8")]

@@ -30,39 +30,39 @@ offset_bottom = 35647.492
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_cjke7")
 
-[node name="NormalButton" type="Button" parent="." unique_id=937068908]
-layout_mode = 1
-offset_left = -1125.0
-offset_top = -724.0
-offset_right = -476.0
-offset_bottom = -609.0
+[node name="NormalButton" type="Button" parent="." unique_id=1878601896]
+layout_mode = 0
+offset_left = -1118.0
+offset_top = -734.0
+offset_right = -328.0
+offset_bottom = -576.0
 theme = ExtResource("3_5jm1c")
-text = "Normal"
+text = "Sam"
 
 [node name="StretchButton" type="Button" parent="." unique_id=431673801]
 layout_mode = 1
-offset_left = 513.0
-offset_top = -701.0
-offset_right = 1107.0
-offset_bottom = -572.0
+offset_left = 449.0
+offset_top = -733.0
+offset_right = 1245.0
+offset_bottom = -576.0
 theme = ExtResource("3_5jm1c")
 text = "Stretch"
 
-[node name="SpringButton" type="Button" parent="." unique_id=2126201416]
-layout_mode = 1
-offset_left = -1373.0
-offset_top = 429.0
-offset_right = -754.0
-offset_bottom = 617.0
+[node name="SpringButton" type="Button" parent="." unique_id=906411273]
+layout_mode = 0
+offset_left = -1251.0
+offset_top = 520.0
+offset_right = -461.0
+offset_bottom = 678.0
 theme = ExtResource("3_5jm1c")
 text = "Spring"
 
 [node name="SlideButton" type="Button" parent="." unique_id=1344666987]
 layout_mode = 1
-offset_left = 480.0
-offset_top = 520.0
-offset_right = 1078.0
-offset_bottom = 608.0
+offset_left = 384.0
+offset_top = 515.0
+offset_right = 1198.0
+offset_bottom = 686.0
 theme = ExtResource("3_5jm1c")
 text = "Slide"
 
