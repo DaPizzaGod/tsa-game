@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cncjvou8hayy7"]
+[gd_scene format=3 uid="uid://cncjvou8hayy7"]
 
-[ext_resource type="Texture2D" uid="uid://dvvtrrh7hjr4v" path="res://graphics/switch_mode_menu_graphic.png" id="1_c5hrv"]
 [ext_resource type="Script" uid="uid://bgkdk3hhehphq" path="res://scenes/ui/switch_mode_menu.gd" id="1_cjke7"]
+[ext_resource type="Texture2D" uid="uid://dau5k2ru74576" path="res://graphics/assets/ui/switch_mode_menu_asset.svg" id="2_cjke7"]
 
-[node name="SwitchModeMenu" type="Control"]
+[node name="SwitchModeMenu" type="Control" unique_id=651462680]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,45 +12,45 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cjke7")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2107204776]
 layout_mode = 1
-offset_left = -123.0
-offset_top = -123.0
-offset_right = 2338.0
-offset_bottom = 2346.0
+offset_left = -1916.0
+offset_top = -1232.0
+offset_right = 34843.996
+offset_bottom = 35647.492
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_c5hrv")
+texture = ExtResource("2_cjke7")
 
-[node name="NormalButton" type="Button" parent="."]
+[node name="NormalButton" type="Button" parent="." unique_id=937068908]
 layout_mode = 1
-offset_left = -117.0
-offset_top = -81.0
-offset_right = -49.0
-offset_bottom = -15.0
+offset_left = -1125.0
+offset_top = -724.0
+offset_right = -476.0
+offset_bottom = -609.0
 text = "Normal"
 
-[node name="StretchButton" type="Button" parent="."]
+[node name="StretchButton" type="Button" parent="." unique_id=431673801]
 layout_mode = 1
-offset_left = 52.0
-offset_top = -76.0
-offset_right = 118.0
-offset_bottom = -16.0
+offset_left = 513.0
+offset_top = -701.0
+offset_right = 1107.0
+offset_bottom = -572.0
 text = "Stretch"
 
-[node name="SpringButton" type="Button" parent="."]
+[node name="SpringButton" type="Button" parent="." unique_id=2126201416]
 layout_mode = 1
-offset_left = -111.0
-offset_top = 40.0
-offset_right = -34.0
-offset_bottom = 111.0
+offset_left = -1378.0
+offset_top = 423.0
+offset_right = -759.0
+offset_bottom = 611.0
 text = "Spring"
 
-[node name="SlideButton" type="Button" parent="."]
+[node name="SlideButton" type="Button" parent="." unique_id=1344666987]
 layout_mode = 1
-offset_left = 45.0
-offset_top = 40.0
-offset_right = 122.0
-offset_bottom = 111.0
+offset_left = 480.0
+offset_top = 520.0
+offset_right = 1078.0
+offset_bottom = 608.0
 text = "Slide"
 
 [connection signal="pressed" from="NormalButton" to="." method="_on_normal_button_pressed"]
