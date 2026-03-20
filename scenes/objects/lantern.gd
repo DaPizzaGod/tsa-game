@@ -4,6 +4,7 @@ extends RigidBody2D
 @onready var hitbox := $CollisionShape2D
 var hooked := false
 var lantern_hook_pos :Vector2
+@export var hooked_texture_scale: float
 
 func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 	if not ThrowCalc.throwing:
@@ -20,6 +21,8 @@ func get_hooked():
 	ThrowCalc.current_lanterns += 1
 	hooked = true
 	hitbox.set_deferred("disabled", true)
+	var tween = create_tween()
+	tween.tween_property($PointLight2D, "texture_scale", hooked_texture_scale, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	
 
 		
@@ -34,8 +37,8 @@ func _physics_process(_delta: float) -> void:
 		position = lantern_hook_pos
 
 	
-	if ThrowCalc.picked_up:
-
+	if ThrowCalc.picked_up and ThrowCalc.lantern_holding == self:
+		
 		position = ThrowCalc.player_pos
 		hitbox.set_deferred("disabled", true)
 		#hitbox.set_collision_mask_value
@@ -43,7 +46,6 @@ func _physics_process(_delta: float) -> void:
 		hitbox.set_deferred("disabled", false)
 		set_collision_mask_value(1, false)
 
-		
 	if ThrowCalc.throwing:
 
 		ThrowCalc.picked_up = false

@@ -518,7 +518,7 @@ remote_path = NodePath("../../../../../Body/Head")
 
 [node name="RightKnee" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="3" unique_id=586350350]
 position = Vector2(119, 185)
-rotation = -0.037775785
+rotation = -0.037775762
 scale = Vector2(0.9998607, 0.9998607)
 rest = Transform2D(0.9985576, -0.052551355, 0.052551355, 0.9985576, 140, 185)
 metadata/_local_pose_override_enabled_ = true
@@ -536,7 +536,7 @@ remote_path = NodePath("../../../../../../Body/RightFoot")
 [node name="RightElbow" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="4" unique_id=1641826549]
 position = Vector2(98.00001, -72)
 rotation = -1.5801613
-scale = Vector2(0.99987674, 0.99987674)
+scale = Vector2(0.9998764, 0.9998764)
 rest = Transform2D(0.99082047, -0.13484879, 0.13484879, 0.99082047, 96.99999, -66)
 metadata/_local_pose_override_enabled_ = true
 
@@ -572,5 +572,4 @@ position = Vector2(1, -214)
 libraries/ = SubResource("AnimationLibrary_0epu6")
 
 [node name="Light" parent="." index="4" unique_id=553465369]
-energy = 1.0
 texture_scale = 15.0
