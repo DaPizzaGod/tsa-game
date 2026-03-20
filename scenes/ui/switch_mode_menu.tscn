@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgkdk3hhehphq" path="res://scenes/ui/switch_mode_menu.gd" id="1_cjke7"]
 [ext_resource type="Texture2D" uid="uid://dau5k2ru74576" path="res://graphics/assets/ui/switch_mode_menu_asset.svg" id="2_cjke7"]
+[ext_resource type="Theme" uid="uid://wg8w2vbreftr" path="res://graphics/assets/ui/button.tres" id="3_5jm1c"]
 
 [node name="SwitchModeMenu" type="Control" unique_id=651462680]
 layout_mode = 3
@@ -12,8 +13,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cjke7")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2107204776]
-layout_mode = 1
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2054012849]
+layout_mode = 0
+offset_left = -3438.0
+offset_top = -2388.0
+offset_right = 3501.0
+offset_bottom = 2239.0
+color = Color(0, 0, 0, 0.47058824)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=659001505]
+layout_mode = 0
 offset_left = -1916.0
 offset_top = -1232.0
 offset_right = 34843.996
@@ -27,6 +36,7 @@ offset_left = -1125.0
 offset_top = -724.0
 offset_right = -476.0
 offset_bottom = -609.0
+theme = ExtResource("3_5jm1c")
 text = "Normal"
 
 [node name="StretchButton" type="Button" parent="." unique_id=431673801]
@@ -35,14 +45,16 @@ offset_left = 513.0
 offset_top = -701.0
 offset_right = 1107.0
 offset_bottom = -572.0
+theme = ExtResource("3_5jm1c")
 text = "Stretch"
 
 [node name="SpringButton" type="Button" parent="." unique_id=2126201416]
 layout_mode = 1
-offset_left = -1378.0
-offset_top = 423.0
-offset_right = -759.0
-offset_bottom = 611.0
+offset_left = -1373.0
+offset_top = 429.0
+offset_right = -754.0
+offset_bottom = 617.0
+theme = ExtResource("3_5jm1c")
 text = "Spring"
 
 [node name="SlideButton" type="Button" parent="." unique_id=1344666987]
@@ -51,6 +63,7 @@ offset_left = 480.0
 offset_top = 520.0
 offset_right = 1078.0
 offset_bottom = 608.0
+theme = ExtResource("3_5jm1c")
 text = "Slide"
 
 [connection signal="pressed" from="NormalButton" to="." method="_on_normal_button_pressed"]
