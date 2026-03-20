@@ -1,23 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://fgoo8i1cffua"]
+[gd_scene format=3 uid="uid://fgoo8i1cffua"]
 
 [ext_resource type="Script" uid="uid://dbj4he0w6dpck" path="res://scenes/objects/stamina_coin.gd" id="1_2qf8n"]
-[ext_resource type="Texture2D" uid="uid://cre868i5huy63" path="res://graphics/Triangle.png" id="1_ufmsr"]
+[ext_resource type="Texture2D" uid="uid://ch0wj4rqcdpdu" path="res://graphics/assets/stamina_berry.svg" id="2_2qf8n"]
 
-[node name="StaminaCoin" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qf8n"]
+size = Vector2(276, 324)
+
+[node name="StaminaCoin" type="Node2D" unique_id=74744947]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_2qf8n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0, 1)
-position = Vector2(0, -6)
-rotation = -1.5707964
-texture = ExtResource("1_ufmsr")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1552500248]
+position = Vector2(0, 10)
+texture = ExtResource("2_2qf8n")
+offset = Vector2(96, 80)
 
-[node name="CollectZone" type="Area2D" parent="."]
+[node name="CollectZone" type="Area2D" parent="." unique_id=2128709412]
 collision_layer = 32
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollectZone"]
-position = Vector2(-1, 0)
-polygon = PackedVector2Array(1, -60, -54, 49, 54, 50)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectZone" unique_id=1233638491]
+shape = SubResource("RectangleShape2D_2qf8n")
 
 [connection signal="body_entered" from="CollectZone" to="." method="_on_collect_zone_body_entered"]

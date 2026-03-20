@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://kmb4ykxan2eg"]
+[gd_scene format=3 uid="uid://kmb4ykxan2eg"]
 
 [ext_resource type="Script" uid="uid://00ptdjuqx03e" path="res://scenes/ui/player_ui.gd" id="1_s4ogp"]
 
-[node name="PlayerUI" type="CanvasLayer"]
+[node name="PlayerUI" type="CanvasLayer" unique_id=2095213472]
 script = ExtResource("1_s4ogp")
 
-[node name="StaminaBar" type="ProgressBar" parent="."]
+[node name="StaminaBar" type="ProgressBar" parent="." unique_id=1626326203]
 offset_left = 21.0
 offset_top = 69.0
 offset_right = 373.0
@@ -14,7 +14,7 @@ step = 1.0
 value = 50.0
 show_percentage = false
 
-[node name="BarText" type="Label" parent="StaminaBar"]
+[node name="BarText" type="Label" parent="StaminaBar" unique_id=1492196605]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,7 +28,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StaminaBarLabel" type="Label" parent="."]
+[node name="StaminaBarLabel" type="Label" parent="." unique_id=503711335]
 offset_left = 24.0
 offset_top = 34.0
 offset_right = 141.0

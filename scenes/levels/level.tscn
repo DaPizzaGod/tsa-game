@@ -10,10 +10,8 @@ script = ExtResource("1_b2cq8")
 [node name="CameraZones" type="Node2D" parent="." unique_id=611186523]
 visible = false
 
-[node name="CameraArea" type="Node2D" parent="CameraZones" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "center_boundary") groups=["CameraArea"]]
+[node name="CameraArea" type="Node2D" parent="CameraZones" unique_id=10990432 groups=["CameraArea"]]
 script = ExtResource("2_ouxo3")
-jurisdiction = NodePath("")
-center_boundary = NodePath("")
 enter_trans = 11
 enter_ease = 2
 
