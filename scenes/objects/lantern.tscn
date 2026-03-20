@@ -16,6 +16,11 @@ height = 186.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_bhjn2"]
 radius = 112.969025
 
+[sub_resource type="Curve" id="Curve_gnu5k"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4956522, 107.03401), 0.0, 0.0, 0, 0, Vector2(0.9507247, 200), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Lantern" type="RigidBody2D" unique_id=1490608412 groups=["Lantern"]]
 z_index = 1
 collision_layer = 64
@@ -53,9 +58,21 @@ texture_scale = 8.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1345118558]
 position = Vector2(0, 109)
+amount = 40
+lifetime = 0.5
+randomness = 0.5
+lifetime_randomness = 0.5
 emission_shape = 1
 emission_sphere_radius = 31.24
 gravity = Vector2(0, -600)
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+color = Color(0.01764706, 0.31524345, 0.262362, 0.7058824)
+hue_variation_min = 0.2
+hue_variation_max = 0.8
+anim_speed_min = 7.74
+anim_speed_max = 40.79
+anim_speed_curve = SubResource("Curve_gnu5k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="PickUpZone" to="." method="_on_pick_up_zone_body_entered"]

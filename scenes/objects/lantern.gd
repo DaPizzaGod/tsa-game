@@ -5,6 +5,7 @@ extends RigidBody2D
 var hooked := false
 var lantern_hook_pos :Vector2
 @export var hooked_texture_scale: float
+var can_hook:= true
 
 func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 	if not ThrowCalc.throwing:
@@ -13,11 +14,19 @@ func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 			ThrowCalc.picked_up = true
 	if body.is_in_group("LanternHook") and not ThrowCalc.picked_up:
 		
-		get_hooked()
-		lantern_hook_pos = body.position
+		for i in ThrowCalc.blocked_hooks:
+			
+			if i == body:
+				can_hook = false
+		if can_hook:
+			ThrowCalc.blocked_hooks.append(body)
+			get_hooked()
+			lantern_hook_pos = body.position
+			can_hook = true
 		
 		
 func get_hooked():
+	rotation = 0
 	ThrowCalc.current_lanterns += 1
 	hooked = true
 	hitbox.set_deferred("disabled", true)
