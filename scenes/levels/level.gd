@@ -46,9 +46,10 @@ func process_code():
 		ModeCalc.check_mode = false
 			
 	# Move menu to player
+
 	if ModeCalc.menu and typeof(new_player) == 24:
 		ModeCalc.menu.position = new_player.global_position
-		
+
 	
 	if StaminaCalc.respawn:
 		if transitions == 0:
