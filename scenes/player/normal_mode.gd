@@ -1,6 +1,6 @@
 extends PlayerParent
 
-var jump_vel := -800.0
+var jump_vel := -900.0
 var direction: float
 var running := false
 var running_bonus := 400.0

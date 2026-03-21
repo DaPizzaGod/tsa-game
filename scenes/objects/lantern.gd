@@ -9,7 +9,7 @@ var can_hook:= true
 
 func _on_pick_up_zone_body_entered(body: Node2D) -> void:
 	if not ThrowCalc.throwing:
-		if body.is_in_group("Players") and not hooked:
+		if body.is_in_group("Players") and not hooked and not ThrowCalc.picked_up:
 			ThrowCalc.lantern_holding = self
 			ThrowCalc.picked_up = true
 	if body.is_in_group("LanternHook") and not ThrowCalc.picked_up:

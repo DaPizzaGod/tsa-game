@@ -424,8 +424,8 @@ texture = ExtResource("2_kgide")
 shape = SubResource("CapsuleShape2D_2h4ve")
 
 [node name="RightHand" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="0" unique_id=937568567]
-position = Vector2(266.3256, -238.46202)
-rotation = -1.5801613
+position = Vector2(170.71338, -58.578224)
+rotation = -0.42086464
 scale = Vector2(1.2998325, 1.2998325)
 texture = ExtResource("9_plo77")
 offset = Vector2(-120, 57)
@@ -448,23 +448,20 @@ texture = ExtResource("8_52bhj")
 offset = Vector2(-53, -222)
 
 [node name="LeftHand" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="4" unique_id=77906430]
-position = Vector2(-193.94373, -70.91256)
-rotation = -1.2709061
+position = Vector2(-192.621, -19.930748)
+rotation = 0.14971578
 scale = Vector2(0.9998786, 0.9998786)
 texture = ExtResource("7_vsa0o")
 offset = Vector2(87, 27)
 
 [node name="LeftFoot" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="5" unique_id=1180824846]
-position = Vector2(-121.72834, 253.70181)
-rotation = 0.1516411
+position = Vector2(-121.728355, 253.70181)
+rotation = 0.1516412
 scale = Vector2(0.9998856, 0.9998856)
 texture = ExtResource("6_kuxq3")
 offset = Vector2(115, -215)
 
-[node name="Bones" parent="Sprite" parent_id_path=PackedInt32Array(1107953450) index="1" unique_id=233264891]
-visible = false
-
-[node name="Skeleton2D" type="Skeleton2D" parent="Sprite/Bones" index="0" unique_id=459374096]
+[node name="Skeleton2D" type="Skeleton2D" parent="Sprite/Bones" parent_id_path=PackedInt32Array(233264891) index="0" unique_id=459374096]
 modification_stack = SubResource("SkeletonModificationStack2D_0epu6")
 
 [node name="Torso" type="Bone2D" parent="Sprite/Bones/Skeleton2D" index="0" unique_id=1293798596]
@@ -473,7 +470,7 @@ rest = Transform2D(1, 0, 0, 1, 0, -34)
 
 [node name="LeftKnee" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="0" unique_id=633390447]
 position = Vector2(-110, 157.99998)
-rotation = 0.15164107
+rotation = 0.15164115
 scale = Vector2(0.9998856, 0.9998856)
 rest = Transform2D(0.99991435, 0.011502204, -0.011502204, 0.99991435, -130.99998, 174)
 metadata/_local_pose_override_enabled_ = true
@@ -518,7 +515,7 @@ remote_path = NodePath("../../../../../Body/Head")
 
 [node name="RightKnee" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="3" unique_id=586350350]
 position = Vector2(119, 185)
-rotation = -0.037775762
+rotation = -0.037775807
 scale = Vector2(0.9998607, 0.9998607)
 rest = Transform2D(0.9985576, -0.052551355, 0.052551355, 0.9985576, 140, 185)
 metadata/_local_pose_override_enabled_ = true
@@ -536,7 +533,7 @@ remote_path = NodePath("../../../../../../Body/RightFoot")
 [node name="RightElbow" type="Bone2D" parent="Sprite/Bones/Skeleton2D/Torso" index="4" unique_id=1641826549]
 position = Vector2(98.00001, -72)
 rotation = -1.5801613
-scale = Vector2(0.9998764, 0.9998764)
+scale = Vector2(0.9998712, 0.9998712)
 rest = Transform2D(0.99082047, -0.13484879, 0.13484879, 0.99082047, 96.99999, -66)
 metadata/_local_pose_override_enabled_ = true
 

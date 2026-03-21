@@ -7,6 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qf8n"]
 size = Vector2(276, 324)
 
+[sub_resource type="Curve" id="Curve_403o8"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4956522, 107.03401), 0.0, 0.0, 0, 0, Vector2(0.9507247, 200), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="StaminaCoin" type="Node2D" unique_id=74744947]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_2qf8n")
@@ -29,5 +34,26 @@ shape = SubResource("RectangleShape2D_2qf8n")
 color = Color(0.10980392, 0.85882354, 0.7254902, 1)
 texture = ExtResource("3_403o8")
 texture_scale = 7.65
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=148109496]
+z_index = 1
+emitting = false
+amount = 100
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.5
+randomness = 0.5
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(0, -600)
+scale_amount_min = 4.0
+scale_amount_max = 10.0
+color = Color(0.61967117, 0.35275778, 0.34228742, 0.7058824)
+hue_variation_min = 0.2
+hue_variation_max = 0.8
+anim_speed_min = 7.74
+anim_speed_max = 40.79
+anim_speed_curve = SubResource("Curve_403o8")
 
 [connection signal="body_entered" from="CollectZone" to="." method="_on_collect_zone_body_entered"]

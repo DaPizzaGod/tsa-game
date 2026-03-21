@@ -35,4 +35,7 @@ func _on_collect_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):
 		StaminaCalc.current_stamina += stamina_add_val
 		StaminaCalc.check_if_over = true
+		$Sprite2D.hide()
+		$CPUParticles2D.emitting = true
+		await get_tree().create_timer(0.7).timeout
 		queue_free()
