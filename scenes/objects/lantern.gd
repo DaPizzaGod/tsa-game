@@ -39,6 +39,7 @@ func get_hooked():
 func _ready() -> void:
 	ThrowCalc.picked_up = false
 	ThrowCalc.lantern_holding = null
+	LevelCalc.connect("finish_level", _on_finish_level)
 	
 
 func _physics_process(_delta: float) -> void:
@@ -69,3 +70,7 @@ func _physics_process(_delta: float) -> void:
 		await get_tree().create_timer(1.5).timeout
 		set_freeze_enabled(false)
 		
+
+func _on_finish_level():
+	ThrowCalc.lantern_holding = null
+	queue_free()

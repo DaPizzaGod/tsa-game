@@ -24,15 +24,17 @@ func throw_lantern(throw_force, forward_dir):
 	
 
 	
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if typeof(lantern_holding) == 24:
 		has_lantern = true
 		lantern_pos = lantern_holding.position
 	else:
 		has_lantern = false
 		
-	#if current_lanterns >= max_lanterns:
+	if current_lanterns >= max_lanterns:
 		#print("finished level") #update later to change level
+		LevelCalc.finish_level.emit()
+		current_lanterns = 0
 		
 	if StaminaCalc.respawn:
 		blocked_hooks = []
