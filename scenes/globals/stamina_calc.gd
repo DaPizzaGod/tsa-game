@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 	
 	if current_stamina <= 0:
 		get_tree().change_scene_to_file("res://scenes/player/player.tscn")
-		get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
+		get_tree().change_scene_to_file(LevelCalc.current_level)
 		current_stamina = max_stamina
 		respawn = true
 		update_stamina = true

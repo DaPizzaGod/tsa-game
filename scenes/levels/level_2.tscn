@@ -1,5 +1,31 @@
-[gd_scene format=3 uid="uid://bqhms765ch4ik"]
+[gd_scene format=4 uid="uid://bqhms765ch4ik"]
 
 [ext_resource type="PackedScene" uid="uid://c32kxtrw25xtu" path="res://scenes/levels/level.tscn" id="1_j2425"]
+[ext_resource type="Texture2D" uid="uid://de8jjgqokoud3" path="res://graphics/assets/background.svg" id="2_g2h2n"]
+[ext_resource type="TileSet" uid="uid://bth2hor1f7ctu" path="res://graphics/tilesets/default_tileset.tres" id="3_ra442"]
 
 [node name="Level2" unique_id=725933420 instance=ExtResource("1_j2425")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" parent_id_path=PackedInt32Array(1726543075) index="0" unique_id=329885749]
+position = Vector2(2514.5, -1220.5)
+scale = Vector2(1.8342, 1.3358)
+texture = ExtResource("2_g2h2n")
+
+[node name="CameraArea" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="0" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "center_boundary")]
+jurisdiction = NodePath("Jurisdiction")
+center_boundary = NodePath("Boundary")
+
+[node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea" index="0" unique_id=1329872293]
+polygon = PackedVector2Array(-1022, -823, -982, 415, 2765, 489, 2718, -991)
+
+[node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea" index="1" unique_id=1467723119]
+polygon = PackedVector2Array(-492, -616, -573, 72, 2409, 122, 2409, -616)
+
+[node name="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(986456996) index="0" unique_id=2124389597]
+tile_map_data = PackedByteArray("AAAPAAUAAQACAAIAAAAPAAQAAQACAAIAAAAPAAMAAQACAAEAAAAOAAUAAQACAAIAAAAOAAQAAQACAAIAAAAOAAMAAQACAAEAAAANAAUAAQACAAIAAAANAAQAAQACAAIAAAANAAMAAQACAAEAAAAMAAUAAQACAAIAAAAMAAQAAQACAAIAAAAMAAMAAQACAAEAAAALAAUAAQACAAIAAAALAAQAAQACAAIAAAALAAMAAQACAAEAAAAKAAUAAQACAAIAAAAKAAQAAQACAAIAAAAKAAMAAQACAAEAAAAJAAUAAQACAAIAAAAJAAQAAQACAAIAAAAJAAMAAQACAAEAAAAIAAUAAQACAAIAAAAIAAQAAQACAAIAAAAIAAMAAQACAAEAAAAHAAUAAQACAAIAAAAHAAQAAQACAAIAAAAHAAMAAQACAAEAAAAGAAUAAQACAAIAAAAGAAQAAQACAAIAAAAGAAMAAQACAAEAAAAFAAUAAQACAAIAAAAFAAQAAQACAAIAAAAFAAMAAQACAAEAAAAEAAUAAQACAAIAAAAEAAQAAQACAAIAAAAEAAMAAQACAAEAAAADAAUAAQACAAIAAAADAAQAAQACAAIAAAADAAMAAQACAAEAAAACAAUAAQACAAIAAAACAAQAAQACAAIAAAACAAMAAQACAAEAAAABAAUAAQACAAIAAAABAAQAAQACAAIAAAABAAMAAQACAAEAAAAAAAUAAQACAAIAAAAAAAQAAQACAAIAAAAAAAMAAQACAAEAAAD//wUAAQACAAIAAAD//wQAAQACAAIAAAD//wMAAQACAAEAAAD+/wUAAQACAAIAAAD+/wQAAQACAAIAAAD+/wMAAQACAAEAAAD9/wUAAQACAAIAAAD9/wQAAQACAAIAAAD9/wMAAQACAAEAAAD8/wUAAQACAAIAAAD8/wQAAQACAAIAAAD8/wMAAQACAAEAAAD7/wUAAQACAAIAAAD7/wQAAQACAAIAAAD7/wMAAQACAAEAAAA=")
+tile_set = ExtResource("3_ra442")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="7" unique_id=401667525]
+color = Color(1, 1, 0.6862745, 1)
+energy = 0.7
+blend_mode = 1

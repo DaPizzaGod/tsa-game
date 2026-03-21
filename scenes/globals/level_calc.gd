@@ -23,5 +23,8 @@ func _on_finish_level():
 	
 	var next_level_path = levels.get(next_level_num)
 	get_tree().change_scene_to_file(next_level_path)
+	await get_tree().create_timer(0.2).timeout
+	
+	current_level = get_tree().current_scene.scene_file_path
 	
 	
