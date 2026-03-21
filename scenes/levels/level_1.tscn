@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cryska0cp58f5" path="res://graphics/assets/bed.svg" id="6_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://beu7tv0tpyi1w" path="res://scenes/objects/lantern_hook.tscn" id="6_sk5k4"]
 [ext_resource type="Script" uid="uid://bfw4681tsws" path="res://scenes/levels/kill_zone.gd" id="8_qxy0u"]
+[ext_resource type="Theme" uid="uid://cmltvvavbo808" path="res://graphics/assets/ui/label.tres" id="11_excbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dga24"]
 size = Vector2(4546, 504)
@@ -95,7 +96,36 @@ tile_set = ExtResource("2_6iamk")
 [node name="TileMapLayer2" type="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(986456996) index="1" unique_id=1734108362 groups=["Level"]]
 tile_set = ExtResource("2_6iamk")
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="7" unique_id=411561999]
+[node name="ButtonPrompts" type="Node2D" parent="." index="7" unique_id=82919795]
+
+[node name="Movement" type="Label" parent="ButtonPrompts" index="0" unique_id=151221911]
+offset_left = 575.0
+offset_top = -62.0
+offset_right = 1028.0
+offset_bottom = 141.0
+theme = ExtResource("11_excbq")
+text = "    W
+A	      D
+    S"
+
+[node name="Running" type="Label" parent="ButtonPrompts" index="1" unique_id=2012044900]
+offset_left = 2166.0
+offset_top = -225.0
+offset_right = 2770.0
+offset_bottom = -22.0
+theme = ExtResource("11_excbq")
+text = "Hold ENTER 
+or Left Click to run"
+
+[node name="Throwing" type="Label" parent="ButtonPrompts" index="2" unique_id=539406660]
+offset_left = 3376.0
+offset_top = -1615.0
+offset_right = 3947.0
+offset_bottom = -1412.0
+theme = ExtResource("11_excbq")
+text = "C or ESC to throw"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="8" unique_id=411561999]
 color = Color(1, 1, 0.6862745, 1)
 energy = 0.7
 blend_mode = 1

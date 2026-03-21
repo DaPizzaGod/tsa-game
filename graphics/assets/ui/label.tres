@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://cmltvvavbo808"]
+
+[ext_resource type="FontFile" uid="uid://dx5sxgpuu3urk" path="res://graphics/assets/ui/Eleanora.ttf" id="1_i0lwj"]
+
+[resource]
+default_font = ExtResource("1_i0lwj")
+default_font_size = 100
