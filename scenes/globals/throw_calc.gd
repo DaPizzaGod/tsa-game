@@ -19,9 +19,6 @@ func throw_lantern(throw_force, forward_dir):
 		await get_tree().create_timer(0.1).timeout
 
 		throwing = false
-	
-	
-	
 
 	
 func _physics_process(_delta: float) -> void:
@@ -33,6 +30,7 @@ func _physics_process(_delta: float) -> void:
 		
 	if current_lanterns >= max_lanterns:
 		#print("finished level") #update later to change level
+		await get_tree().create_timer(1.0).timeout
 		LevelCalc.finish_level.emit()
 		current_lanterns = 0
 		

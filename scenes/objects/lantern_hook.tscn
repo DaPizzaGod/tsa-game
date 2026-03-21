@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://beu7tv0tpyi1w"]
 
 [ext_resource type="Texture2D" uid="uid://dhh8lrpemcsb3" path="res://graphics/assets/lantern_hook.png" id="1_4u3k6"]
+[ext_resource type="Texture2D" uid="uid://dafdh7wwe8843" path="res://graphics/assets/spotlight.png" id="2_qft56"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qft56"]
 radius = 62.072536
 
 [node name="LanternHook" type="StaticBody2D" unique_id=162458812 groups=["LanternHook"]]
+z_index = 1
 collision_layer = 64
 collision_mask = 65
 
@@ -17,3 +19,9 @@ texture = ExtResource("1_4u3k6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1111505214]
 shape = SubResource("CircleShape2D_qft56")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2033636651]
+color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+energy = 1.2
+texture = ExtResource("2_qft56")
+texture_scale = 5.0

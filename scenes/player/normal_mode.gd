@@ -92,13 +92,13 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			animation_player.play("jump")
 		
-		if Input.is_action_just_pressed("shoot"):
+		if Input.is_action_just_pressed("secondary"):
 			run()
 
 		if running:
 			$Sprite2D.modulate = Color.AQUAMARINE
 			subtract_stamina(1)
-			if !Input.is_action_pressed("shoot"):
+			if !Input.is_action_pressed("secondary"):
 				max_speed -= running_bonus
 				running = false
 		else:
@@ -109,12 +109,12 @@ func _physics_process(delta: float) -> void:
 	
 
 func run():
-	if !Input.is_action_pressed("shoot"):
+	if !Input.is_action_pressed("secondary"):
 		return
 	
 	
 	await get_tree().create_timer(0.5).timeout
-	if !Input.is_action_pressed("shoot"):
+	if !Input.is_action_pressed("secondary"):
 		return
 	
 	max_speed += running_bonus

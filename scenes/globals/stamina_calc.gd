@@ -9,6 +9,7 @@ var check_if_over := false
 
 func _ready() -> void: 
 	current_stamina = max_stamina
+	LevelCalc.connect("finish_level", _on_finish_level)
 
 func _process(_delta: float) -> void:
 	if check_if_over:
@@ -25,3 +26,6 @@ func _process(_delta: float) -> void:
 		respawn = true
 		update_stamina = true
 	
+func _on_finish_level():
+	current_stamina = max_stamina
+	update_stamina = true

@@ -2,9 +2,27 @@
 
 [ext_resource type="PackedScene" uid="uid://c32kxtrw25xtu" path="res://scenes/levels/level.tscn" id="1_j2425"]
 [ext_resource type="Texture2D" uid="uid://de8jjgqokoud3" path="res://graphics/assets/background.svg" id="2_g2h2n"]
+[ext_resource type="Script" uid="uid://dlyp2517t8e" path="res://scenes/levels/level_2.gd" id="2_qsp8v"]
+[ext_resource type="Texture2D" uid="uid://cryska0cp58f5" path="res://graphics/assets/bed.svg" id="3_fiq81"]
+[ext_resource type="Script" uid="uid://cmy1sh0tg40uh" path="res://scenes/levels/camera_area.gd" id="3_ibugp"]
+[ext_resource type="PackedScene" uid="uid://mxnnjigi0g0n" path="res://scenes/objects/pillow.tscn" id="3_l37oo"]
+[ext_resource type="PackedScene" uid="uid://fgoo8i1cffua" path="res://scenes/objects/stamina_coin.tscn" id="3_qpwj6"]
 [ext_resource type="TileSet" uid="uid://bth2hor1f7ctu" path="res://graphics/tilesets/default_tileset.tres" id="3_ra442"]
+[ext_resource type="PackedScene" uid="uid://ctprw77daraid" path="res://scenes/objects/lantern.tscn" id="4_3p04p"]
+[ext_resource type="Script" uid="uid://bfw4681tsws" path="res://scenes/levels/kill_zone.gd" id="6_8qukl"]
+[ext_resource type="PackedScene" uid="uid://beu7tv0tpyi1w" path="res://scenes/objects/lantern_hook.tscn" id="6_nt80m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p04p"]
+size = Vector2(4546, 504)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsp8v"]
+size = Vector2(2157, 3663)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt80m"]
+size = Vector2(904, 5312.5)
 
 [node name="Level2" unique_id=725933420 instance=ExtResource("1_j2425")]
+script = ExtResource("2_qsp8v")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" parent_id_path=PackedInt32Array(1726543075) index="0" unique_id=329885749]
 position = Vector2(2514.5, -1220.5)
@@ -12,6 +30,7 @@ scale = Vector2(1.8342, 1.3358)
 texture = ExtResource("2_g2h2n")
 
 [node name="CameraArea" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="0" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "center_boundary")]
+zoom_level = 0.45
 jurisdiction = NodePath("Jurisdiction")
 center_boundary = NodePath("Boundary")
 
@@ -19,13 +38,102 @@ center_boundary = NodePath("Boundary")
 polygon = PackedVector2Array(-1022, -823, -982, 415, 2765, 489, 2718, -991)
 
 [node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea" index="1" unique_id=1467723119]
-polygon = PackedVector2Array(-492, -616, -573, 72, 2409, 122, 2409, -616)
+color = Color(1, 0.20392157, 1, 1)
+polygon = PackedVector2Array(241, -616, 277, 26, 2409, 122, 2409, -616)
+
+[node name="CameraArea2" type="Node2D" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="1" unique_id=432240523 node_paths=PackedStringArray("jurisdiction", "center_boundary") groups=["CameraArea"]]
+script = ExtResource("3_ibugp")
+zoom_level = 0.5
+jurisdiction = NodePath("Jurisdiction")
+center_boundary = NodePath("Boundary")
+enter_trans = 11
+enter_ease = 2
+
+[node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea2" index="0" unique_id=1769746532]
+position = Vector2(3232.8245, -64.6189)
+scale = Vector2(0.41959333, 1.1648649)
+polygon = PackedVector2Array(-1022, -823, -982, 415, 3796.9521, 411.7378, 4194.956, -187.47333, 4242.621, -408.09976, 4328.419, -946.3596)
+
+[node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea2" index="1" unique_id=427149708]
+position = Vector2(3541, -106)
+color = Color(1, 0.20392157, 1, 1)
+polygon = PackedVector2Array(-492, -616, -573, 72, 1085, 186, 1351, -336, 1450, -671)
+
+[node name="CameraArea3" type="Node2D" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="2" unique_id=1378298243 node_paths=PackedStringArray("jurisdiction", "focus_point") groups=["CameraArea"]]
+script = ExtResource("3_ibugp")
+area_type = 1
+jurisdiction = NodePath("Jurisdiction")
+focus_point = NodePath("FocusPoint")
+enter_trans = 11
+enter_ease = 2
+
+[node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea3" index="0" unique_id=1217878284]
+position = Vector2(5596, 230)
+scale = Vector2(0.41959333, 1.1648649)
+polygon = PackedVector2Array(-1255.9775, -1143.4802, -1317.9424, -588.051, -982, 415, 293.1416, 419.7912, 340.80664, -788.9327)
+
+[node name="FocusPoint" type="Marker2D" parent="CameraZones/CameraArea3" index="1" unique_id=2057659101]
+position = Vector2(5473.3174, 306.09424)
+
+[node name="CameraArea4" type="Node2D" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="3" unique_id=1953315636 node_paths=PackedStringArray("jurisdiction", "center_boundary") groups=["CameraArea"]]
+script = ExtResource("3_ibugp")
+zoom_level = 0.35
+jurisdiction = NodePath("Jurisdiction")
+center_boundary = NodePath("Boundary")
+enter_trans = 11
+enter_ease = 2
+
+[node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea4" index="0" unique_id=1928523709]
+position = Vector2(6377, 11)
+scale = Vector2(0.41959333, 1.1648649)
+polygon = PackedVector2Array(-1022, -823, -982, 415, 1975.7227, 418.07425, 1999.5547, -866.1949)
+
+[node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea4" index="1" unique_id=137229182]
+position = Vector2(6707, 57)
+color = Color(1, 0.20392157, 1, 1)
+polygon = PackedVector2Array(-492, -616, -573, 72, 136, 87, 121, -595)
+
+[node name="Lantern" parent="Objects/Lanterns" parent_id_path=PackedInt32Array(1191364155) index="0" unique_id=1490608412 instance=ExtResource("4_3p04p")]
+position = Vector2(4860, -406)
+
+[node name="LanternHook" parent="Objects/Lanterns" parent_id_path=PackedInt32Array(1191364155) index="1" unique_id=162458812 instance=ExtResource("6_nt80m")]
+position = Vector2(6345, -588)
+
+[node name="StaminaCoin" parent="Objects/StaminaCoins" parent_id_path=PackedInt32Array(946488150) index="0" unique_id=74744947 instance=ExtResource("3_qpwj6")]
+position = Vector2(3873.1235, 31.064697)
+
+[node name="Pillow" parent="Objects/Obstacles" parent_id_path=PackedInt32Array(910752565) index="0" unique_id=327501280 instance=ExtResource("3_l37oo")]
+position = Vector2(2853, -855)
+
+[node name="BoundaryArea" type="Node2D" parent="Objects/Obstacles" parent_id_path=PackedInt32Array(910752565) index="1" unique_id=1840022282]
+
+[node name="KillZone" type="Area2D" parent="Objects/Obstacles/BoundaryArea" index="0" unique_id=7755119]
+script = ExtResource("6_8qukl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Obstacles/BoundaryArea/KillZone" index="0" unique_id=2114893731]
+position = Vector2(4826, 766)
+shape = SubResource("RectangleShape2D_3p04p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/Obstacles/BoundaryArea/KillZone" index="1" unique_id=822942231]
+position = Vector2(6592, -2959)
+shape = SubResource("RectangleShape2D_qsp8v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/Obstacles/BoundaryArea/KillZone" index="2" unique_id=5414103]
+position = Vector2(-1449, -1990)
+shape = SubResource("RectangleShape2D_nt80m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects" parent_id_path=PackedInt32Array(275572278) index="4" unique_id=2068321180]
+position = Vector2(112.999954, 388)
+scale = Vector2(1.2947103, 1.2947104)
+texture = ExtResource("3_fiq81")
 
 [node name="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(986456996) index="0" unique_id=2124389597]
-tile_map_data = PackedByteArray("AAAPAAUAAQACAAIAAAAPAAQAAQACAAIAAAAPAAMAAQACAAEAAAAOAAUAAQACAAIAAAAOAAQAAQACAAIAAAAOAAMAAQACAAEAAAANAAUAAQACAAIAAAANAAQAAQACAAIAAAANAAMAAQACAAEAAAAMAAUAAQACAAIAAAAMAAQAAQACAAIAAAAMAAMAAQACAAEAAAALAAUAAQACAAIAAAALAAQAAQACAAIAAAALAAMAAQACAAEAAAAKAAUAAQACAAIAAAAKAAQAAQACAAIAAAAKAAMAAQACAAEAAAAJAAUAAQACAAIAAAAJAAQAAQACAAIAAAAJAAMAAQACAAEAAAAIAAUAAQACAAIAAAAIAAQAAQACAAIAAAAIAAMAAQACAAEAAAAHAAUAAQACAAIAAAAHAAQAAQACAAIAAAAHAAMAAQACAAEAAAAGAAUAAQACAAIAAAAGAAQAAQACAAIAAAAGAAMAAQACAAEAAAAFAAUAAQACAAIAAAAFAAQAAQACAAIAAAAFAAMAAQACAAEAAAAEAAUAAQACAAIAAAAEAAQAAQACAAIAAAAEAAMAAQACAAEAAAADAAUAAQACAAIAAAADAAQAAQACAAIAAAADAAMAAQACAAEAAAACAAUAAQACAAIAAAACAAQAAQACAAIAAAACAAMAAQACAAEAAAABAAUAAQACAAIAAAABAAQAAQACAAIAAAABAAMAAQACAAEAAAAAAAUAAQACAAIAAAAAAAQAAQACAAIAAAAAAAMAAQACAAEAAAD//wUAAQACAAIAAAD//wQAAQACAAIAAAD//wMAAQACAAEAAAD+/wUAAQACAAIAAAD+/wQAAQACAAIAAAD+/wMAAQACAAEAAAD9/wUAAQACAAIAAAD9/wQAAQACAAIAAAD9/wMAAQACAAEAAAD8/wUAAQACAAIAAAD8/wQAAQACAAIAAAD8/wMAAQACAAEAAAD7/wUAAQACAAIAAAD7/wQAAQACAAIAAAD7/wMAAQACAAEAAAA=")
+tile_map_data = PackedByteArray("AAAPAAUAAQACAAIAAAAPAAQAAQACAAIAAAAPAAMAAQACAAEAAAAOAAUAAQACAAIAAAAOAAQAAQACAAIAAAAOAAMAAQACAAEAAAANAAUAAQACAAIAAAANAAQAAQACAAIAAAANAAMAAQACAAIAAAAMAAUAAQACAAIAAAAMAAQAAQACAAIAAAAMAAMAAQACAAIAAAALAAUAAQACAAIAAAALAAQAAQACAAIAAAALAAMAAQACAAEAAAAKAAUAAQACAAIAAAAKAAQAAQACAAIAAAAKAAMAAQACAAEAAAAJAAUAAQACAAIAAAAJAAQAAQACAAIAAAAJAAMAAQACAAIAAAAIAAUAAQACAAIAAAAIAAQAAQACAAIAAAAIAAMAAQACAAIAAAAHAAUAAQACAAIAAAAHAAQAAQACAAIAAAAHAAMAAQACAAIAAAAGAAUAAQACAAIAAAAGAAQAAQACAAIAAAAGAAMAAQACAAIAAAAFAAUAAQACAAIAAAAFAAQAAQACAAIAAAAFAAMAAQACAAEAAAAEAAUAAQACAAIAAAAEAAQAAQACAAIAAAAEAAMAAQACAAEAAAADAAUAAQACAAIAAAADAAQAAQACAAIAAAADAAMAAQACAAEAAAACAAUAAQACAAIAAAACAAQAAQACAAIAAAACAAMAAQACAAEAAAABAAUAAQACAAIAAAABAAQAAQACAAIAAAABAAMAAQACAAEAAAAAAAUAAQACAAIAAAAAAAQAAQACAAIAAAAAAAMAAQACAAEAAAD//wUAAQACAAIAAAD//wQAAQACAAIAAAD//wMAAQACAAEAAAD+/wUAAQACAAIAAAD+/wQAAQACAAIAAAD+/wMAAQACAAEAAAD9/wUAAQACAAIAAAD9/wQAAQACAAIAAAD9/wMAAQACAAEAAAD8/wUAAQACAAIAAAD8/wQAAQACAAIAAAD8/wMAAQACAAEAAAD7/wUAAQACAAIAAAD7/wQAAQACAAIAAAD7/wMAAQACAAEAAAD6/wUAAQACAAIAAAD6/wQAAQACAAIAAAD6/wMAAQACAAEAAAD5/wUAAQACAAIAAAD5/wQAAQACAAIAAAD5/wMAAQACAAEAAAD4/wUAAQACAAIAAAD4/wQAAQACAAIAAAD4/wMAAQACAAEAAAD3/wUAAQACAAIAAAD3/wQAAQACAAIAAAD3/wMAAQACAAEAAAD2/wUAAQACAAIAAAD2/wQAAQACAAIAAAD2/wMAAQACAAEAAAD1/wUAAQACAAIAAAD1/wQAAQACAAIAAAD1/wMAAQACAAEAAAD0/wUAAQACAAIAAAD0/wQAAQACAAIAAAD0/wMAAQACAAEAAADz/wUAAQACAAIAAADz/wQAAQACAAIAAADz/wMAAQACAAEAAAArAAUAAQACAAIAAAArAAQAAQACAAIAAAArAAMAAQACAAEAAAAqAAUAAQACAAIAAAAqAAQAAQACAAIAAAAqAAMAAQACAAEAAAApAAUAAQACAAIAAAApAAQAAQACAAIAAAApAAMAAQACAAEAAAAoAAUAAQACAAIAAAAoAAQAAQACAAIAAAAoAAMAAQACAAEAAAAnAAUAAQACAAIAAAAnAAQAAQACAAIAAAAnAAMAAQACAAEAAAAmAAUAAQACAAIAAAAmAAQAAQACAAIAAAAmAAMAAQACAAEAAAAlAAUAAQACAAIAAAAlAAQAAQACAAIAAAAlAAMAAQACAAEAAAAkAAUAAQACAAIAAAAkAAQAAQACAAIAAAAkAAMAAQACAAEAAAAjAAUAAQACAAIAAAAjAAQAAQACAAIAAAAjAAMAAQACAAEAAAAfAAUAAQACAAIAAAAfAAQAAQACAAIAAAAfAAMAAQADAAEAAAAeAAUAAQACAAIAAAAeAAQAAQACAAIAAAAeAAMAAQACAAIAAAAdAAUAAQACAAIAAAAdAAQAAQACAAIAAAAdAAMAAQACAAIAAAAcAAUAAQACAAIAAAAcAAQAAQACAAIAAAAcAAMAAQACAAIAAAAbAAUAAQACAAIAAAAbAAQAAQACAAIAAAAbAAMAAQACAAEAAAAaAAUAAQACAAIAAAAaAAQAAQACAAIAAAAaAAMAAQACAAEAAAAZAAUAAQACAAIAAAAZAAQAAQACAAIAAAAZAAMAAQACAAIAAAAYAAUAAQACAAIAAAAYAAQAAQACAAIAAAAYAAMAAQACAAIAAAAXAAUAAQACAAIAAAAXAAQAAQACAAIAAAAXAAMAAQACAAIAAAAWAAUAAQACAAIAAAAWAAQAAQACAAIAAAAWAAMAAQACAAIAAAAVAAUAAQACAAIAAAAVAAQAAQACAAIAAAAVAAMAAQACAAEAAAAUAAUAAQACAAIAAAAUAAQAAQACAAIAAAAUAAMAAQACAAEAAAATAAUAAQACAAIAAAATAAQAAQACAAIAAAATAAMAAQACAAEAAAASAAUAAQACAAIAAAASAAQAAQACAAIAAAASAAMAAQACAAEAAAARAAUAAQACAAIAAAARAAQAAQACAAIAAAARAAMAAQACAAEAAAAQAAUAAQACAAIAAAAQAAQAAQACAAIAAAAQAAMAAQACAAEAAAAJAAIAAQACAAEAAAAIAAIAAQACAAEAAAAHAAIAAQACAAEAAAAGAAIAAQACAAEAAAANAAIAAQACAAIAAAANAAEAAQACAAIAAAAMAAIAAQACAAIAAAAMAAEAAQACAAIAAAANAAAAAQACAAEAAAAMAAAAAQACAAEAAAAPAP7/AQAEAAEAAAAQAP7/AQAEAAEAAAARAP7/AQAEAAEAAAASAP7/AQAEAAEAAAATAP7/AQAEAAEAAAAZAAIAAQACAAIAAAAZAAEAAQADAAEAAAAYAAIAAQACAAIAAAAYAAEAAQACAAEAAAAXAAIAAQACAAIAAAAXAAEAAQACAAEAAAAWAAIAAQACAAIAAAAWAAEAAQACAAEAAAAeAAIAAQACAAIAAAAeAAEAAQACAAIAAAAeAAAAAQACAAIAAAAdAAIAAQACAAIAAAAdAAEAAQACAAIAAAAdAAAAAQACAAIAAAAcAAIAAQACAAIAAAAcAAEAAQACAAIAAAAcAAAAAQACAAIAAAAeAP//AQACAAEAAAAdAP//AQACAAEAAAAcAP//AQACAAEAAAAqAAIAAQAHAAQAAAAqAAEAAQAHAAQAAAAqAAAAAQAHAAQAAAAqAP//AQAHAAQAAAAqAP7/AQAHAAQAAAAqAP3/AQAHAAQAAAAqAPz/AQAHAAQAAAAqAPv/AQAHAAQAAAAqAPr/AQAHAAQAAAApAPr/AQAHAAQAAAAoAPr/AQAHAAQAAAAmAPr/AQAHAAQAAAAnAPr/AQAHAAQAAAAlAPr/AQAHAAQAAAAlAPv/AQAHAAQAAAAlAPz/AQAHAAQAAAAlAP3/AQAHAAQAAAAmAP3/AQAEAAEAAAAnAP3/AQAEAAEAAAA=")
 tile_set = ExtResource("3_ra442")
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="7" unique_id=401667525]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="7" unique_id=787842125]
 color = Color(1, 1, 0.6862745, 1)
-energy = 0.7
+energy = 0.5
 blend_mode = 1
+
+[connection signal="body_entered" from="Objects/Obstacles/BoundaryArea/KillZone" to="Objects/Obstacles/BoundaryArea/KillZone" method="_on_body_entered"]

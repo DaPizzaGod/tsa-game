@@ -1,33 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://mxnnjigi0g0n"]
+[gd_scene format=3 uid="uid://mxnnjigi0g0n"]
 
 [ext_resource type="PackedScene" uid="uid://b2j06al8rs7ne" path="res://scenes/objects/stamina_damage.tscn" id="1_aqgno"]
-[ext_resource type="Texture2D" uid="uid://bhsawgtjs7mpe" path="res://graphics/rectangle.png" id="2_rfeq4"]
 [ext_resource type="Script" uid="uid://cakfoveduyx47" path="res://scenes/objects/pillow.gd" id="2_v0qi1"]
+[ext_resource type="Texture2D" uid="uid://d2pas6fpd5f8l" path="res://graphics/assets/log.svg" id="3_rfeq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0qi1"]
-size = Vector2(20000, 30000.002)
+size = Vector2(5899.9995, 1600)
 
-[node name="Pillow" instance=ExtResource("1_aqgno")]
+[node name="Pillow" unique_id=327501280 instance=ExtResource("1_aqgno")]
 script = ExtResource("2_v0qi1")
 
-[node name="DamageZone" type="Area2D" parent="." index="0"]
+[node name="DamageZone" type="Area2D" parent="." index="0" unique_id=943240958]
 scale = Vector2(0.1, 0.1)
 collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone" index="0"]
-scale = Vector2(0.09999998, 0.09999998)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone" index="0" unique_id=2060095198]
+position = Vector2(0, 49.999954)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_v0qi1")
 
 [node name="Sprite2D" parent="." index="1"]
 modulate = Color(1, 1, 0.84313726, 1)
-rotation = 1.5707964
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_rfeq4")
+position = Vector2(7, -55)
+texture = ExtResource("3_rfeq4")
 
-[node name="Positions" type="Node2D" parent="." index="2"]
+[node name="Positions" type="Node2D" parent="." index="2" unique_id=1730217912]
 
-[node name="PositionUp" type="Marker2D" parent="Positions" index="0"]
+[node name="PositionUp" type="Marker2D" parent="Positions" index="0" unique_id=1426835598]
 
-[node name="PositionDown" type="Marker2D" parent="Positions" index="1"]
+[node name="PositionDown" type="Marker2D" parent="Positions" index="1" unique_id=592336048]
 
 [connection signal="body_entered" from="DamageZone" to="." method="_on_damage_zone_body_entered"]
