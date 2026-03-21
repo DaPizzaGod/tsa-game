@@ -10,14 +10,14 @@ radius = 47.518417
 [node name="SlideMode" unique_id=1961882459 instance=ExtResource("1_l7brt")]
 script = ExtResource("2_4w00t")
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=158541579]
-scale = Vector2(0.05, 0.05)
-
-[node name="Sprite2D" parent="." index="2" unique_id=2145137670]
+[node name="Sprite2D" parent="." index="0" unique_id=228135771]
 modulate = Color(0.25208238, 0.41900584, 0.76892567, 1)
 position = Vector2(0, 12)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_kwtcf")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1200267025]
+scale = Vector2(0.05, 0.05)
 
 [node name="CanExitChecker" type="Area2D" parent="." index="3" unique_id=1422190654]
 collision_layer = 16

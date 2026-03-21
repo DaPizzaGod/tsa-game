@@ -1,15 +1,25 @@
 [gd_scene format=3 uid="uid://ctprw77daraid"]
 
-[ext_resource type="Texture2D" uid="uid://cyk1qgj00xv41" path="res://graphics/lantern.svg" id="1_443ya"]
 [ext_resource type="Script" uid="uid://dr3n6wxh6wio" path="res://scenes/objects/lantern.gd" id="1_bhjn2"]
+[ext_resource type="Texture2D" uid="uid://dsosdbykfcl6a" path="res://graphics/assets/lantern.svg" id="2_bhjn2"]
+[ext_resource type="Texture2D" uid="uid://dafdh7wwe8843" path="res://graphics/assets/spotlight.png" id="3_gnu5k"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bhjn2"]
 friction = 0.75
 rough = true
 bounce = 0.5
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhjn2"]
+radius = 40.0
+height = 186.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_bhjn2"]
-radius = 35.902645
+radius = 112.969025
+
+[sub_resource type="Curve" id="Curve_gnu5k"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4956522, 107.03401), 0.0, 0.0, 0, 0, Vector2(0.9507247, 200), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Lantern" type="RigidBody2D" unique_id=1490608412 groups=["Lantern"]]
 z_index = 1
@@ -17,23 +27,52 @@ collision_layer = 64
 collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_bhjn2")
 script = ExtResource("1_bhjn2")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=991645688]
-scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(0, -58, -40, -16, -24, 54, 24, 54, 40, -16)
+hooked_texture_scale = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=684738760]
-modulate = Color(0.95686275, 0.72156864, 0.89411765, 1)
-position = Vector2(6, 83)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_443ya")
+position = Vector2(-9.536743e-07, 102.99999)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_bhjn2")
+offset = Vector2(-9.999992, -44.999878)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=921169714]
+visible = false
+position = Vector2(0, 100)
+shape = SubResource("CapsuleShape2D_bhjn2")
 
 [node name="PickUpZone" type="Area2D" parent="." unique_id=1602818999]
 collision_layer = 64
 collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpZone" unique_id=1732567071]
+visible = false
+position = Vector2(0, 93)
 shape = SubResource("CircleShape2D_bhjn2")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2084005031]
+position = Vector2(0, 116)
+color = Color(0.026293874, 0.3701714, 0.41847947, 1)
+energy = 3.5
+texture = ExtResource("3_gnu5k")
+texture_scale = 8.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1345118558]
+position = Vector2(0, 109)
+amount = 40
+lifetime = 0.5
+randomness = 0.5
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 31.24
+gravity = Vector2(0, -600)
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+color = Color(0.01764706, 0.31524345, 0.262362, 0.7058824)
+hue_variation_min = 0.2
+hue_variation_max = 0.8
+anim_speed_min = 7.74
+anim_speed_max = 40.79
+anim_speed_curve = SubResource("Curve_gnu5k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="PickUpZone" to="." method="_on_pick_up_zone_body_entered"]

@@ -8,10 +8,7 @@
 [node name="SpringMode" unique_id=1965345625 instance=ExtResource("1_wy7j1")]
 script = ExtResource("2_03w64")
 
-[node name="CollisionShape2D" parent="." index="0" unique_id=1200267025]
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" parent="." index="1" unique_id=228135771]
+[node name="Sprite2D" parent="." index="0" unique_id=228135771]
 modulate = Color(0.21176471, 0.69411767, 0.3137255, 1)
 position = Vector2(0, 12)
 scale = Vector2(0.1, 0.1)
@@ -27,5 +24,8 @@ texture = ExtResource("4_ts6hm")
 [node name="JumpCooldown" type="Timer" parent="." index="2" unique_id=1910453639]
 wait_time = 0.75
 one_shot = true
+
+[node name="CollisionShape2D" parent="." index="3" unique_id=1200267025]
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]

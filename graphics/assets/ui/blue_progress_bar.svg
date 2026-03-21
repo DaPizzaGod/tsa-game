@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="blue_progress_bar.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.6251271"
+     inkscape:cx="408.27576"
+     inkscape:cy="690.09987"
+     inkscape:window-width="1080"
+     inkscape:window-height="1897"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     style="display:inline">
+    <path
+       id="path1"
+       style="fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:1.00278"
+       d="M 105,123.14513 A 24.787422,25.354852 0 0 0 80.212554,148.5 24.787422,25.354852 0 0 0 105,173.85487 24.787422,25.354852 0 0 0 129.78744,148.5 24.787422,25.354852 0 0 0 105,123.14513 Z m 0,12.67744 A 12.39371,12.677426 0 0 1 117.39372,148.5 12.39371,12.677426 0 0 1 105,161.17743 12.39371,12.677426 0 0 1 92.606277,148.5 12.39371,12.677426 0 0 1 105,135.82257 Z" />
+  </g>
+</svg>

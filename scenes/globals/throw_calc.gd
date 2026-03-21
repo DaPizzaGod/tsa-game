@@ -8,7 +8,7 @@ var has_lantern := false
 var hand_lantern_attatched := false
 var max_lanterns :int
 var current_lanterns := 0
-
+var blocked_hooks := []
 
 func throw_lantern(throw_force, forward_dir):
 	if has_lantern:
@@ -17,6 +17,7 @@ func throw_lantern(throw_force, forward_dir):
 		lantern_holding.linear_velocity = throw_force * forward_dir
 
 		await get_tree().create_timer(0.1).timeout
+
 		throwing = false
 	
 	
@@ -30,5 +31,8 @@ func _process(_delta: float) -> void:
 	else:
 		has_lantern = false
 		
-	if current_lanterns >= max_lanterns:
-		print("finished level") #update later to change level
+	#if current_lanterns >= max_lanterns:
+		#print("finished level") #update later to change level
+		
+	if StaminaCalc.respawn:
+		blocked_hooks = []

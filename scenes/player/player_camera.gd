@@ -3,7 +3,7 @@ extends Camera2D
 var all_cam_areas := []
 var current_area: CameraArea = null
 var vertical_offset:= Vector2(0, -100)
-var lookahead_strength := 100.0
+var lookahead_strength := 200.0
 var smoothing_speed:= 5.0
 var lookahead_speed:= 2.0
 var zoom_speed:= 3.0

@@ -4,10 +4,10 @@ var max_speed := 600.0
 var gravity := 1200.0
 var accel := 3000.0
 var can_sub_stamina:= true
-var fall_gravity:= gravity + 800
+var fall_gravity:= gravity + 1200
 var glide_gravity:= gravity - 800
 var throwing:= false
-var throw_force := 1500.0
+var throw_force := 2000.0
 @onready var player_camera: Camera2D = $PlayerCamera
 
 
@@ -47,8 +47,11 @@ func get_grav(vel: Vector2, gliding=false):
 	return fall_gravity
 
 
-func update_player_pos():
-	ThrowCalc.player_pos = position
+func update_player_pos(custom_pos=false):
+	if !custom_pos:
+		ThrowCalc.player_pos = position
+	else:
+		ThrowCalc.player_pos = custom_pos
 
 func throw_mode():
 	if ThrowCalc.picked_up:
@@ -76,7 +79,7 @@ func draw_line_global(pointA: Vector2, pointB: Vector2, color, width:int = -1) -
 
 func update_trajectory():
 	var vel := throw_force * get_forward_direction()
-	var line_start := global_position
+	var line_start := ThrowCalc.player_pos
 	var line_end:Vector2
 	var drag:float = ProjectSettings.get_setting("physics/2d/default_linear_damp")
 	var timestep := 0.02

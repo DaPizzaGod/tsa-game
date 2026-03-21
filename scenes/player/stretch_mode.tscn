@@ -8,7 +8,7 @@
 [node name="StretchMode" unique_id=1592098898 instance=ExtResource("1_dn1pk")]
 script = ExtResource("2_gtgbb")
 
-[node name="Sprite2D" parent="." index="2" unique_id=2145137670]
+[node name="Sprite2D" parent="." index="0" unique_id=228135771]
 modulate = Color(0.9843137, 0.23529412, 0.003921569, 1)
 position = Vector2(0, 12)
 scale = Vector2(0.1, 0.1)

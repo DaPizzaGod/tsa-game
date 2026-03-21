@@ -21,5 +21,6 @@ func change_mode(item):
 	Engine.time_scale = 1
 	ModeCalc.check_mode = true
 	ModeCalc.menu_count -= 1
+
 	queue_free()
 	
