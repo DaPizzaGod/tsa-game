@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dlqm3uggiox5"]
+
+[ext_resource type="Texture2D" uid="uid://d2pas6fpd5f8l" path="res://graphics/assets/log.svg" id="1_gfj5l"]
+[ext_resource type="Script" uid="uid://dolsexmfkf6sq" path="res://scenes/objects/moving_platform.gd" id="1_ll65p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfj5l"]
+size = Vector2(573, 167)
+
+[sub_resource type="Animation" id="Animation_gfj5l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ll65p"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-1.55, -1.55),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fja67"]
+_data = {
+&"RESET": SubResource("Animation_gfj5l"),
+&"move": SubResource("Animation_ll65p")
+}
+
+[node name="MovingPlatform" type="Path2D" unique_id=1183189303]
+script = ExtResource("1_ll65p")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=46987592]
+rotation = 0.0034129561
+progress = 878.9473
+metadata/_edit_lock_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=1272714690]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1768193781]
+rotation = 0.0034129564
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 65
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1774615654]
+position = Vector2(0.5, -3.5)
+shape = SubResource("RectangleShape2D_gfj5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=236277518]
+position = Vector2(-10, 3)
+texture = ExtResource("1_gfj5l")
+offset = Vector2(22, -70)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1968625074]
+libraries/ = SubResource("AnimationLibrary_fja67")

@@ -16,6 +16,7 @@ point_count = 3
 
 [node name="BreakablePlatform" type="StaticBody2D" unique_id=1383232948]
 collision_layer = 2
+collision_mask = 65
 script = ExtResource("1_ckojn")
 shake_time = 0.6
 
