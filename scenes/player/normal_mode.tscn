@@ -455,8 +455,8 @@ texture = ExtResource("7_vsa0o")
 offset = Vector2(87, 27)
 
 [node name="LeftFoot" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="5" unique_id=1180824846]
-position = Vector2(-121.72834, 253.70181)
-rotation = 0.15164112
+position = Vector2(-121.72835, 253.70181)
+rotation = 0.15164118
 scale = Vector2(0.9998856, 0.9998856)
 texture = ExtResource("6_kuxq3")
 offset = Vector2(115, -215)

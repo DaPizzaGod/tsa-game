@@ -32,6 +32,7 @@ func _physics_process(_delta: float) -> void:
 		#print("finished level") #update later to change level
 		await get_tree().create_timer(1.0).timeout
 		LevelCalc.finish_level.emit()
+		print("signal")
 		current_lanterns = 0
 		
 	if StaminaCalc.respawn:

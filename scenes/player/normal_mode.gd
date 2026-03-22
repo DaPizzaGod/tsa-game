@@ -98,6 +98,7 @@ func _physics_process(delta: float) -> void:
 		if running:
 			$Sprite2D.modulate = Color.AQUAMARINE
 			subtract_stamina(1)
+
 			if !Input.is_action_pressed("secondary"):
 				max_speed -= running_bonus
 				running = false
