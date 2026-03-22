@@ -26,6 +26,8 @@ func _process(_delta: float) -> void:
 		respawn = true
 		update_stamina = true
 	
+	if Input.is_action_just_pressed("restart"):
+		current_stamina = 0
 func _on_finish_level():
 	current_stamina = max_stamina
 	update_stamina = true
