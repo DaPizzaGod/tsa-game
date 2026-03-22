@@ -29,11 +29,12 @@ func _physics_process(_delta: float) -> void:
 		has_lantern = false
 		
 	if current_lanterns >= max_lanterns:
-		#print("finished level") #update later to change level
-		await get_tree().create_timer(1.0).timeout
-		LevelCalc.finish_level.emit()
-		print("signal")
-		current_lanterns = 0
 		
+		await get_tree().create_timer(1.0).timeout
+		if LevelCalc.finishing_level:
+			LevelCalc.finish_level.emit()
+			print("signal")
+			current_lanterns = 0
+
 	if StaminaCalc.respawn:
 		blocked_hooks = []

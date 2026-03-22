@@ -33,6 +33,7 @@ func _on_finish_level():
 		await get_tree().create_timer(0.05).timeout
 		StaminaCalc.current_stamina = 0
 		current_level = next_level_path
+		await get_tree().create_timer(5.0).timeout
 		finishing_level = true
 	
 	
