@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bgkdk3hhehphq" path="res://scenes/ui/switch_mode_menu.gd" id="1_cjke7"]
 [ext_resource type="Texture2D" uid="uid://dau5k2ru74576" path="res://graphics/assets/ui/switch_mode_menu_asset.svg" id="2_cjke7"]
 [ext_resource type="Theme" uid="uid://wg8w2vbreftr" path="res://graphics/assets/ui/button.tres" id="3_5jm1c"]
+[ext_resource type="Texture2D" uid="uid://bw13dmfrqfld7" path="res://graphics/assets/ui/lock.svg" id="4_0o002"]
 
 [node name="SwitchModeMenu" type="Control" unique_id=651462680]
 layout_mode = 3
@@ -65,6 +66,21 @@ offset_right = 1198.0
 offset_bottom = 686.0
 theme = ExtResource("3_5jm1c")
 text = "Slide"
+
+[node name="StretchLock" type="Sprite2D" parent="." unique_id=408882207]
+visible = false
+position = Vector2(1003, -576)
+texture = ExtResource("4_0o002")
+
+[node name="SpringLock" type="Sprite2D" parent="." unique_id=1481812188]
+visible = false
+position = Vector2(-918.3865, 566.6688)
+texture = ExtResource("4_0o002")
+
+[node name="SlideLock" type="Sprite2D" parent="." unique_id=1564952308]
+visible = false
+position = Vector2(898.7173, 600.0868)
+texture = ExtResource("4_0o002")
 
 [connection signal="pressed" from="NormalButton" to="." method="_on_normal_button_pressed"]
 [connection signal="pressed" from="StretchButton" to="." method="_on_stretch_button_pressed"]

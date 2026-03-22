@@ -24,7 +24,10 @@ size = Vector2(904, 5312.5)
 [node name="Level2" unique_id=725933420 instance=ExtResource("1_j2425")]
 script = ExtResource("2_qsp8v")
 
-[node name="Sprite2D" type="Sprite2D" parent="Background" parent_id_path=PackedInt32Array(1726543075) index="0" unique_id=329885749]
+[node name="Background" parent="." index="0" unique_id=1726543075]
+repeat_size = Vector2(9150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" index="0" unique_id=329885749]
 position = Vector2(2514.5, -1220.5)
 scale = Vector2(1.8342, 1.3358)
 texture = ExtResource("2_g2h2n")
@@ -73,7 +76,7 @@ scale = Vector2(0.41959333, 1.1648649)
 polygon = PackedVector2Array(-1255.9775, -1143.4802, -1317.9424, -588.051, -982, 415, 293.1416, 419.7912, 340.80664, -788.9327)
 
 [node name="FocusPoint" type="Marker2D" parent="CameraZones/CameraArea3" index="1" unique_id=2057659101]
-position = Vector2(5473.3174, 306.09424)
+position = Vector2(5420, 10)
 
 [node name="CameraArea4" type="Node2D" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="3" unique_id=1953315636 node_paths=PackedStringArray("jurisdiction", "center_boundary") groups=["CameraArea"]]
 script = ExtResource("3_ibugp")
@@ -94,7 +97,7 @@ color = Color(1, 0.20392157, 1, 1)
 polygon = PackedVector2Array(-492, -616, -573, 72, 136, 87, 121, -595)
 
 [node name="Lantern" parent="Objects/Lanterns" parent_id_path=PackedInt32Array(1191364155) index="0" unique_id=1490608412 instance=ExtResource("4_3p04p")]
-position = Vector2(4860, -406)
+position = Vector2(4858, -359)
 
 [node name="LanternHook" parent="Objects/Lanterns" parent_id_path=PackedInt32Array(1191364155) index="1" unique_id=162458812 instance=ExtResource("6_nt80m")]
 position = Vector2(6345, -588)
@@ -103,7 +106,7 @@ position = Vector2(6345, -588)
 position = Vector2(3873.1235, 31.064697)
 
 [node name="Pillow" parent="Objects/Obstacles" parent_id_path=PackedInt32Array(910752565) index="0" unique_id=327501280 instance=ExtResource("3_l37oo")]
-position = Vector2(2853, -855)
+position = Vector2(2859, -977)
 
 [node name="BoundaryArea" type="Node2D" parent="Objects/Obstacles" parent_id_path=PackedInt32Array(910752565) index="1" unique_id=1840022282]
 

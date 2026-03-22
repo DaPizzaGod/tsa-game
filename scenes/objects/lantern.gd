@@ -73,4 +73,3 @@ func _physics_process(_delta: float) -> void:
 
 func _on_finish_level():
 	ThrowCalc.lantern_holding = null
-	queue_free()

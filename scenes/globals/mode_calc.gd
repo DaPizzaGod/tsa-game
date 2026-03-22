@@ -15,6 +15,9 @@ var new_player_pos
 var menu_count:= 0
 var swapping := false
 
+var stetch_unlocked := false
+var spring_unlocked := false
+var slide_unlocked := false
 
 func _process(_delta: float) -> void:
 	# When shift is pressed
