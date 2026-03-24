@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://chgsvymw8dqyu"]
+
+[ext_resource type="Texture2D" uid="uid://c2efohlvn7xpi" path="res://graphics/inner_demons/stretch_inner_demon.svg" id="1_4cdpy"]
+
+[node name="StretchDemon" type="Node2D" unique_id=1852067622]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1133880880]
+position = Vector2(-17, -9)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_4cdpy")
