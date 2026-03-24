@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://00ptdjuqx03e" path="res://scenes/ui/player_ui.gd" id="1_s4ogp"]
 [ext_resource type="Texture2D" uid="uid://eigis7oidj1e" path="res://graphics/assets/ui/black_progress_bar.svg" id="2_jg20v"]
 [ext_resource type="Texture2D" uid="uid://clcca1075vn70" path="res://graphics/assets/ui/blue_progress_bar.svg" id="3_fatqr"]
+[ext_resource type="Theme" uid="uid://cmltvvavbo808" path="res://graphics/assets/ui/label.tres" id="4_fatqr"]
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=2095213472]
 script = ExtResource("1_s4ogp")
@@ -30,10 +31,14 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_fatqr")
+theme_override_font_sizes/font_size = 30
 
 [node name="StaminaBarLabel" type="Label" parent="." unique_id=503711335]
-offset_left = 24.0
-offset_top = 34.0
-offset_right = 141.0
-offset_bottom = 57.0
+offset_left = 13.0
+offset_top = 19.0
+offset_right = 486.0
+offset_bottom = 119.0
+theme = ExtResource("4_fatqr")
+theme_override_font_sizes/font_size = 50
 text = "Player Stamina"
