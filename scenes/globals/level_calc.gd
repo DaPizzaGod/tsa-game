@@ -1,6 +1,6 @@
 extends Node
 
-var loading_screen : PackedScene = preload("res://scenes/ui/loading_screen.tscn")
+
 var current_level
 var max_level:= 5
 var levels = {
@@ -20,8 +20,7 @@ func _ready() -> void:
 	
 func _on_finish_level():
 	if finishing_level:
-		var new_loading_screen := loading_screen.instantiate()
-		get_tree().root.add_child(new_loading_screen)
+		
 		finishing_level = false
 		ThrowCalc.current_lanterns = 0
 		print("finished")
@@ -41,5 +40,5 @@ func _on_finish_level():
 		current_level = next_level_path
 		await get_tree().create_timer(5.0).timeout
 		finishing_level = true
-		new_loading_screen.queue_free()
+		ThrowCalc.new_loading_screen.queue_free()
 	

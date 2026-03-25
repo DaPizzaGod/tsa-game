@@ -9,6 +9,8 @@ var hand_lantern_attatched := false
 var max_lanterns :int
 var current_lanterns := 0
 var blocked_hooks := []
+var new_loading_screen
+var loading_screen : PackedScene = preload("res://scenes/ui/loading_screen.tscn")
 
 func throw_lantern(throw_force, forward_dir):
 	if has_lantern:
@@ -32,8 +34,10 @@ func _physics_process(_delta: float) -> void:
 		
 		await get_tree().create_timer(1.0).timeout
 		if LevelCalc.finishing_level:
+			new_loading_screen = loading_screen.instantiate()
+			get_tree().root.add_child(new_loading_screen)
 			LevelCalc.finish_level.emit()
-			print("signal")
+			
 			current_lanterns = 0
 
 	if StaminaCalc.respawn:
