@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://fgoo8i1cffua" path="res://scenes/objects/stamina_coin.tscn" id="5_5vn0v"]
 [ext_resource type="PackedScene" uid="uid://beu7tv0tpyi1w" path="res://scenes/objects/lantern_hook.tscn" id="6_ts8eg"]
 [ext_resource type="Script" uid="uid://bfw4681tsws" path="res://scenes/levels/kill_zone.gd" id="9_um320"]
+[ext_resource type="Theme" uid="uid://cmltvvavbo808" path="res://graphics/assets/ui/label.tres" id="10_glw47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glw47"]
 size = Vector2(4546, 504)
@@ -109,5 +110,24 @@ tile_map_data = PackedByteArray("AAAuABMAAQACAAIAAAAuABIAAQACAAIAAAAuABEAAQACAAI
 color = Color(1, 1, 0.6862745, 1)
 energy = 0.5
 blend_mode = 1
+
+[node name="ButtonPrompts" type="Node2D" parent="." index="8" unique_id=969255000]
+
+[node name="ChangeAbilities" type="Label" parent="ButtonPrompts" index="0" unique_id=1391193605]
+offset_left = 2880.0
+offset_top = -977.0
+offset_right = 3525.0002
+offset_bottom = -774.0
+theme = ExtResource("10_glw47")
+text = "[SHIFT] to change
+change abilities"
+
+[node name="Throwing" type="Label" parent="ButtonPrompts" index="1" unique_id=1959105233]
+offset_left = 3376.0
+offset_top = -1615.0
+offset_right = 3947.0
+offset_bottom = -1412.0
+theme = ExtResource("10_glw47")
+text = "C or ESC to throw"
 
 [connection signal="body_entered" from="Objects/BoundaryArea/KillZone" to="Objects/BoundaryArea/KillZone" method="_on_body_entered"]
