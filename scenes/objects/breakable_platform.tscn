@@ -28,6 +28,7 @@ position = Vector2(29, -59)
 texture = ExtResource("1_gu0ah")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1774022805]
+collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=680526876]
 position = Vector2(-0.5, -93.75)

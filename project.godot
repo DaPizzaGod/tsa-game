@@ -25,6 +25,8 @@ ModeCalc="*res://scenes/globals/mode_calc.gd"
 StaminaCalc="*res://scenes/globals/stamina_calc.gd"
 ThrowCalc="*res://scenes/globals/throw_calc.gd"
 LevelCalc="*uid://c0wcvyu32ywrl"
+Music="*uid://dt6tyr0vgq047"
+DialogueCalc="*uid://cmnuguwpo2uhk"
 
 [display]
 

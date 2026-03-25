@@ -1,5 +1,10 @@
-[gd_scene format=3 uid="uid://bt044joua1r10"]
+[gd_scene format=3 uid="uid://dt6tyr0vgq047"]
+
+[ext_resource type="AudioStream" uid="uid://elkoyrcpvk1i" path="res://graphics/audio/InnerDemonsMainTheme.mp3" id="1_ejqpe"]
 
 [node name="Music" type="Node" unique_id=977211241]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=491616974]
+stream = ExtResource("1_ejqpe")
+autoplay = true
+bus = &"Music"

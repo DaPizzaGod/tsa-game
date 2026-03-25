@@ -36,6 +36,9 @@ func _physics_process(delta: float) -> void:
 		jump_available = true
 	
 	throw_mode()
+	if !in_dialogue:
+		animation_player.play("idle")
+		return
 	if throwing:
 		
 		if get_global_mouse_position() < global_position:
