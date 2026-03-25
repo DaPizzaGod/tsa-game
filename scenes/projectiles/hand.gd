@@ -1,7 +1,7 @@
 extends Area2D
 
 var player: Node = null
-var speed := 2000.0
+var speed := 8000.0
 var direction:= Vector2.UP
 
 var attatched := false

@@ -1,24 +1,40 @@
 [gd_scene format=3 uid="uid://bv605vuyornxv"]
 
-[ext_resource type="Texture2D" uid="uid://cre868i5huy63" path="res://graphics/Triangle.png" id="1_a5sma"]
 [ext_resource type="Script" uid="uid://brdp4mdjtotrf" path="res://scenes/projectiles/hand.gd" id="1_nrq6w"]
+[ext_resource type="Texture2D" uid="uid://bqs8xa1iid4un" path="res://graphics/player/stretch/hand.png" id="2_nrq6w"]
+[ext_resource type="Texture2D" uid="uid://dh8huam8g2go0" path="res://graphics/player/stretch/arm.png" id="3_y1ech"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrq6w"]
+size = Vector2(72, 58.666668)
 
 [node name="Hand" type="Area2D" unique_id=542395079]
 collision_layer = 4
 collision_mask = 70
 script = ExtResource("1_nrq6w")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1075396182]
-scale = Vector2(0.3, 0.3)
-polygon = PackedVector2Array(-55, -54, -55, 55, 54, 0)
-
 [node name="Hand" type="Sprite2D" parent="." unique_id=1167189203]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_a5sma")
+position = Vector2(-0.20971298, -0.32937622)
+rotation = 1.5707964
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_nrq6w")
+offset = Vector2(-282.2354, 192.6343)
 
 [node name="SelfDestruct" type="Timer" parent="." unique_id=255301051]
 wait_time = 1.5
 one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=333603788]
+position = Vector2(11.000001, -3.999999)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_nrq6w")
+
+[node name="Arm" type="Sprite2D" parent="." unique_id=1205337198]
+visible = false
+texture_repeat = 2
+position = Vector2(6, 320)
+texture = ExtResource("3_y1ech")
+region_enabled = true
+region_rect = Rect2(794, 429, 85, 259)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="SelfDestruct" to="." method="_on_self_destruct_timeout"]

@@ -36,11 +36,13 @@ func _on_text_box_finished_displaying():
 	
 	
 func _unhandled_input(event: InputEvent) -> void:
+	
 	if(
 		event.is_action_pressed("shoot") and 
-		is_dialoge_active and 
+		is_dialoge_active and
 		can_advance_line
 	):
+		print("input")
 		text_box.queue_free()
 		
 		current_line_index += 1

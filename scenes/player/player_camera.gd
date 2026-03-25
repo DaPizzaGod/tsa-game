@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 	find_current_area()
 	
 	var desired_position := get_desired_position(delta)
+	await get_tree().create_timer(0.1).timeout
 	var bound_position := current_area.get_bound_position(desired_position)
 	
 	var w: float = clamp(smoothing_speed * delta, 0.0, 1.0)

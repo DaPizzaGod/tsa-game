@@ -9,23 +9,23 @@ extends Control
 
 
 func _ready() -> void:
-	if ModeCalc.stetch_unlocked:
-		return
-	else:
+	if !ModeCalc.stetch_unlocked:
 		stretch_button.queue_free()
 		stretch_lock.show()
 	
-	if ModeCalc.spring_unlocked:
-		return
-	else:
+		
+	
+	if !ModeCalc.spring_unlocked:
 		spring_button.queue_free()
 		spring_lock.show()
+	
 		
-	if ModeCalc.slide_unlocked:
-		return
-	else:
+		
+	if !ModeCalc.slide_unlocked:
 		slide_button.queue_free()
 		slide_lock.show()
+	
+		
 
 func _on_normal_button_pressed() -> void:
 	change_mode(0)

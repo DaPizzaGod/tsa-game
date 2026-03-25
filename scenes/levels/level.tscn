@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ccmwa80u3odnb" path="res://scenes/levels/level.gd" id="1_b2cq8"]
 [ext_resource type="Script" uid="uid://cmy1sh0tg40uh" path="res://scenes/levels/camera_area.gd" id="2_ouxo3"]
 [ext_resource type="PackedScene" uid="uid://kmb4ykxan2eg" path="res://scenes/ui/player_ui.tscn" id="3_b2cq8"]
+[ext_resource type="TileSet" uid="uid://bth2hor1f7ctu" path="res://graphics/tilesets/default_tileset.tres" id="3_xb4v1"]
 
 [node name="Level" type="Node2D" unique_id=725933420]
 script = ExtResource("1_b2cq8")
@@ -30,7 +31,8 @@ position = Vector2(-530, 7)
 
 [node name="TileMaps" type="Node2D" parent="." unique_id=986456996 groups=["Level"]]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="TileMaps" unique_id=2124389597]
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMaps" unique_id=2124389597 groups=["Level"]]
+tile_set = ExtResource("3_xb4v1")
 
 [node name="PlayerNode" type="Node2D" parent="." unique_id=1984308743]
 

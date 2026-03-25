@@ -4,15 +4,44 @@
 [ext_resource type="Texture2D" uid="uid://ntfkugd378dn" path="res://graphics/circle.svg" id="2_ecdt6"]
 [ext_resource type="Script" uid="uid://bdcp6fki8slge" path="res://scenes/player/stretch_mode.gd" id="2_gtgbb"]
 [ext_resource type="PackedScene" uid="uid://bv605vuyornxv" path="res://scenes/projectiles/hand.tscn" id="4_gllec"]
+[ext_resource type="Texture2D" uid="uid://dh8huam8g2go0" path="res://graphics/player/stretch/arm.png" id="5_buakj"]
+[ext_resource type="Texture2D" uid="uid://b24dmsdufdrut" path="res://graphics/player/stretch/body.png" id="6_i8s2x"]
+[ext_resource type="Texture2D" uid="uid://bh4mpvfelq2v3" path="res://graphics/player/stretch/head.png" id="7_h8y83"]
+[ext_resource type="Texture2D" uid="uid://bqs8xa1iid4un" path="res://graphics/player/stretch/hand.png" id="7_i8s2x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8s2x"]
+radius = 1119.9999
+height = 4499.9995
 
 [node name="StretchMode" unique_id=1592098898 instance=ExtResource("1_dn1pk")]
 script = ExtResource("2_gtgbb")
 
 [node name="Sprite2D" parent="." index="0" unique_id=228135771]
+visible = false
 modulate = Color(0.9843137, 0.23529412, 0.003921569, 1)
 position = Vector2(0, 12)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ecdt6")
+
+[node name="Arm" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="0" unique_id=1928112938]
+visible = false
+position = Vector2(1346, -245)
+texture = ExtResource("5_buakj")
+
+[node name="Body" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="1" unique_id=692479721]
+position = Vector2(-4, 122)
+texture = ExtResource("6_i8s2x")
+
+[node name="Hand" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="2" unique_id=1690895149]
+visible = false
+position = Vector2(1.7513428, 0.71450806)
+rotation = 1.5707964
+texture = ExtResource("7_i8s2x")
+offset = Vector2(-277.4748, -316.72797)
+
+[node name="Head" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="3" unique_id=295114906]
+position = Vector2(106, 94)
+texture = ExtResource("7_h8y83")
 
 [node name="Hand" parent="." index="3" unique_id=1894222191 instance=ExtResource("4_gllec")]
 position = Vector2(50, 0)
@@ -22,3 +51,7 @@ z_index = 1
 points = PackedVector2Array(513, 312)
 width = 4.0
 default_color = Color(1, 0.36862746, 0, 1)
+
+[node name="CollisionShape2D" parent="." index="6" unique_id=1200267025]
+position = Vector2(0, -22)
+shape = SubResource("CapsuleShape2D_i8s2x")
