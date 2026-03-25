@@ -39,7 +39,21 @@ func _on_finish_level():
 		await get_tree().create_timer(0.05).timeout
 		StaminaCalc.current_stamina = 0
 		current_level = next_level_path
-		await get_tree().create_timer(5.0).timeout
+		await get_tree().create_timer(2.0).timeout
+		finishing_level = true
+		if is_instance_valid(ThrowCalc.new_loading_screen):
+			ThrowCalc.new_loading_screen.queue_free()
+			print(is_instance_valid(ThrowCalc.new_loading_screen))
+		else:
+			print(is_instance_valid(ThrowCalc.new_loading_screen))
+	
+func menu_to_first_level():
+	if finishing_level:
+		finishing_level = false
+		ThrowCalc.new_loading_screen = ThrowCalc.loading_screen.instantiate()
+		get_tree().root.add_child(ThrowCalc.new_loading_screen)
+		get_tree().change_scene_to_file(levels.get(1))
+		await get_tree().create_timer(2.0).timeout
 		finishing_level = true
 		if is_instance_valid(ThrowCalc.new_loading_screen):
 			ThrowCalc.new_loading_screen.queue_free()

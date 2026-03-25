@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dt547lq32nrcv"]
+
+[ext_resource type="Texture2D" uid="uid://vtu573pnuruy" path="res://graphics/assets/new_background.svg" id="1_sl1te"]
+[ext_resource type="Script" uid="uid://bbndst310ccdh" path="res://scenes/ui/main_menu.gd" id="1_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://dip6n0y0jdi3q" path="res://graphics/assets/ui/game_icon.svg" id="2_fe2o3"]
+[ext_resource type="Theme" uid="uid://cmltvvavbo808" path="res://graphics/assets/ui/label.tres" id="3_1g8jr"]
+[ext_resource type="Theme" uid="uid://wg8w2vbreftr" path="res://graphics/assets/ui/button.tres" id="4_m1kxf"]
+
+[node name="MainMenu" type="Control" unique_id=1025337011]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x2yvf")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1093000417]
+modulate = Color(0.42164698, 0.42164698, 0.42164698, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -51.0
+offset_right = 18715.998
+offset_bottom = 11048.999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_sl1te")
+
+[node name="GameIcon" type="TextureRect" parent="." unique_id=1445763700]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1325.9999
+offset_top = -669.0
+offset_right = -531.9999
+offset_bottom = 454.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_fe2o3")
+
+[node name="Title" type="Label" parent="." unique_id=531642679]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1104.0
+offset_top = 234.0
+offset_right = -670.0
+offset_bottom = 334.0
+grow_horizontal = 0
+theme = ExtResource("3_1g8jr")
+text = "Inner Demons"
+
+[node name="Button" type="Button" parent="." unique_id=418024379]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1011.0
+offset_top = -360.0
+offset_right = -756.1499
+offset_bottom = -224.2821
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_m1kxf")
+text = "Start"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

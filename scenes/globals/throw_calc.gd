@@ -6,7 +6,7 @@ var throwing:= false
 var lantern_pos: Vector2
 var has_lantern := false
 var hand_lantern_attatched := false
-var max_lanterns :int
+var max_lanterns := 10
 var current_lanterns := 0
 var blocked_hooks := []
 var new_loading_screen
