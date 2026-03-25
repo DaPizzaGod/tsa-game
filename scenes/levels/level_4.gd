@@ -1,6 +1,7 @@
 extends Level
 
 func _ready() -> void:
+	level_path = "res://scenes/levels/level_4.tscn"
 	ready_code(1)
 
 	ModeCalc.stetch_unlocked = true

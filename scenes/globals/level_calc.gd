@@ -20,11 +20,12 @@ func _ready() -> void:
 	
 func _on_finish_level():
 	if finishing_level:
-		
 		finishing_level = false
+		await get_tree().create_timer(0.1).timeout
+		
 		ThrowCalc.current_lanterns = 0
 		print("finished")
-		current_level = get_tree().current_scene.scene_file_path
+		#current_level = get_tree().current_scene.scene_file_path
 		print(levels.find_key(current_level))
 		var next_level_num :int = (levels.find_key(current_level)) + 1
 		if next_level_num > max_level:
@@ -40,5 +41,9 @@ func _on_finish_level():
 		current_level = next_level_path
 		await get_tree().create_timer(5.0).timeout
 		finishing_level = true
-		ThrowCalc.new_loading_screen.queue_free()
+		if is_instance_valid(ThrowCalc.new_loading_screen):
+			ThrowCalc.new_loading_screen.queue_free()
+			print(is_instance_valid(ThrowCalc.new_loading_screen))
+		else:
+			print(is_instance_valid(ThrowCalc.new_loading_screen))
 	
