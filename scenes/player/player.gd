@@ -9,7 +9,7 @@ var glide_gravity:= gravity - 800
 var throwing:= false
 var throw_force := 2000.0
 @onready var player_camera: Camera2D = $PlayerCamera
-
+var in_dialogue := true
 
 func _draw() -> void:
 	if throwing:

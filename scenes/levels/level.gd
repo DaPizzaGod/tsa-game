@@ -48,7 +48,7 @@ func process_code():
 	# Move menu to player
 
 	if ModeCalc.menu and typeof(new_player) == 24:
-		ModeCalc.menu.position = new_player.global_position
+		ModeCalc.menu.position = get_viewport().get_camera_2d().global_position
 
 	
 	if StaminaCalc.respawn:

@@ -1,7 +1,7 @@
 extends PlayerParent
 var current_hand :Node = null
 var hand_scene :PackedScene= preload("res://scenes/projectiles/hand.tscn")
-var launch_speed := 1500.0
+var launch_speed := 3500.0
 @onready var arm: Line2D = $Arm
 var launching := false
 var swinging := false
@@ -21,8 +21,13 @@ func _physics_process(delta: float) -> void:
 	throw_mode()
 	if not throwing:
 		
-			
+		#var mouse_dir = (get_global_mouse_position() - position) 
+		var mouse_dir = $Sprite/Body/Hand.global_position.direction_to(get_global_mouse_position())
+		$Sprite/Body/Hand.look_at(mouse_dir)
+		
+		
 		# Calculates arm
+		'''
 		if current_hand:
 			arm.visible = true
 			arm.clear_points()
@@ -30,6 +35,7 @@ func _physics_process(delta: float) -> void:
 			arm.add_point(current_hand.global_position - global_position)
 		else:
 			arm.visible = false
+		'''
 		# Shoot hand
 		if Input.is_action_just_pressed("shoot") and current_hand == null and not ModeCalc.check_mode and StaminaCalc.current_stamina >= 1:
 			subtract_stamina(1)
@@ -98,7 +104,7 @@ func swing_toward_hand(delta: float):
 		
 		
 	if current_hand.attatched:
-		swing_velocity.x *= 2
+		swing_velocity.x *= 3.5
 		velocity += swing_velocity * delta
 		subtract_stamina(1)
 	else:

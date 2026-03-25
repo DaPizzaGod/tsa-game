@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bn5sr0k7tb6pi"]
+
+[ext_resource type="Texture2D" uid="uid://dxd8d4j7mda2n" path="res://graphics/assets/ui/text_box.svg" id="1_btfno"]
+[ext_resource type="Script" uid="uid://b1rowa8krfka4" path="res://scenes/ui/text_box.gd" id="1_s1g3j"]
+[ext_resource type="Texture2D" uid="uid://decdcfnutlf3y" path="res://graphics/assets/ui/dialogue_tail.svg" id="3_dcg7i"]
+[ext_resource type="LabelSettings" uid="uid://b7v6r452gw2xb" path="res://graphics/assets/ui/dialogue_text_settings.tres" id="5_3mjyq"]
+
+[node name="TextBox" type="MarginContainer" unique_id=946154998]
+offset_right = 47.0
+offset_bottom = 31.0
+script = ExtResource("1_s1g3j")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=850559367]
+layout_mode = 2
+texture = ExtResource("1_btfno")
+region_rect = Rect2(0, 0, 750, 750)
+patch_margin_left = 250
+patch_margin_top = 250
+patch_margin_right = 250
+patch_margin_bottom = 250
+
+[node name="Control" type="Control" parent="NinePatchRect" unique_id=904770535]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/Control" unique_id=567218980]
+position = Vector2(18, 16)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_dcg7i")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=123690674]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 120
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1176985487]
+layout_mode = 2
+label_settings = ExtResource("5_3mjyq")
+vertical_alignment = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="." unique_id=1664478455]
+one_shot = true
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dsnk54au8cok4"]
+
+[ext_resource type="Script" uid="uid://bjy1fq2mqlomo" path="res://scenes/objects/breakable_platform.gd" id="1_ckojn"]
+[ext_resource type="Texture2D" uid="uid://cb30ma7ofwxln" path="res://graphics/assets/broken_log.svg" id="1_gu0ah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu0ah"]
+size = Vector2(578, 168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckojn"]
+size = Vector2(577, 14.5)
+
+[sub_resource type="Curve" id="Curve_ckojn"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4956522, 107.03401), 0.0, 0.0, 0, 0, Vector2(0.9507247, 200), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="BreakablePlatform" type="StaticBody2D" unique_id=1383232948]
+collision_layer = 2
+collision_mask = 65
+script = ExtResource("1_ckojn")
+shake_time = 0.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1816690605]
+shape = SubResource("RectangleShape2D_gu0ah")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=185391467]
+position = Vector2(29, -59)
+texture = ExtResource("1_gu0ah")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1774022805]
+collision_mask = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=680526876]
+position = Vector2(-0.5, -93.75)
+shape = SubResource("RectangleShape2D_ckojn")
+
+[node name="Timer" type="Timer" parent="." unique_id=42444073]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2075691423]
+z_index = 1
+emitting = false
+amount = 100
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.75
+randomness = 0.5
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(300, 90)
+gravity = Vector2(0, -600)
+scale_amount_min = 20.0
+scale_amount_max = 40.0
+color = Color(0.24313726, 0.16470589, 0.039215688, 0.78431374)
+hue_variation_min = 0.2
+hue_variation_max = 0.8
+anim_speed_min = 7.74
+anim_speed_max = 40.79
+anim_speed_curve = SubResource("Curve_ckojn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

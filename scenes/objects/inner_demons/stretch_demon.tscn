@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://chgsvymw8dqyu"]
+
+[ext_resource type="Texture2D" uid="uid://c2efohlvn7xpi" path="res://graphics/inner_demons/stretch_inner_demon.svg" id="1_4cdpy"]
+[ext_resource type="Script" uid="uid://ote6khbof1or" path="res://scenes/objects/inner_demons/stretch_demon.gd" id="1_nguo8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nguo8"]
+size = Vector2(1557, 1400)
+
+[node name="StretchDemon" type="Node2D" unique_id=1852067622]
+script = ExtResource("1_nguo8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1133880880]
+position = Vector2(-17, -9)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_4cdpy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=303566633]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1766853292]
+position = Vector2(67.5, -51)
+shape = SubResource("RectangleShape2D_nguo8")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1067546812]
+position = Vector2(0, -605)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
