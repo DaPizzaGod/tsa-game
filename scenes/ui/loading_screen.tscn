@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cj28pmv1owj5x"]
+
+[ext_resource type="Texture2D" uid="uid://dip6n0y0jdi3q" path="res://graphics/assets/ui/game_icon.svg" id="1_rqdcv"]
+[ext_resource type="Script" uid="uid://buhh1aly4lt1o" path="res://scenes/ui/loading_screen.gd" id="1_s41fs"]
+[ext_resource type="Texture2D" uid="uid://eigis7oidj1e" path="res://graphics/assets/ui/black_progress_bar.svg" id="2_5fj0j"]
+[ext_resource type="Texture2D" uid="uid://clcca1075vn70" path="res://graphics/assets/ui/blue_progress_bar.svg" id="3_s2kth"]
+[ext_resource type="Theme" uid="uid://cmltvvavbo808" path="res://graphics/assets/ui/label.tres" id="4_s2kth"]
+
+[node name="LoadingScreenCanvas" type="CanvasLayer" unique_id=47439564]
+
+[node name="LoadingScreen" type="Control" parent="." unique_id=1183267762]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s41fs")
+
+[node name="ColorRect" type="ColorRect" parent="LoadingScreen" unique_id=1649854113]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="LoadingScreen" unique_id=278063428]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.0
+offset_top = -573.0
+offset_right = 467.0
+offset_bottom = 550.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rqdcv")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="LoadingScreen" unique_id=388555405]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -409.0
+offset_top = -687.0
+offset_right = 385.0
+offset_bottom = 436.0
+grow_horizontal = 2
+grow_vertical = 0
+fill_mode = 4
+texture_under = ExtResource("2_5fj0j")
+texture_progress = ExtResource("3_s2kth")
+
+[node name="Label" type="Label" parent="LoadingScreen" unique_id=943519488]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 331.0
+offset_right = 763.0
+offset_bottom = 431.0
+theme = ExtResource("4_s2kth")
+text = "Loading..."

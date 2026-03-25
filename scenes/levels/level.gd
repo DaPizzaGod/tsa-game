@@ -24,6 +24,7 @@ func ready_code(level_max_lanterns):
 	swap_player(normal, $Objects/SpawnPoint.global_position)
 	ModeCalc.menu_root = menus
 	ThrowCalc.max_lanterns = level_max_lanterns
+	LevelCalc.loading_screen_root = $UI
 
 
 func _process(_delta: float) -> void:
