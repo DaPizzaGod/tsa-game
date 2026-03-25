@@ -39,7 +39,7 @@ center_boundary = NodePath("")
 focus_point = NodePath("Focus")
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea" index="0" unique_id=11181634]
-polygon = PackedVector2Array(1097, -2440, 1258, -103, 7060, -112, 6810, -3246, 1070, -3129)
+polygon = PackedVector2Array(1792, -149, 7060, -112, 6810, -3246, 1917, -3068)
 
 [node name="Focus" type="Marker2D" parent="CameraZones/CameraArea" index="1" unique_id=1008478556]
 position = Vector2(3496.6792, -1831.9569)
@@ -55,12 +55,12 @@ enter_ease = 2
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea2" index="0" unique_id=630211222]
 position = Vector2(-2275, 330)
-polygon = PackedVector2Array(1097, -2440, 1365, -1326, 3392, -1326, 3263, -2996, 1070, -3129)
+polygon = PackedVector2Array(1097, -2440, 1365, -1326, 3906, -1303, 3995, -3049, 1070, -3129)
 
 [node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea2" index="1" unique_id=243968469]
 position = Vector2(-2275, 330)
 color = Color(0, 1, 1, 1)
-polygon = PackedVector2Array(1972, -1538, 3134, -1459, 3000, -2505, 2009, -2609)
+polygon = PackedVector2Array(1972, -1538, 3494, -1500, 3637, -2852, 2009, -2609)
 
 [node name="Lantern" parent="Objects/Lanterns" parent_id_path=PackedInt32Array(1191364155) index="0" unique_id=1490608412 instance=ExtResource("4_rej77")]
 position = Vector2(2001.5375, -1756.4996)
@@ -119,15 +119,29 @@ offset_top = -977.0
 offset_right = 3525.0002
 offset_bottom = -774.0
 theme = ExtResource("10_glw47")
-text = "[SHIFT] to change
+text = "SHIFT to change
 change abilities"
 
-[node name="Throwing" type="Label" parent="ButtonPrompts" index="1" unique_id=1959105233]
-offset_left = 3376.0
-offset_top = -1615.0
-offset_right = 3947.0
-offset_bottom = -1412.0
+[node name="StretchInstructions" type="Label" parent="ButtonPrompts" index="1" unique_id=1959105233]
+offset_left = 3607.0
+offset_top = -1163.0
+offset_right = 4629.0
+offset_bottom = -830.0
 theme = ExtResource("10_glw47")
-text = "C or ESC to throw"
+theme_override_font_sizes/font_size = 80
+text = "Left Click to aim and shoot hand
+
+Right Click / CTRL to launch
+towards hand"
+
+[node name="StretchInstructions2" type="Label" parent="ButtonPrompts" index="2" unique_id=1977926718]
+offset_left = 3592.0
+offset_top = -1744.0
+offset_right = 4614.0
+offset_bottom = -1411.0
+theme = ExtResource("10_glw47")
+theme_override_font_sizes/font_size = 80
+text = "Middle Click / E to swing
+to hand"
 
 [connection signal="body_entered" from="Objects/BoundaryArea/KillZone" to="Objects/BoundaryArea/KillZone" method="_on_body_entered"]

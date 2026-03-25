@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dxd8d4j7mda2n" path="res://graphics/assets/ui/text_box.svg" id="1_btfno"]
 [ext_resource type="Script" uid="uid://b1rowa8krfka4" path="res://scenes/ui/text_box.gd" id="1_s1g3j"]
-[ext_resource type="FontFile" uid="uid://dx5sxgpuu3urk" path="res://graphics/assets/ui/Eleanora.ttf" id="2_ci4ni"]
 [ext_resource type="Texture2D" uid="uid://decdcfnutlf3y" path="res://graphics/assets/ui/dialogue_tail.svg" id="3_dcg7i"]
 [ext_resource type="LabelSettings" uid="uid://b7v6r452gw2xb" path="res://graphics/assets/ui/dialogue_text_settings.tres" id="5_3mjyq"]
 
@@ -45,11 +44,8 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 120
 
-[node name="Label" type="Label" parent="MarginContainer" unique_id=699540473]
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1176985487]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ci4ni")
-theme_override_font_sizes/font_size = 100
 label_settings = ExtResource("5_3mjyq")
 vertical_alignment = 1
 
