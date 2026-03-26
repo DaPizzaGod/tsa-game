@@ -3,19 +3,34 @@
 [ext_resource type="PackedScene" uid="uid://c32kxtrw25xtu" path="res://scenes/levels/level.tscn" id="1_r1vs7"]
 [ext_resource type="Script" uid="uid://w6lg4ki0wv3f" path="res://scenes/levels/level_5.gd" id="2_845dy"]
 [ext_resource type="Texture2D" uid="uid://vtu573pnuruy" path="res://graphics/assets/new_background.svg" id="3_dswqx"]
+[ext_resource type="Script" uid="uid://cmy1sh0tg40uh" path="res://scenes/levels/camera_area.gd" id="4_dwyms"]
 [ext_resource type="PackedScene" uid="uid://dlqm3uggiox5" path="res://scenes/objects/moving_platform.tscn" id="4_fi56y"]
 [ext_resource type="Texture2D" uid="uid://cryska0cp58f5" path="res://graphics/assets/bed.svg" id="4_laj7o"]
 [ext_resource type="PackedScene" uid="uid://ctprw77daraid" path="res://scenes/objects/lantern.tscn" id="4_mxx4w"]
 [ext_resource type="PackedScene" uid="uid://mxnnjigi0g0n" path="res://scenes/objects/pillow.tscn" id="5_hldbq"]
 [ext_resource type="PackedScene" uid="uid://beu7tv0tpyi1w" path="res://scenes/objects/lantern_hook.tscn" id="5_tqnj0"]
+[ext_resource type="PackedScene" uid="uid://fgoo8i1cffua" path="res://scenes/objects/stamina_coin.tscn" id="7_5ke18"]
 [ext_resource type="PackedScene" uid="uid://dsnk54au8cok4" path="res://scenes/objects/breakable_platform.tscn" id="7_vvoq0"]
 [ext_resource type="PackedScene" uid="uid://dnbifv57c7e7j" path="res://scenes/objects/branch.tscn" id="8_vvoq0"]
+[ext_resource type="Script" uid="uid://bfw4681tsws" path="res://scenes/levels/kill_zone.gd" id="12_6xwso"]
 
 [sub_resource type="Curve2D" id="Curve2D_fi56y"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -635, -1, 0, 0, 0, 0, 306, -7)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ke18"]
+size = Vector2(4546, 179)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j14br"]
+size = Vector2(9475.5, 1804.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0y7y4"]
+size = Vector2(1680.5, 5312.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gruok"]
+size = Vector2(2277.75, 5312.5)
 
 [node name="Level5" unique_id=725933420 instance=ExtResource("1_r1vs7")]
 script = ExtResource("2_845dy")
@@ -30,11 +45,27 @@ jurisdiction = NodePath("Jurisdiction")
 center_boundary = NodePath("Boundary")
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea" index="0" unique_id=1015676283]
-polygon = PackedVector2Array(-4050, -1812, -4108, 1404, 7934, 1433, 7977, -1625)
+polygon = PackedVector2Array(-4050, -1812, -4108, 1404, 2988, 1411, 2870, -1209)
 
 [node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea" index="1" unique_id=593932565]
 color = Color(1, 1, 0, 1)
-polygon = PackedVector2Array(-3041, -1293, -2969, 755, 7141, 928, 7270, -1221)
+polygon = PackedVector2Array(-3041, -1293, -2969, 755, 2407, 761, 2259, -854)
+
+[node name="CameraArea2" type="Node2D" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="1" unique_id=297978089 node_paths=PackedStringArray("jurisdiction", "focus_point") groups=["CameraArea"]]
+script = ExtResource("4_dwyms")
+area_type = 1
+zoom_level = 0.3
+jurisdiction = NodePath("Jurisdiction")
+focus_point = NodePath("Focus")
+enter_trans = 11
+enter_ease = 2
+
+[node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea2" index="0" unique_id=647687640]
+position = Vector2(5595, 0)
+polygon = PackedVector2Array(-4410, -2381, -2499, -1218, -2262, 1333, 1340, 1357, 899, -2272)
+
+[node name="Focus" type="Marker2D" parent="CameraZones/CameraArea2" index="1" unique_id=941712171]
+position = Vector2(3145.5542, -1602.6085)
 
 [node name="Lantern" parent="Objects/Lanterns" parent_id_path=PackedInt32Array(1191364155) index="0" unique_id=1490608412 instance=ExtResource("4_mxx4w")]
 position = Vector2(-1101.4292, -368.90173)
@@ -42,6 +73,12 @@ position = Vector2(-1101.4292, -368.90173)
 [node name="LanternHook" parent="Objects/Lanterns" parent_id_path=PackedInt32Array(1191364155) index="1" unique_id=162458812 instance=ExtResource("5_tqnj0")]
 position = Vector2(3828, -1705)
 scale = Vector2(-1, 1)
+
+[node name="StaminaCoin" parent="Objects/StaminaCoins" parent_id_path=PackedInt32Array(946488150) index="0" unique_id=74744947 instance=ExtResource("7_5ke18")]
+position = Vector2(2444.8628, 86.70514)
+
+[node name="StaminaCoin2" parent="Objects/StaminaCoins" parent_id_path=PackedInt32Array(946488150) index="1" unique_id=584886345 instance=ExtResource("7_5ke18")]
+position = Vector2(2270, -1194)
 
 [node name="MovingPlatform" parent="Objects/Obstacles" parent_id_path=PackedInt32Array(910752565) index="0" unique_id=1183189303 instance=ExtResource("4_fi56y")]
 position = Vector2(1435, 177)
@@ -74,3 +111,26 @@ tile_map_data = PackedByteArray("AAAxAAwAAQACAAIAAAAxAAsAAQACAAIAAAAxAAoAAQACAAI
 color = Color(1, 1, 0.6862745, 1)
 energy = 0.5
 blend_mode = 1
+
+[node name="BoundaryArea" type="Node2D" parent="." index="8" unique_id=1657167571]
+
+[node name="KillZone" type="Area2D" parent="BoundaryArea" index="0" unique_id=569547370]
+script = ExtResource("12_6xwso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="0" unique_id=1733313928]
+position = Vector2(2688, 1503.5)
+shape = SubResource("RectangleShape2D_5ke18")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="1" unique_id=1160443933]
+position = Vector2(1253, -3884)
+shape = SubResource("RectangleShape2D_j14br")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="2" unique_id=1791162467]
+position = Vector2(-3762, -916)
+shape = SubResource("RectangleShape2D_0y7y4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="3" unique_id=304123608]
+position = Vector2(5787, -923)
+shape = SubResource("RectangleShape2D_gruok")
+
+[connection signal="body_entered" from="BoundaryArea/KillZone" to="BoundaryArea/KillZone" method="_on_body_entered"]
