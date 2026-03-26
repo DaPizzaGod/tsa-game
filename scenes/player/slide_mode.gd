@@ -9,6 +9,7 @@ var ghost_move_speed:= max_speed - 100.0
 var can_exit := false
 var direction := 0.0
 var wall_direction := 0.0
+@onready var body: Node2D = $Sprite/Body
 
 func _ready() -> void:
 	$CanExitChecker.monitoring = true
@@ -49,8 +50,14 @@ func _physics_process(delta: float) -> void:
 			if is_on_floor() or ceiling_sticky:
 				if Input.is_action_pressed("right"):
 					direction = min(direction + acc, max_speed)
+					$Sprite/Body/Body.flip_h = true
+					$Sprite/Body/Head.flip_h = true
+					$Sprite/Body/Tail.flip_h = true
 				elif Input.is_action_pressed("left"):
 					direction = max(direction - acc, -max_speed)
+					$Sprite/Body/Body.flip_h = false
+					$Sprite/Body/Head.flip_h = false
+					$Sprite/Body/Tail.flip_h = false
 				else:
 					direction = move_toward(direction, 0.0, acc)
 			velocity.x = direction
@@ -67,16 +74,16 @@ func _physics_process(delta: float) -> void:
 
 				var tween:= create_tween()
 				tween.set_parallel(true)
-				tween.tween_property($Sprite2D, "scale", Vector2(0.05, 0.05), 0.2).set_ease(Tween.EASE_IN_OUT)
-				tween.tween_property($CollisionShape2D, "scale", Vector2(0.05, 0.05), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property(body, "scale", Vector2(0.5, 0.5), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property($CollisionShape2D, "scale", Vector2(0.5, 0.5), 0.2).set_ease(Tween.EASE_IN_OUT)
 				tween.tween_property($CanExitChecker/CollisionShape2D, "scale", Vector2(0.5, 0.5), 0.2).set_ease(Tween.EASE_IN_OUT)
 				
 			else:
 
 				var tween:= create_tween()
 				tween.set_parallel(true)
-				tween.tween_property($Sprite2D, "scale", Vector2(0.1, 0.1), 0.2).set_ease(Tween.EASE_IN_OUT)
-				tween.tween_property($CollisionShape2D, "scale", Vector2(0.1, 0.1), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property(body, "scale", Vector2(1, 1), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property($CollisionShape2D, "scale", Vector2(1, 1), 0.2).set_ease(Tween.EASE_IN_OUT)
 				tween.tween_property($CanExitChecker/CollisionShape2D, "scale", Vector2(1, 1), 0.2).set_ease(Tween.EASE_IN_OUT)
 
 		# Ghost
@@ -110,7 +117,7 @@ func go_into_ghost():
 	can_exit_timer.timeout.connect(_on_can_exit_timer_timeout)
 	can_exit_timer.start()
 	var tween:= create_tween()
-	tween.tween_property($Sprite2D, "modulate:a", 0.5, 0.3).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(body, "modulate:a", 0.5, 0.3).set_ease(Tween.EASE_IN_OUT)
 	
 func exit_ghost():
 	var unghost := false
@@ -120,13 +127,13 @@ func exit_ghost():
 	
 	if unghost:
 		var tween:= create_tween()
-		tween.tween_property($Sprite2D, "modulate:a", 1, 0.3).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(body, "modulate:a", 1, 0.3).set_ease(Tween.EASE_IN_OUT)
 		$CollisionShape2D.disabled = false
 		ghost_mode = false
 	else:
-		$Sprite2D.modulate = Color(1.0, 0.0, 0.0, 0.5)
+		body.modulate = Color(1.0, 0.0, 0.0, 0.5)
 		await get_tree().create_timer(0.1).timeout
-		$Sprite2D.modulate = Color(0.251, 0.42, 0.769, 0.5)
+		body.modulate = Color(18.892, 18.892, 18.892, 1.0)
 
 func _on_can_exit_timer_timeout():
 	can_exit = true

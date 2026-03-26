@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dmith2kcai0re"]
 
 [ext_resource type="PackedScene" uid="uid://c32kxtrw25xtu" path="res://scenes/levels/level.tscn" id="1_e1y3j"]
+[ext_resource type="Script" uid="uid://baueb7kvgsayj" path="res://scenes/levels/slide_shrine.gd" id="2_fe16n"]
 [ext_resource type="Texture2D" uid="uid://cuwgqovltuhpd" path="res://graphics/inner_demons/slide_shrine_inner_demon.svg" id="2_l5p7q"]
 [ext_resource type="PackedScene" uid="uid://ctprw77daraid" path="res://scenes/objects/lantern.tscn" id="3_apxvj"]
 [ext_resource type="Texture2D" uid="uid://cryska0cp58f5" path="res://graphics/assets/bed.svg" id="3_ig7xm"]
@@ -18,6 +19,7 @@ size = Vector2(1555.25, 5312.5)
 size = Vector2(1792.875, 5312.5)
 
 [node name="SlideShrine" unique_id=725933420 instance=ExtResource("1_e1y3j")]
+script = ExtResource("2_fe16n")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" parent_id_path=PackedInt32Array(1726543075) index="0" unique_id=36382472]
 position = Vector2(553.4999, -1234.9999)
@@ -72,5 +74,10 @@ shape = SubResource("RectangleShape2D_s32v5")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="2" unique_id=1669387128]
 position = Vector2(5128, -1898)
 shape = SubResource("RectangleShape2D_fx5ar")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="8" unique_id=652216185]
+color = Color(1, 1, 0.6862745, 1)
+energy = 0.5
+blend_mode = 1
 
 [connection signal="body_entered" from="BoundaryArea/KillZone" to="BoundaryArea/KillZone" method="_on_body_entered"]
