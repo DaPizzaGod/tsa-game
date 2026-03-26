@@ -34,25 +34,28 @@ texture = ExtResource("4_ts6hm")
 wait_time = 0.75
 one_shot = true
 
-[node name="Body" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="0" unique_id=531994370]
+[node name="Body" parent="Sprite" parent_id_path=PackedInt32Array(1107953450) index="0" unique_id=1271557169]
+rotation = 1.5707964
+
+[node name="Body" type="Sprite2D" parent="Sprite/Body" index="0" unique_id=531994370]
 position = Vector2(0, 78)
 texture = ExtResource("5_p3fct")
 
-[node name="Head" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="1" unique_id=317425985]
+[node name="Head" type="Sprite2D" parent="Sprite/Body" index="1" unique_id=317425985]
 position = Vector2(-10, 48)
 texture = ExtResource("6_uhqij")
 
-[node name="LeftFoot" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="2" unique_id=937188888]
+[node name="LeftFoot" type="Sprite2D" parent="Sprite/Body" index="2" unique_id=937188888]
 position = Vector2(-30, 72)
 texture = ExtResource("7_s1uw0")
 
-[node name="RightFoot" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="3" unique_id=1491647296]
+[node name="RightFoot" type="Sprite2D" parent="Sprite/Body" index="3" unique_id=1491647296]
 position = Vector2(3, 79)
 texture = ExtResource("8_yylff")
 
 [node name="CollisionShape2D" parent="." index="5" unique_id=1200267025]
-position = Vector2(0, -50)
+position = Vector2(25, 0)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_p3fct")
-metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]
