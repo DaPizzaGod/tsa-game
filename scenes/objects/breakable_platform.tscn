@@ -14,7 +14,7 @@ _limits = [0.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4956522, 107.03401), 0.0, 0.0, 0, 0, Vector2(0.9507247, 200), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="BreakablePlatform" type="StaticBody2D" unique_id=1383232948]
+[node name="BreakablePlatform" type="StaticBody2D" unique_id=1383232948 groups=["Level"]]
 collision_layer = 2
 collision_mask = 65
 script = ExtResource("1_ckojn")

@@ -29,3 +29,6 @@ func move():
 func _on_damage_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):
 		hit_player()
+		
+
+	
