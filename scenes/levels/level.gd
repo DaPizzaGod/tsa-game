@@ -13,17 +13,19 @@ var transition_layer: PackedScene = preload("res://scenes/globals/transition_lay
 var stamina_bar: PackedScene = preload("res://scenes/ui/player_ui.tscn")
 var transitions:= 0
 @onready var player_ui: CanvasLayer = $UI/PlayerUI
-
+var level_path : String
 
 
 func _ready() -> void:
 	ready_code(1)
 
 func ready_code(level_max_lanterns):
+	LevelCalc.current_level = level_path
 	$PlayerNode.add_child(normal.instantiate())
 	swap_player(normal, $Objects/SpawnPoint.global_position)
 	ModeCalc.menu_root = menus
 	ThrowCalc.max_lanterns = level_max_lanterns
+	LevelCalc.loading_screen_root = $UI
 
 
 func _process(_delta: float) -> void:

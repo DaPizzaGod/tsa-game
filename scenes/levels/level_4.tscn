@@ -31,11 +31,10 @@ position = Vector2(1167, 113)
 scale = Vector2(1.4992, 0.8944)
 texture = ExtResource("3_w6h2s")
 
-[node name="CameraArea" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="0" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "center_boundary", "focus_point")]
+[node name="CameraArea" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="0" unique_id=10990432 node_paths=PackedStringArray("jurisdiction", "focus_point")]
 area_type = 1
 zoom_level = 0.3
 jurisdiction = NodePath("Jurisdiction")
-center_boundary = NodePath("")
 focus_point = NodePath("Focus")
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea" index="0" unique_id=11181634]
@@ -44,12 +43,11 @@ polygon = PackedVector2Array(1792, -149, 7060, -112, 6810, -3246, 1917, -3068)
 [node name="Focus" type="Marker2D" parent="CameraZones/CameraArea" index="1" unique_id=1008478556]
 position = Vector2(3496.6792, -1831.9569)
 
-[node name="CameraArea2" type="Node2D" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="1" unique_id=857682377 node_paths=PackedStringArray("jurisdiction", "center_boundary", "focus_point") groups=["CameraArea"]]
+[node name="CameraArea2" type="Node2D" parent="CameraZones" parent_id_path=PackedInt32Array(611186523) index="1" unique_id=857682377 node_paths=PackedStringArray("jurisdiction", "center_boundary") groups=["CameraArea"]]
 script = ExtResource("4_5vn0v")
 zoom_level = 0.5
 jurisdiction = NodePath("Jurisdiction")
 center_boundary = NodePath("Boundary")
-focus_point = NodePath("")
 enter_trans = 11
 enter_ease = 2
 
