@@ -45,7 +45,7 @@ jurisdiction = NodePath("Jurisdiction")
 center_boundary = NodePath("Boundary")
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea" index="0" unique_id=1015676283]
-polygon = PackedVector2Array(-4050, -1812, -4108, 1404, 2988, 1411, 2870, -1209)
+polygon = PackedVector2Array(-4050, -1812, -4108, 1404, 2988, 1411, 2839, -2353)
 
 [node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea" index="1" unique_id=593932565]
 color = Color(1, 1, 0, 1)

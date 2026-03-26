@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cjvgj0kloca1y"]
+
+[ext_resource type="PackedScene" uid="uid://c32kxtrw25xtu" path="res://scenes/levels/level.tscn" id="1_ofttp"]
+[ext_resource type="Texture2D" uid="uid://dm4ml5d11q7xm" path="res://graphics/inner_demons/spring_shrine_background.svg" id="2_ue6b1"]
+
+[node name="SpringShrine" unique_id=725933420 instance=ExtResource("1_ofttp")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" parent_id_path=PackedInt32Array(1726543075) index="0" unique_id=1157335689]
+position = Vector2(-24, -619)
+texture = ExtResource("2_ue6b1")
