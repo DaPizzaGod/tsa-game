@@ -96,11 +96,11 @@ func swap_player(scene: PackedScene, pos = null):
 	new_player.velocity = old_vel
 	
 	
-	ModeCalc.swapping = false
 	#Slow down
 	
 	var tween := create_tween()
 	tween.tween_property(new_player, "velocity:x", 0.0, 1.0).set_ease(Tween.EASE_IN_OUT)
 	new_player.player_camera.global_position = old_cam_pos
-	
+	await get_tree().create_timer(0.3).timeout
+	ModeCalc.swapping = false
 	

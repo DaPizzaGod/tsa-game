@@ -44,7 +44,7 @@ _data = {
 &"move": SubResource("Animation_ll65p")
 }
 
-[node name="MovingPlatform" type="Path2D" unique_id=1183189303]
+[node name="MovingPlatform" type="Path2D" unique_id=1183189303 groups=["Level"]]
 script = ExtResource("1_ll65p")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=46987592]
@@ -55,7 +55,7 @@ metadata/_edit_lock_ = true
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=1272714690]
 remote_path = NodePath("../../AnimatableBody2D")
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1768193781]
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1768193781 groups=["Level"]]
 rotation = 0.0034129564
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
