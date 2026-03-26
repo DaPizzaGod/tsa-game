@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://tjd2gitk0k67"]
+
+[ext_resource type="Script" uid="uid://bojjtxh2e2grd" path="res://scenes/objects/inner_demons/slide_demon.gd" id="1_nbg7s"]
+[ext_resource type="Texture2D" uid="uid://dteabx2uaqap2" path="res://graphics/inner_demons/slide_inner_demon.svg" id="1_rcfk1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcfk1"]
+size = Vector2(1331, 1113)
+
+[node name="SlideDemon" type="Node2D" unique_id=1671126604]
+script = ExtResource("1_nbg7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1665630245]
+position = Vector2(198, 85)
+texture = ExtResource("1_rcfk1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1182764051]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1283857793]
+position = Vector2(-152.5, -56.5)
+shape = SubResource("RectangleShape2D_rcfk1")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2117599816]
+position = Vector2(-320, -465)

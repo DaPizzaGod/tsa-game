@@ -22,7 +22,7 @@ point_count = 2
 size = Vector2(7404, 179)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwlxl"]
-size = Vector2(9748.75, 1383.125)
+size = Vector2(9748.75, 1808.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wfvb"]
 size = Vector2(1680.5, 5312.5)
@@ -121,7 +121,7 @@ position = Vector2(-2160, 429)
 shape = SubResource("RectangleShape2D_kydov")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="1" unique_id=252946054]
-position = Vector2(-1418.375, -4537.5625)
+position = Vector2(-1418.375, -4325.0625)
 shape = SubResource("RectangleShape2D_uwlxl")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="2" unique_id=254943016]

@@ -3,6 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://cuwtk6cr20kh4" path="res://scenes/player/player.tscn" id="1_l7brt"]
 [ext_resource type="Script" uid="uid://dqhl7obgpbr3v" path="res://scenes/player/slide_mode.gd" id="2_4w00t"]
 [ext_resource type="Texture2D" uid="uid://ntfkugd378dn" path="res://graphics/circle.svg" id="2_kwtcf"]
+[ext_resource type="Texture2D" uid="uid://doq4xfhn6foei" path="res://graphics/player/slide/body.png" id="4_tl01v"]
+[ext_resource type="Texture2D" uid="uid://cxhnhmeu0kbqh" path="res://graphics/player/slide/head.png" id="5_dj738"]
+[ext_resource type="Texture2D" uid="uid://jn5oljd3pq1p" path="res://graphics/player/slide/tail.png" id="6_iu06g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tl01v"]
+radius = 73.0
+height = 478.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kwtcf"]
 radius = 47.518417
@@ -11,17 +18,41 @@ radius = 47.518417
 script = ExtResource("2_4w00t")
 
 [node name="Sprite2D" parent="." index="0" unique_id=228135771]
+visible = false
 modulate = Color(0.25208238, 0.41900584, 0.76892567, 1)
 position = Vector2(0, 12)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_kwtcf")
 
-[node name="CollisionShape2D" parent="." index="2" unique_id=1200267025]
-scale = Vector2(0.05, 0.05)
+[node name="Body" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="0" unique_id=920469778]
+position = Vector2(21, 2)
+texture = ExtResource("4_tl01v")
+region_enabled = true
+region_rect = Rect2(328, 407, 297, 104)
 
-[node name="CanExitChecker" type="Area2D" parent="." index="3" unique_id=1422190654]
+[node name="Head" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="1" unique_id=1543328446]
+position = Vector2(57, 54)
+texture = ExtResource("5_dj738")
+
+[node name="Tail" type="Sprite2D" parent="Sprite/Body" parent_id_path=PackedInt32Array(1271557169) index="2" unique_id=190482592]
+position = Vector2(58, -9)
+texture = ExtResource("6_iu06g")
+region_enabled = true
+region_rect = Rect2(335, 401, 353, 92)
+
+[node name="Light" parent="." index="3" unique_id=553465369]
+position = Vector2(-1, 7)
+
+[node name="CollisionShape2D" parent="." index="4" unique_id=1200267025]
+position = Vector2(-1.9999999, -20.999998)
+rotation = 1.5707964
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_tl01v")
+
+[node name="CanExitChecker" type="Area2D" parent="." index="5" unique_id=1422190654]
 collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanExitChecker" index="0" unique_id=819815376]
+position = Vector2(4, -24)
 shape = SubResource("CircleShape2D_kwtcf")

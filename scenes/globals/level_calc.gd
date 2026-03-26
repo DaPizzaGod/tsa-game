@@ -2,7 +2,7 @@ extends Node
 
 
 var current_level
-var max_level:= 7
+var max_level:= 12
 var levels = {
 	1 : "res://scenes/levels/level_1.tscn",
 	2 : "res://scenes/levels/level_2.tscn",
@@ -10,7 +10,12 @@ var levels = {
 	4 : "res://scenes/levels/stretch_shrine.tscn",
 	5 : "res://scenes/levels/level_4.tscn",
 	6 : "res://scenes/levels/level_5.tscn",
-	7 : "res://scenes/levels/level_6.tscn"
+	7 : "res://scenes/levels/level_6.tscn" , 
+	8 : "res://scenes/levels/spring_shrine.tscn", 
+	9 : "res://scenes/levels/level_7.tscn",
+	10 : "res://scenes/levels/level_8.tscn", 
+	11 : "res://scenes/levels/level_9.tscn",
+	12 : "res://scenes/levels/level_10.tscn"
 }
 signal finish_level()
 var finishing_level := true

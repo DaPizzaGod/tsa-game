@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bve1aalajycn0"]
+
+[ext_resource type="Texture2D" uid="uid://cyr4cp4hhs5j3" path="res://graphics/inner_demons/spring_inner_demon.svg" id="1_k0t2i"]
+[ext_resource type="Script" uid="uid://cy8l5ftxocu4" path="res://scenes/objects/inner_demons/spring_demon.gd" id="1_yvr03"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0t2i"]
+size = Vector2(643, 1113)
+
+[node name="SpringDemon" type="Node2D" unique_id=6570850]
+script = ExtResource("1_yvr03")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=979090644]
+texture = ExtResource("1_k0t2i")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=647187029]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1697277813]
+position = Vector2(-13.5, -56.5)
+shape = SubResource("RectangleShape2D_k0t2i")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=310054937]
+position = Vector2(-11.154297, -563.93854)

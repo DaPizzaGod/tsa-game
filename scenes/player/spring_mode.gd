@@ -31,9 +31,9 @@ func _physics_process(delta: float) -> void:
 
 			subtract_stamina(1)
 			velocity.x = min(velocity.x, max_speed - 50.0)
-			$Sprite2D.modulate = Color.BLUE_VIOLET
+			$Sprite.modulate = Color.BLUE_VIOLET
 		else:
-			$Sprite2D.modulate = Color(0.212, 0.694, 0.314, 1.0)
+			$Sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 			
 		# Jump on floor
 		if is_on_floor() and Input.is_action_just_pressed("shoot") and not ModeCalc.check_mode and can_jump and StaminaCalc.current_stamina >= 4 and not gliding:
