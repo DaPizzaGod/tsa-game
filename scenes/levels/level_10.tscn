@@ -7,6 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://ctprw77daraid" path="res://scenes/objects/lantern.tscn" id="4_gnb3t"]
 [ext_resource type="PackedScene" uid="uid://fgoo8i1cffua" path="res://scenes/objects/stamina_coin.tscn" id="5_hh2oi"]
 [ext_resource type="PackedScene" uid="uid://beu7tv0tpyi1w" path="res://scenes/objects/lantern_hook.tscn" id="5_qblg5"]
+[ext_resource type="Script" uid="uid://bfw4681tsws" path="res://scenes/levels/kill_zone.gd" id="8_qblg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e7ni"]
+size = Vector2(10021, 1152.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkd47"]
+size = Vector2(1555.25, 5312.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvxp4"]
+size = Vector2(1792.875, 5312.5)
 
 [node name="Level10" unique_id=725933420 instance=ExtResource("1_2k7im")]
 script = ExtResource("2_bpgow")
@@ -52,3 +62,22 @@ tile_map_data = PackedByteArray("AAAvABwAAQACAAIAAAAvABsAAQACAAIAAAAvABoAAQACAAI
 color = Color(1, 1, 0.6862745, 1)
 energy = 0.5
 blend_mode = 1
+
+[node name="BoundaryArea" type="Node2D" parent="." index="8" unique_id=504124525]
+
+[node name="KillZone" type="Area2D" parent="BoundaryArea" index="0" unique_id=1241867180]
+script = ExtResource("8_qblg5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="0" unique_id=1871194543]
+position = Vector2(750, -2493)
+shape = SubResource("RectangleShape2D_7e7ni")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="1" unique_id=1724369875]
+position = Vector2(-3586, -1781)
+shape = SubResource("RectangleShape2D_hkd47")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="2" unique_id=327192125]
+position = Vector2(5849, -1783)
+shape = SubResource("RectangleShape2D_hvxp4")
+
+[connection signal="body_entered" from="BoundaryArea/KillZone" to="BoundaryArea/KillZone" method="_on_body_entered"]

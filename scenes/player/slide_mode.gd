@@ -17,7 +17,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	queue_redraw()
-	update_player_pos()
+	if $Sprite/Body/Left.is_visible_in_tree():
+		
+		update_player_pos($Sprite/Body/Left/Body.global_position)
+	else:
+		update_player_pos($Sprite/Body/Right/Body.global_position)
 	if not ghost_mode:
 			
 			# Gravity

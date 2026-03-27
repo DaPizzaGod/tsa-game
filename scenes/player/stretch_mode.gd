@@ -1,12 +1,12 @@
 extends PlayerParent
 var current_hand :Node = null
 var hand_scene :PackedScene= preload("res://scenes/projectiles/hand.tscn")
-var launch_speed := 3500.0
+var launch_speed := 3000.0
 @onready var arm: Line2D = $Arm
 var launching := false
 var swinging := false
 var stop_distance := 2.0
-var swing_force := 120.0
+var swing_force := 100.0
 
 func _ready() -> void:
 	$Hand.queue_free()
