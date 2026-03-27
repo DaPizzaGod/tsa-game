@@ -115,12 +115,7 @@ func _physics_process(delta: float) -> void:
 func run():
 	if !Input.is_action_pressed("run"):
 		return
-	
-	
-	await get_tree().create_timer(0.01).timeout
-	if !Input.is_action_pressed("run"):
-		return
-	
+
 	max_speed += running_bonus
 	running = true
 
