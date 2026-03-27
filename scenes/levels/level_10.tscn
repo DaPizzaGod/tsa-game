@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://fgoo8i1cffua" path="res://scenes/objects/stamina_coin.tscn" id="5_hh2oi"]
 [ext_resource type="PackedScene" uid="uid://beu7tv0tpyi1w" path="res://scenes/objects/lantern_hook.tscn" id="5_qblg5"]
 [ext_resource type="Script" uid="uid://bfw4681tsws" path="res://scenes/levels/kill_zone.gd" id="8_qblg5"]
+[ext_resource type="Theme" uid="uid://cmltvvavbo808" path="res://graphics/assets/ui/label.tres" id="9_7e7ni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7e7ni"]
 size = Vector2(10021, 1152.125)
@@ -79,5 +80,35 @@ shape = SubResource("RectangleShape2D_hkd47")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="BoundaryArea/KillZone" index="2" unique_id=327192125]
 position = Vector2(5849, -1783)
 shape = SubResource("RectangleShape2D_hvxp4")
+
+[node name="ButtonPrompts" type="Node2D" parent="." index="9" unique_id=707163711]
+
+[node name="Climbing" type="Label" parent="ButtonPrompts" index="0" unique_id=368056204]
+offset_left = -278.0
+offset_top = 110.0
+offset_right = 313.0
+offset_bottom = 416.0
+theme = ExtResource("9_7e7ni")
+text = "Use W and S to 
+Move up and down
+Walls"
+
+[node name="Shrinking" type="Label" parent="ButtonPrompts" index="1" unique_id=1549870201]
+offset_left = 485.0
+offset_top = -1107.0
+offset_right = 1089.0
+offset_bottom = -904.0
+theme = ExtResource("9_7e7ni")
+text = "Right Click/CTRL 
+to Shrink"
+
+[node name="Shrinking2" type="Label" parent="ButtonPrompts" index="2" unique_id=2029800486]
+offset_left = 1334.0
+offset_top = -425.0
+offset_right = 2247.0
+offset_bottom = -222.0
+theme = ExtResource("9_7e7ni")
+text = "E/Middle Click
+to go into/out of Ghost Mode"
 
 [connection signal="body_entered" from="BoundaryArea/KillZone" to="BoundaryArea/KillZone" method="_on_body_entered"]
