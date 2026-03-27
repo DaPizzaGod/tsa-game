@@ -50,14 +50,12 @@ func _physics_process(delta: float) -> void:
 			if is_on_floor() or ceiling_sticky:
 				if Input.is_action_pressed("right"):
 					direction = min(direction + acc, max_speed)
-					$Sprite/Body/Body.flip_h = true
-					$Sprite/Body/Head.flip_h = true
-					$Sprite/Body/Tail.flip_h = true
+					$Sprite/Body/Right.show()
+					$Sprite/Body/Left.hide()
 				elif Input.is_action_pressed("left"):
 					direction = max(direction - acc, -max_speed)
-					$Sprite/Body/Body.flip_h = false
-					$Sprite/Body/Head.flip_h = false
-					$Sprite/Body/Tail.flip_h = false
+					$Sprite/Body/Right.hide()
+					$Sprite/Body/Left.show()
 				else:
 					direction = move_toward(direction, 0.0, acc)
 			velocity.x = direction
@@ -82,9 +80,9 @@ func _physics_process(delta: float) -> void:
 
 				var tween:= create_tween()
 				tween.set_parallel(true)
-				tween.tween_property(body, "scale", Vector2(1, 1), 0.2).set_ease(Tween.EASE_IN_OUT)
-				tween.tween_property($CollisionShape2D, "scale", Vector2(1, 1), 0.2).set_ease(Tween.EASE_IN_OUT)
-				tween.tween_property($CanExitChecker/CollisionShape2D, "scale", Vector2(1, 1), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property(body, "scale", Vector2(1.25, 1.25), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property($CollisionShape2D, "scale", Vector2(1.25, 1.25), 0.2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property($CanExitChecker/CollisionShape2D, "scale", Vector2(1.25, 1.25), 0.2).set_ease(Tween.EASE_IN_OUT)
 
 		# Ghost
 		
