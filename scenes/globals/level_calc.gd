@@ -1,8 +1,8 @@
 extends Node
 
-
+var win_screen_path := "res://scenes/ui/win_screen.tscn"
 var current_level
-var max_level:= 12
+var max_level:= 15
 var levels = {
 	1 : "res://scenes/levels/level_1.tscn",
 	2 : "res://scenes/levels/level_2.tscn",
@@ -15,7 +15,10 @@ var levels = {
 	9 : "res://scenes/levels/level_7.tscn",
 	10 : "res://scenes/levels/level_8.tscn", 
 	11 : "res://scenes/levels/level_9.tscn",
-	12 : "res://scenes/levels/level_10.tscn"
+	12 : "res://scenes/levels/slide_shrine.tscn", 
+	13 : "res://scenes/levels/level_10.tscn", 
+	14 : "res://scenes/levels/level_11.tscn", 
+	15 : "res://scenes/levels/level_12.tscn"
 }
 signal finish_level()
 var finishing_level := true
@@ -36,7 +39,8 @@ func _on_finish_level():
 		print(levels.find_key(current_level))
 		var next_level_num :int = (levels.find_key(current_level)) + 1
 		if next_level_num > max_level:
-			print("too high")
+			finishing_level = true
+			win_screen()
 			return
 		
 		var next_level_path = levels.get(next_level_num)
@@ -68,3 +72,16 @@ func menu_to_first_level():
 		else:
 			print(is_instance_valid(ThrowCalc.new_loading_screen))
 	
+func win_screen():
+	
+	if finishing_level:
+		print("win screen")
+		finishing_level = false
+		get_tree().change_scene_to_file(win_screen_path)
+		await get_tree().create_timer(2.0).timeout
+		finishing_level = true
+		if is_instance_valid(ThrowCalc.new_loading_screen):
+			ThrowCalc.new_loading_screen.queue_free()
+			print(is_instance_valid(ThrowCalc.new_loading_screen))
+		else:
+			print(is_instance_valid(ThrowCalc.new_loading_screen))
