@@ -44,6 +44,8 @@ jurisdiction = NodePath("Jurisdiction")
 center_boundary = NodePath("Boundary")
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea" index="0" unique_id=420542709]
+position = Vector2(321.1494, 0)
+scale = Vector2(1.0562925, 1)
 polygon = PackedVector2Array(-5705, -2058, -5624, 236, -2916, 128, -2974, -2690, -5705, -2739)
 
 [node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea" index="1" unique_id=1813118995]
@@ -59,7 +61,8 @@ enter_trans = 11
 enter_ease = 2
 
 [node name="Jurisdiction" type="Polygon2D" parent="CameraZones/CameraArea2" index="0" unique_id=14275838]
-position = Vector2(2849, -16)
+position = Vector2(3957.3188, -16)
+scale = Vector2(1.1942714, 1)
 polygon = PackedVector2Array(-5705, -2058, -5624, 236, -4902, 144, -4976, -2632, -5705, -2739)
 
 [node name="Boundary" type="Polygon2D" parent="CameraZones/CameraArea2" index="1" unique_id=1751395054]

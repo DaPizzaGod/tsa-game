@@ -6,7 +6,7 @@ var tween: Tween
 var base_y: float
 
 func _ready() -> void:
-	damage = 5
+	damage = 12
 	base_y = position.y
 
 	move()
